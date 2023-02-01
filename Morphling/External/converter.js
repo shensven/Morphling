@@ -1,11 +1,11 @@
 function hello() {
-    return "world"
+  return "world";
 }
 
 function pong() {
-    return "pong";
+  return "pong";
 }
 
 function toFilter() {
-    return "brightness(0) saturate(100%) invert(55%) sepia(50%) saturate(392%) hue-rotate(171deg) brightness(99%) contrast(99%)"
+  return "brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(312deg) brightness(98%) contrast(101%)";
 }

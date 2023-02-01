@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct ResultView: View {
-    @State private var content: String = "filter: brightness(0) saturate(100%) invert(55%) sepia(50%) saturate(392%) hue-rotate(171deg) brightness(99%) contrast(99%)"
+    @State private var content: String = "filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(312deg) brightness(98%) contrast(101%)"
 
     var body: some View {
         ScrollView {
             Text(content)
                 .lineSpacing(4)
                 .textSelection(.enabled)
-                .padding(.vertical, 8)
-                .padding(.horizontal, 4)
+                .padding(8)
+                .foregroundColor(.primary.opacity(0.9))
             Spacer()
         }
         .background(Color(.textBackgroundColor))

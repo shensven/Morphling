@@ -8,8 +8,6 @@ enum JavaScriptFunction: String {
 }
 
 struct ActionView: View {
-    @State private var hover = false
-
     func callJavaScriptFunc(name: JavaScriptFunction) -> JSValue? {
         let converter_js = Bundle.main.path(forResource: "converter", ofType: "js")!
         let jsString = try! String(contentsOfFile: converter_js)
@@ -21,29 +19,19 @@ struct ActionView: View {
     }
 
     var body: some View {
-        HStack {
-            Spacer()
-            Text("COPY")
-                .font(.body)
-                .fontWeight(.bold)
-                .foregroundColor(
-                    Color(.textBackgroundColor)
-                )
-            Spacer()
-        }
-        .frame(height: 40)
-        .background(Color.accentColor)
-        .brightness(hover ? -0.05 : 0)
-        .cornerRadius(8)
-        .onHover { over in
-            hover = over
-        }
-        .onTapGesture {
+        Button {
             let pong = callJavaScriptFunc(name: .toFilter)
             NSPasteboard.general.declareTypes([.string], owner: nil)
             NSPasteboard.general.setString(pong!.toString(), forType: .string)
             print(pong!)
+        } label: {
+            Spacer()
+            Text("Copy to Pasteboard")
+            Spacer()
         }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+        .padding(.top)
     }
 }
 

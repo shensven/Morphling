@@ -15,11 +15,13 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            HeaderView().padding([.horizontal, .top])
-            ResultView().padding(.horizontal)
-            OptionView().padding(.horizontal)
-            ActionView().padding()
-        }.toolbar {
+            ColorPickerView()
+            ResultView()
+            OptionView()
+            ActionView()
+        }
+        .padding()
+        .toolbar {
 //            Button {
 //                print("Made with ❤️ in Kunming by SvenFE")
 //            } label: {

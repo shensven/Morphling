@@ -12,7 +12,7 @@
 		0621660629869D1C004512C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0621660529869D1C004512C0 /* Assets.xcassets */; };
 		0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0621660829869D1C004512C0 /* Preview Assets.xcassets */; };
 		062166112986A0CD004512C0 /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 062166102986A0CD004512C0 /* converter.js */; };
-		062166152986CD63004512C0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166142986CD63004512C0 /* HeaderView.swift */; };
+		062166152986CD63004512C0 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166142986CD63004512C0 /* ColorPickerView.swift */; };
 		062166172986CE0F004512C0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166162986CE0F004512C0 /* ResultView.swift */; };
 		062166192986D7F7004512C0 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166182986D7F7004512C0 /* ActionView.swift */; };
 		0621661E29872593004512C0 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621661D29872593004512C0 /* OptionView.swift */; };
@@ -26,7 +26,7 @@
 		0621660829869D1C004512C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0621660A29869D1C004512C0 /* Morphling.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Morphling.entitlements; sourceTree = "<group>"; };
 		062166102986A0CD004512C0 /* converter.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = converter.js; sourceTree = "<group>"; };
-		062166142986CD63004512C0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		062166142986CD63004512C0 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		062166162986CE0F004512C0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		062166182986D7F7004512C0 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
 		0621661D29872593004512C0 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		062166132986CCC9004512C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				062166142986CD63004512C0 /* HeaderView.swift */,
+				062166142986CD63004512C0 /* ColorPickerView.swift */,
 				062166162986CE0F004512C0 /* ResultView.swift */,
 				0621661D29872593004512C0 /* OptionView.swift */,
 				062166182986D7F7004512C0 /* ActionView.swift */,
@@ -178,7 +178,7 @@
 				062166192986D7F7004512C0 /* ActionView.swift in Sources */,
 				0621661E29872593004512C0 /* OptionView.swift in Sources */,
 				0621660429869D1A004512C0 /* ContentView.swift in Sources */,
-				062166152986CD63004512C0 /* HeaderView.swift in Sources */,
+				062166152986CD63004512C0 /* ColorPickerView.swift in Sources */,
 				0621660229869D1A004512C0 /* MorphlingApp.swift in Sources */,
 				062166172986CE0F004512C0 /* ResultView.swift in Sources */,
 			);

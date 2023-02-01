@@ -1,13 +1,21 @@
 import SwiftUI
 
 struct OptionView: View {
-    @State private var isWrap: Bool = false
-    @State private var isPropertynNameInclude: Bool = false
+    @State private var isPropertynNameInclude: Bool = true
 
     var body: some View {
         HStack {
             Toggle(isOn: $isPropertynNameInclude) {
-                Text("Include property name")
+                HStack(spacing: 0) {
+                    Text("Prefix with ")
+                    Text("filter:")
+                        .font(.body)
+                        .padding(.vertical, 1)
+                        .padding(.horizontal, 4)
+                        .foregroundColor(.primary)
+                        .background(Color.accentColor.opacity(0.1))
+                        .cornerRadius(3)
+                }
             }
             Spacer()
         }
