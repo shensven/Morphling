@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct OptionView: View {
-    @State private var isPropertynNameInclude: Bool = true
+    @AppStorage("isPrefixWithFilter") var isPrefixWithFilter: Bool = false
 
     var body: some View {
         HStack {
-            Toggle(isOn: $isPropertynNameInclude) {
+            Toggle(isOn: $isPrefixWithFilter) {
                 HStack(spacing: 0) {
                     Text("Prefix with ")
                     Text("filter:")

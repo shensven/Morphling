@@ -2,6 +2,8 @@ import SwiftUI
 
 @main
 struct MorphlingApp: App {
+    let userDefaults = UserDefaults()
+
     init() {
         NSWindow.allowsAutomaticWindowTabbing = false
     }
@@ -11,6 +13,7 @@ struct MorphlingApp: App {
             ContentView()
                 .frame(width: 336)
                 .frame(minHeight: 360, maxHeight: .infinity)
+                .environmentObject(userDefaults)
         }
         .windowResizability(.contentSize)
         .commands {

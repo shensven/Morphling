@@ -22,11 +22,6 @@ struct ContentView: View {
         }
         .padding()
         .toolbar {
-//            Button {
-//                print("Made with ❤️ in Kunming by SvenFE")
-//            } label: {
-//                Image(systemName: "cursorarrow.rays")
-//            }
             Button {
                 toggleWindowLevel()
             } label: {
