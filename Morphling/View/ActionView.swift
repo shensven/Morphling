@@ -1,26 +1,11 @@
-import JavaScriptCore
 import SwiftUI
 
-enum JavaScriptFunction: String {
-    case pong
-    case hello
-    case toFilter
-}
-
 struct ActionView: View {
-    func callJavaScriptFunc(name: JavaScriptFunction) -> JSValue? {
-        let converter_js = Bundle.main.path(forResource: "converter", ofType: "js")!
-        let jsString = try! String(contentsOfFile: converter_js)
-        let jsContext = JSContext()
-        jsContext?.evaluateScript(jsString)
-        let ping = jsContext?.objectForKeyedSubscript(name.rawValue)
-        let pong = ping?.call(withArguments: [])
-        return pong
-    }
+    @EnvironmentObject var userDefaults: UserDefaults
 
     var body: some View {
         Button {
-            let pong = callJavaScriptFunc(name: .toFilter)
+            let pong = userDefaults.callJavaScriptFunc()
             NSPasteboard.general.declareTypes([.string], owner: nil)
             NSPasteboard.general.setString(pong!.toString(), forType: .string)
             print(pong!)
