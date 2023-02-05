@@ -18,6 +18,7 @@
 		06BF6564298A64AE00BCC25B /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF6563298A64AE00BCC25B /* UserDefaults.swift */; };
 		06CCB69A298D6C8C009B0F9B /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB699298D6C8C009B0F9B /* converter.js */; };
 		06CCB6A3298FB194009B0F9B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A2298FB194009B0F9B /* .gitignore */; };
+		06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A4299002A4009B0F9B /* Credits.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		06BF6563298A64AE00BCC25B /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = converter/dist/converter.js; sourceTree = "<group>"; };
 		06CCB6A2298FB194009B0F9B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
+		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				0621660129869D1A004512C0 /* MorphlingApp.swift */,
 				0621660529869D1C004512C0 /* Assets.xcassets */,
 				0621660A29869D1C004512C0 /* Morphling.entitlements */,
+				06CCB6A4299002A4009B0F9B /* Credits.rtf */,
 				0621660729869D1C004512C0 /* Preview Content */,
 			);
 			path = Morphling;
@@ -184,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */,
 				06CCB6A3298FB194009B0F9B /* .gitignore in Resources */,
 				0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */,
 				06CCB69A298D6C8C009B0F9B /* converter.js in Resources */,
@@ -338,7 +342,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 SvenFE";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -365,7 +369,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 SvenFE";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
