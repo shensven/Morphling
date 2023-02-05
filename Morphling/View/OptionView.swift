@@ -2,6 +2,7 @@ import SwiftUI
 
 struct OptionView: View {
     @AppStorage("isPrefixWithFilter") var isPrefixWithFilter: Bool = false
+    @EnvironmentObject var userDefaults: UserDefaults
 
     var body: some View {
         HStack {
@@ -18,6 +19,9 @@ struct OptionView: View {
                 }
             }
             Spacer()
+            Button("Clear") {
+                userDefaults.conventedContent = nil
+            }
         }
     }
 }
