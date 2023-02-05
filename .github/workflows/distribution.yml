@@ -58,18 +58,18 @@ jobs:
         env:
           APPLE_DISTRIBUTION_P12_BASE64: ${{ secrets.APPLE_DISTRIBUTION_P12_BASE64 }}
           APPLE_DISTRIBUTION_P12_PASSWORD: ${{ secrets.APPLE_DISTRIBUTION_P12_PASSWORD }}
-          # MAC_INSTALLER_DISTRIBUTION_P12_BASE64: ${{ secrets.MAC_INSTALLER_DISTRIBUTION_P12_BASE64 }}
-          # MAC_INSTALLER_DISTRIBUTION_P12_PASSWORD: ${{ secrets.MAC_INSTALLER_DISTRIBUTION_P12_PASSWORD }}
+          MAC_INSTALLER_DISTRIBUTION_P12_BASE64: ${{ secrets.MAC_INSTALLER_DISTRIBUTION_P12_BASE64 }}
+          MAC_INSTALLER_DISTRIBUTION_P12_PASSWORD: ${{ secrets.MAC_INSTALLER_DISTRIBUTION_P12_PASSWORD }}
           PROVISIONING_PROFILE_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
           KEYCHAIN_PASSWORD: ${{ secrets.APPLE_DISTRIBUTION_P12_PASSWORD }}
 
         run: |
           APPLE_DISTRIBUTION_P12_PATH=${{ runner.temp }}/apple_distribution.p12
-          # MAC_INSTALLER_DISTRIBUTION_P12_PATH=${{ runner.temp }}/mac_installer_distribution.p12
+          MAC_INSTALLER_DISTRIBUTION_P12_PATH=${{ runner.temp }}/mac_installer_distribution.p12
           PROVISIONING_PROFILE_PATH=${{ runner.temp }}/pp.provisionprofile
           KEYCHAIN_PATH=${{ runner.temp }}/app_signing.keychain-db
           echo -n "$APPLE_DISTRIBUTION_P12_BASE64" | base64 --decode --output $APPLE_DISTRIBUTION_P12_PATH
-          # echo -n "$MAC_INSTALLER_DISTRIBUTION_P12_BASE64" | base64 --decode --output $MAC_INSTALLER_DISTRIBUTION_P12_PATH
+          echo -n "$MAC_INSTALLER_DISTRIBUTION_P12_BASE64" | base64 --decode --output $MAC_INSTALLER_DISTRIBUTION_P12_PATH
           echo -n "$PROVISIONING_PROFILE_BASE64" | base64 --decode --output $PROVISIONING_PROFILE_PATH
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
           cp $PROVISIONING_PROFILE_PATH ~/Library/MobileDevice/Provisioning\ Profiles/pp.provisionprofile
@@ -77,7 +77,7 @@ jobs:
           security set-keychain-settings -lut 3600 $KEYCHAIN_PATH
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
           security import $APPLE_DISTRIBUTION_P12_PATH -P "$APPLE_DISTRIBUTION_P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          # security import $MAC_INSTALLER_DISTRIBUTION_P12_PATH -P "$MAC_INSTALLER_DISTRIBUTION_P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security import $MAC_INSTALLER_DISTRIBUTION_P12_PATH -P "$MAC_INSTALLER_DISTRIBUTION_P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
           security list-keychain -d user -s $KEYCHAIN_PATH
       - name: Set a new bundle version
         run: |
