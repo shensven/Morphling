@@ -20,6 +20,7 @@
 		06CCB6A3298FB194009B0F9B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A2298FB194009B0F9B /* .gitignore */; };
 		06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A4299002A4009B0F9B /* Credits.rtf */; };
 		06CCB6A729900632009B0F9B /* .github in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A629900631009B0F9B /* .github */; };
+		06CCB6AB29901DB2009B0F9B /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6AA29901DB2009B0F9B /* ExportOptions.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		06CCB6A2298FB194009B0F9B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		06CCB6A629900631009B0F9B /* .github */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .github; sourceTree = SOURCE_ROOT; };
+		06CCB6AA29901DB2009B0F9B /* ExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +76,12 @@
 				062166122986A0D7004512C0 /* External */,
 				06BF6565298A64B800BCC25B /* ViewModel */,
 				062166132986CCC9004512C0 /* View */,
+				0621660729869D1C004512C0 /* Preview Content */,
 				0621660129869D1A004512C0 /* MorphlingApp.swift */,
 				0621660529869D1C004512C0 /* Assets.xcassets */,
 				0621660A29869D1C004512C0 /* Morphling.entitlements */,
+				06CCB6AA29901DB2009B0F9B /* ExportOptions.plist */,
 				06CCB6A4299002A4009B0F9B /* Credits.rtf */,
-				0621660729869D1C004512C0 /* Preview Content */,
 			);
 			path = Morphling;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 			files = (
 				06CCB6A729900632009B0F9B /* .github in Resources */,
 				06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */,
+				06CCB6AB29901DB2009B0F9B /* ExportOptions.plist in Resources */,
 				06CCB6A3298FB194009B0F9B /* .gitignore in Resources */,
 				0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */,
 				06CCB69A298D6C8C009B0F9B /* converter.js in Resources */,
@@ -360,6 +364,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Morphling/Morphling.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -368,14 +374,16 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 SvenFE";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shensven.Morphling;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shensven.morphling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -387,22 +395,28 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Morphling/Morphling.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Morphling/Preview Content\"";
-				DEVELOPMENT_TEAM = 6S52LG3NA5;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 6S52LG3NA5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 SvenFE";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.shensven.Morphling;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shensven.morphling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Morphling Distribution";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
