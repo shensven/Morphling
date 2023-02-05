@@ -19,6 +19,7 @@
 		06CCB69A298D6C8C009B0F9B /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB699298D6C8C009B0F9B /* converter.js */; };
 		06CCB6A3298FB194009B0F9B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A2298FB194009B0F9B /* .gitignore */; };
 		06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A4299002A4009B0F9B /* Credits.rtf */; };
+		06CCB6A729900632009B0F9B /* .github in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A629900631009B0F9B /* .github */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = converter/dist/converter.js; sourceTree = "<group>"; };
 		06CCB6A2298FB194009B0F9B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		06CCB6A629900631009B0F9B /* .github */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .github; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		06CCB6A1298FB179009B0F9B /* MISC */ = {
 			isa = PBXGroup;
 			children = (
+				06CCB6A629900631009B0F9B /* .github */,
 				06CCB6A2298FB194009B0F9B /* .gitignore */,
 			);
 			name = MISC;
@@ -187,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06CCB6A729900632009B0F9B /* .github in Resources */,
 				06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */,
 				06CCB6A3298FB194009B0F9B /* .gitignore in Resources */,
 				0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */,

@@ -1,0 +1,26 @@
+name: SwiftLint
+
+on:
+  push:
+    branches:
+      - "*"
+      - "*/*"
+      - "**"
+      - "!main"
+    pull_request:
+      - "*"
+      - "*/*"
+      - "**"
+      - "!main"
+
+jobs:
+  lint:
+    runs-on: macos-12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run SwiftLint
+        run: |
+          set -o pipefail
+          swiftlint | sed -E 's/^(.*):([0-9]+):([0-9]+): (warning|error|[^:]+): (.*)/::\4 file=\1,line=\2,col=\3::\5/'
