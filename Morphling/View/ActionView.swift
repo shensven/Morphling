@@ -1,14 +1,19 @@
 import SwiftUI
 
 struct ActionView: View {
+    @AppStorage("isPrefixWithFilter") var isPrefixWithFilter: Bool = false
     @EnvironmentObject var userDefaults: UserDefaults
 
     var body: some View {
         Button {
             let pong = userDefaults.callJavaScriptFunc()
+            var result = pong?.toString() ?? ""
+            if isPrefixWithFilter {
+                result = "filter: \(result)"
+            }
             NSPasteboard.general.declareTypes([.string], owner: nil)
-            NSPasteboard.general.setString(pong!.toString(), forType: .string)
-            print(pong!)
+            NSPasteboard.general.setString(result, forType: .string)
+            print(result)
         } label: {
             Spacer()
             Text("Copy to Pasteboard")
