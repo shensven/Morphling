@@ -14,7 +14,8 @@ const { data } = await read(
   "https://api.appstoreconnect.apple.com/v1/builds?filter[app]=1669993843"
 );
 
-if (data.length > 0) {
+if (data.length === 0) {
+  console.log("0");
+} else {
   console.log(data[0].attributes.version);
 }
-console.log(0);
