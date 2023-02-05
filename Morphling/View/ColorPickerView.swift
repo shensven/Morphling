@@ -1,7 +1,9 @@
 import SwiftUI
 
 enum RGB: String, CaseIterable {
-    case r, g, b
+    case componentR = "r"
+    case componentG = "g"
+    case componentB = "b"
 }
 
 enum ColorFormat: String, CaseIterable {
@@ -62,10 +64,10 @@ struct ColorPickerView: View {
                             if conponent[RGB.allCases.firstIndex(of: item)!] < 0 {
                                 userDefaults.rgbColor[RGB.allCases.firstIndex(of: item)!] = 0
                             }
-                            let r = userDefaults.rgbColor[0]
-                            let g = userDefaults.rgbColor[1]
-                            let b = userDefaults.rgbColor[2]
-                            let newHexColor = String(format: "%02X%02X%02X", Int(r), Int(g), Int(b))
+                            let componentR = userDefaults.rgbColor[0]
+                            let componentG = userDefaults.rgbColor[1]
+                            let componentB = userDefaults.rgbColor[2]
+                            let newHexColor = String(format: "%02X%02X%02X", Int(componentR), Int(componentG), Int(componentB))
                             userDefaults.hexColor = newHexColor
                         }
                         Text(item.rawValue.uppercased())

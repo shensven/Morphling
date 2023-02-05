@@ -21,16 +21,22 @@ extension UserDefaults {
     func callJavaScriptFunc() -> JSValue? {
         let path = Bundle.main.path(forResource: "converter", ofType: "js")!
 
-        var jsString = try! String(contentsOfFile: path)
-        jsString = "var window = this; \(jsString)"
+        do {
+            var jsString = try String(contentsOfFile: path)
+            jsString = "var window = this; \(jsString)"
 
-        let jsContext = JSContext()
-        jsContext?.evaluateScript(jsString)
+            let jsContext = JSContext()
+            jsContext?.evaluateScript(jsString)
 
-        let ping = jsContext?.objectForKeyedSubscript("hexToFilter")
+            let ping = jsContext?.objectForKeyedSubscript("hexToFilter")
 
-        let pong = ping?.call(withArguments: ["#\(hexColor)"])
-        conventedContent = pong?.toString()
-        return pong
+            let pong = ping?.call(withArguments: ["#\(hexColor)"])
+            conventedContent = pong?.toString()
+            return pong
+        } catch {
+            print(error)
+        }
+
+        return nil
     }
 }
