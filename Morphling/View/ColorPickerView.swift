@@ -6,9 +6,16 @@ enum RGB: String, CaseIterable {
     case componentB = "b"
 }
 
+enum HSL: String, CaseIterable {
+    case componentH = "h"
+    case componentS = "s"
+    case componentL = "l"
+}
+
 enum ColorFormat: String, CaseIterable {
     case hex = "Hex"
     case rgb = "RGB"
+    case hsl = "HSL"
 }
 
 struct ColorPickerView: View {
@@ -23,22 +30,17 @@ struct ColorPickerView: View {
                         Text("#")
                             .font(.body)
                             .foregroundColor(.primary.opacity(0.7))
-                        TextField("", text: $userDefaults.hexColor)
+                        TextField("", text: $userDefaults.hex)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .onChange(of: userDefaults.hexColor) { value in
-                                if value.count > 6 {
-                                    userDefaults.hexColor = "FFFFFF"
+                            .onChange(of: userDefaults.hex) { target in
+                                if target.count > 6 {
+                                    userDefaults.hex = "FFFFFF"
                                 }
-                                let hex = userDefaults.hexColor
-                                if hex.count == 6 {
-                                    let scanner = Scanner(string: hex)
-                                    var newRgbColor: UInt64 = 0
-                                    scanner.scanHexInt64(&newRgbColor)
-                                    userDefaults.rgbColor = [
-                                        CGFloat((newRgbColor & 0xFF0000) >> 16),
-                                        CGFloat((newRgbColor & 0x00FF00) >> 8),
-                                        CGFloat(newRgbColor & 0x0000FF)
-                                    ]
+                                if target.count == 6 {
+                                    let newRgb8 = userDefaults.hexToRgb8(hex: target)
+                                    let newHsl = userDefaults.rgb8ToHsl(rgb8: newRgb8)
+                                    userDefaults.rgb8 = newRgb8
+                                    userDefaults.hsl = newHsl
                                 }
                             }
                     }
@@ -53,22 +55,74 @@ struct ColorPickerView: View {
                     VStack(spacing: 2) {
                         TextField(
                             "",
-                            value: $userDefaults.rgbColor[RGB.allCases.firstIndex(of: item)!],
+                            value: $userDefaults.rgb8[RGB.allCases.firstIndex(of: item)!],
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.rgbColor) { conponent in
+                        .onChange(of: userDefaults.rgb8) { conponent in
                             if conponent[RGB.allCases.firstIndex(of: item)!] > 255 {
-                                userDefaults.rgbColor[RGB.allCases.firstIndex(of: item)!] = 255
+                                userDefaults.rgb8[RGB.allCases.firstIndex(of: item)!] = 255
                             }
                             if conponent[RGB.allCases.firstIndex(of: item)!] < 0 {
-                                userDefaults.rgbColor[RGB.allCases.firstIndex(of: item)!] = 0
+                                userDefaults.rgb8[RGB.allCases.firstIndex(of: item)!] = 0
                             }
-                            let componentR = userDefaults.rgbColor[0]
-                            let componentG = userDefaults.rgbColor[1]
-                            let componentB = userDefaults.rgbColor[2]
-                            let newHexColor = String(format: "%02X%02X%02X", Int(componentR), Int(componentG), Int(componentB))
-                            userDefaults.hexColor = newHexColor
+
+                            let newRgb8 = [conponent[0], conponent[1], conponent[2]]
+
+                            let newHex = userDefaults.rgb8ToHex(rgb8: newRgb8)
+                            let newHsl = userDefaults.rgb8ToHsl(rgb8: newRgb8)
+
+                            userDefaults.hex = newHex
+                            userDefaults.hsl = newHsl
+                        }
+                        Text(item.rawValue.uppercased())
+                            .font(.footnote)
+                            .foregroundColor(.primary.opacity(0.7))
+                            .tag(item)
+                    }
+                }
+            }
+
+            if currentColorFormat == .hsl {
+                ForEach(HSL.allCases, id: \.self) { item in
+                    VStack(spacing: 2) {
+                        TextField(
+                            "",
+                            value: $userDefaults.hsl[HSL.allCases.firstIndex(of: item)!],
+                            formatter: NumberFormatter()
+                        )
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: userDefaults.rgb8) { conponent in
+                            if conponent[0] > 360 {
+                                userDefaults.hsl[0] = 360
+                            }
+                            if conponent[0] < 0 {
+                                userDefaults.hsl[0] = 0
+                            }
+                            if conponent[1] > 100 {
+                                userDefaults.hsl[1] = 100
+                            }
+                            if conponent[1] < 0 {
+                                userDefaults.hsl[1] = 0
+                            }
+                            if conponent[2] > 100 {
+                                userDefaults.hsl[2] = 100
+                            }
+                            if conponent[2] < 0 {
+                                userDefaults.hsl[2] = 0
+                            }
+
+                            let componentH = conponent[0]
+                            let componentS = conponent[1]
+                            let componentL = conponent[2]
+
+                            let newHsl = [componentH, componentS, componentL]
+
+                            let newRgb8 = userDefaults.hslToRgb8(hsl: newHsl)
+                            let newHex = userDefaults.rgb8ToHex(rgb8: newRgb8)
+
+                            userDefaults.rgb8 = newRgb8
+                            userDefaults.hex = newHex
                         }
                         Text(item.rawValue.uppercased())
                             .font(.footnote)

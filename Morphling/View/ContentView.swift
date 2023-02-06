@@ -29,7 +29,6 @@ struct ContentView: View {
                     systemName: windowLevel == .floating ? "pin.fill" : "pin"
                 )
                 .foregroundColor(windowLevel == .floating ? Color.accentColor : Color.primary)
-                .rotationEffect(.degrees(30))
             }
         }
     }
