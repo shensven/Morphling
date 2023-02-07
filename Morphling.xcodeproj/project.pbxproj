@@ -24,6 +24,7 @@
 		06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */; };
 		06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */; };
 		06CCB6B12992A204009B0F9B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6B02992A204009B0F9B /* ColorView.swift */; };
+		06CCB6B42992B770009B0F9B /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 06CCB6B32992B770009B0F9B /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06CCB6B42992B770009B0F9B /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,7 @@
 			);
 			name = Morphling;
 			packageProductDependencies = (
+				06CCB6B32992B770009B0F9B /* LaunchAtLogin */,
 			);
 			productName = Morphling;
 			productReference = 062165FE29869D1A004512C0 /* Morphling.app */;
@@ -188,6 +191,7 @@
 			);
 			mainGroup = 062165F529869D1A004512C0;
 			packageReferences = (
+				06CCB6B22992B770009B0F9B /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
 			);
 			productRefGroup = 062165FF29869D1A004512C0 /* Products */;
 			projectDirPath = "";
@@ -458,6 +462,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		06CCB6B22992B770009B0F9B /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		06CCB6B32992B770009B0F9B /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 06CCB6B22992B770009B0F9B /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
+			productName = LaunchAtLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 062165F629869D1A004512C0 /* Project object */;
 }
