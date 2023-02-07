@@ -10,6 +10,17 @@ enum HSL: String, CaseIterable {
     case componentH = "h"
     case componentS = "s"
     case componentL = "l"
+
+    var unit: String {
+        switch self {
+        case .componentH:
+            return "deg"
+        case .componentS:
+            return "%"
+        case .componentL:
+            return "%"
+        }
+    }
 }
 
 enum ColorFormat: String, CaseIterable {
@@ -26,10 +37,7 @@ struct ColorPickerView: View {
         HStack {
             if currentColorFormat == .hex {
                 VStack(spacing: 2) {
-                    HStack(spacing: 2) {
-                        Text("#")
-                            .font(.body)
-                            .foregroundColor(.primary.opacity(0.7))
+                    ZStack(alignment: .leading) {
                         TextField("", text: $userDefaults.hex)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .onChange(of: userDefaults.hex) { target in
@@ -43,10 +51,14 @@ struct ColorPickerView: View {
                                     userDefaults.hsl = newHsl
                                 }
                             }
+                        Text("#")
+                            .font(.footnote)
+                            .foregroundColor(.primary.opacity(0.5))
+                            .padding(.leading, 4)
                     }
-                    Text("Hex color")
+                    Text("Hex")
                         .font(.footnote)
-                        .foregroundColor(.primary.opacity(0))
+                        .hidden()
                 }
             }
 
@@ -86,43 +98,49 @@ struct ColorPickerView: View {
             if currentColorFormat == .hsl {
                 ForEach(HSL.allCases, id: \.self) { item in
                     VStack(spacing: 2) {
-                        TextField(
-                            "",
-                            value: $userDefaults.hsl[HSL.allCases.firstIndex(of: item)!],
-                            formatter: NumberFormatter()
-                        )
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.hsl) { conponent in
-                            if conponent[0] > 360 {
-                                userDefaults.hsl[0] = 360
-                            }
-                            if conponent[0] < 0 {
-                                userDefaults.hsl[0] = 0
-                            }
-                            if conponent[1] > 100 {
-                                userDefaults.hsl[1] = 100
-                            }
-                            if conponent[1] < 0 {
-                                userDefaults.hsl[1] = 0
-                            }
-                            if conponent[2] > 100 {
-                                userDefaults.hsl[2] = 100
-                            }
-                            if conponent[2] < 0 {
-                                userDefaults.hsl[2] = 0
-                            }
+                        ZStack(alignment: .trailing) {
+                            TextField(
+                                "",
+                                value: $userDefaults.hsl[HSL.allCases.firstIndex(of: item)!],
+                                formatter: NumberFormatter()
+                            )
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .onChange(of: userDefaults.hsl) { conponent in
+                                if conponent[0] > 360 {
+                                    userDefaults.hsl[0] = 360
+                                }
+                                if conponent[0] < 0 {
+                                    userDefaults.hsl[0] = 0
+                                }
+                                if conponent[1] > 100 {
+                                    userDefaults.hsl[1] = 100
+                                }
+                                if conponent[1] < 0 {
+                                    userDefaults.hsl[1] = 0
+                                }
+                                if conponent[2] > 100 {
+                                    userDefaults.hsl[2] = 100
+                                }
+                                if conponent[2] < 0 {
+                                    userDefaults.hsl[2] = 0
+                                }
 
-                            let componentH = conponent[0]
-                            let componentS = conponent[1]
-                            let componentL = conponent[2]
+                                let componentH = conponent[0]
+                                let componentS = conponent[1]
+                                let componentL = conponent[2]
 
-                            let newHsl = [componentH, componentS, componentL]
+                                let newHsl = [componentH, componentS, componentL]
 
-                            let newRgb8 = userDefaults.hslToRgb8(hsl: newHsl)
-                            let newHex = userDefaults.rgb8ToHex(rgb8: newRgb8)
+                                let newRgb8 = userDefaults.hslToRgb8(hsl: newHsl)
+                                let newHex = userDefaults.rgb8ToHex(rgb8: newRgb8)
 
-                            userDefaults.rgb8 = newRgb8
-                            userDefaults.hex = newHex
+                                userDefaults.rgb8 = newRgb8
+                                userDefaults.hex = newHex
+                            }
+                            Text(item.unit)
+                                .font(.footnote)
+                                .foregroundColor(.primary.opacity(0.5))
+                                .padding(.trailing, 4)
                         }
                         Text(item.rawValue.uppercased())
                             .font(.footnote)
@@ -137,10 +155,10 @@ struct ColorPickerView: View {
                     ForEach(ColorFormat.allCases, id: \.self) { item in
                         Text(item.rawValue).tag(item)
                     }
-                }.frame(width: 80)
+                }.frame(width: 72)
                 Text("format")
                     .font(.footnote)
-                    .foregroundColor(.primary.opacity(0))
+                    .hidden()
             }
         }
     }
