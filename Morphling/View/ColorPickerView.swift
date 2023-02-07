@@ -92,7 +92,7 @@ struct ColorPickerView: View {
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.rgb8) { conponent in
+                        .onChange(of: userDefaults.hsl) { conponent in
                             if conponent[0] > 360 {
                                 userDefaults.hsl[0] = 360
                             }
@@ -133,7 +133,7 @@ struct ColorPickerView: View {
             }
 
             VStack(spacing: 2) {
-                Picker("", selection: $currentColorFormat) {
+                Picker(selection: $currentColorFormat, label: EmptyView()) {
                     ForEach(ColorFormat.allCases, id: \.self) { item in
                         Text(item.rawValue).tag(item)
                     }
