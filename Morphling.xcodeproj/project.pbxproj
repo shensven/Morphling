@@ -21,6 +21,9 @@
 		06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A4299002A4009B0F9B /* Credits.rtf */; };
 		06CCB6A729900632009B0F9B /* .github in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A629900631009B0F9B /* .github */; };
 		06CCB6AB29901DB2009B0F9B /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6AA29901DB2009B0F9B /* ExportOptions.plist */; };
+		06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */; };
+		06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */; };
+		06CCB6B12992A204009B0F9B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6B02992A204009B0F9B /* ColorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		06CCB6A629900631009B0F9B /* .github */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .github; sourceTree = SOURCE_ROOT; };
 		06CCB6AA29901DB2009B0F9B /* ExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
+		06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		06CCB6B02992A204009B0F9B /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 		062166132986CCC9004512C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				06CCB6B02992A204009B0F9B /* ColorView.swift */,
+				06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */,
+				06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */,
 				062166142986CD63004512C0 /* ColorPickerView.swift */,
 				062166162986CE0F004512C0 /* ResultView.swift */,
 				0621661D29872593004512C0 /* OptionView.swift */,
@@ -233,10 +242,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				062166192986D7F7004512C0 /* ActionView.swift in Sources */,
+				06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */,
 				06BF6564298A64AE00BCC25B /* UserDefaults.swift in Sources */,
 				0621661E29872593004512C0 /* OptionView.swift in Sources */,
+				06CCB6B12992A204009B0F9B /* ColorView.swift in Sources */,
 				0621660429869D1A004512C0 /* ContentView.swift in Sources */,
 				062166152986CD63004512C0 /* ColorPickerView.swift in Sources */,
+				06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */,
 				0621660229869D1A004512C0 /* MorphlingApp.swift in Sources */,
 				062166172986CE0F004512C0 /* ResultView.swift in Sources */,
 			);

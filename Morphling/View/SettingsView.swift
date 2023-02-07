@@ -1,0 +1,25 @@
+import SwiftUI
+
+struct SettingsView: View {
+    var body: some View {
+        TabView {
+            GeneralView()
+                .tabItem {
+                    Label("General", systemImage: "gearshape")
+                }
+                .frame(width: 400, height: 140)
+
+            ColorView()
+                .tabItem {
+                    Label("Color", systemImage: "drop.fill")
+                }
+                .frame(width: 400, height: 290)
+        }
+    }
+}
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView()
+    }
+}

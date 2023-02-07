@@ -11,13 +11,16 @@ struct MorphlingApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(width: 336)
+                .frame(width: 352)
                 .frame(minHeight: 360, maxHeight: .infinity)
                 .environmentObject(userDefaults)
         }
         .windowResizability(.contentSize)
         .commands {
             CommandGroup(replacing: .newItem, addition: {})
+        }
+        Settings {
+            SettingsView()
         }
     }
 }
