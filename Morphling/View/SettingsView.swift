@@ -7,7 +7,8 @@ struct SettingsView: View {
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }
-                .frame(width: 400, height: 140)
+                .frame(width: 400)
+                .fixedSize()
 
             ColorView()
                 .tabItem {
