@@ -144,12 +144,11 @@ extension UserDefaults {
         let conponentR = rgb8[0]
         let conponentG = rgb8[1]
         let conponentB = rgb8[2]
-        let newHex = String(
+        return String(
             format: "%02X%02X%02X",
             Int(conponentR),
             Int(conponentG),
             Int(conponentB)
         )
-        return newHex
     }
 }
