@@ -130,18 +130,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		0690C0892994055200D098ED /* zh-hans.lproj */ = {
+		0690C0892994055200D098ED /* zh-Hans.lproj */ = {
 			isa = PBXGroup;
 			children = (
 				0690C0872994053900D098ED /* Localizable.strings */,
 			);
-			path = "zh-hans.lproj";
+			path = "zh-Hans.lproj";
 			sourceTree = "<group>";
 		};
 		0690C08A2994056500D098ED /* Localization */ = {
 			isa = PBXGroup;
 			children = (
-				0690C0892994055200D098ED /* zh-hans.lproj */,
+				0690C0892994055200D098ED /* zh-Hans.lproj */,
 				0690C08D299405AF00D098ED /* en.lproj */,
 			);
 			path = Localization;
