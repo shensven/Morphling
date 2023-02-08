@@ -1,0 +1,6 @@
+append_commit_message: false
+commit_message: "fix: new translations %language% from Crowdin"
+
+files:
+  - source: /Morphling/Localization/en.lproj/Localizable.strings
+    translation: /Morphling/Localization/%osx_locale%.lproj/Localizable.strings
