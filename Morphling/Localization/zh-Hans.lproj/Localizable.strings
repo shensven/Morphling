@@ -4,6 +4,7 @@
 
 // Settings
 "Settings.General" = "通用";
+"Settings.About" = "About";
 
 // General
 "General.Appearance" = "外观：";
