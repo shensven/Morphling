@@ -5,7 +5,7 @@ struct SettingsView: View {
         TabView {
             GeneralView()
                 .tabItem {
-                    Label("General", systemImage: "gearshape")
+                    Label("Settings.General", systemImage: "gearshape")
                 }
                 .frame(width: 400)
                 .fixedSize()

@@ -16,7 +16,7 @@ struct ActionView: View {
             print(result)
         } label: {
             Spacer()
-            Text("Copy to Pasteboard")
+            Text("Main.Copy_to_Pasteboard")
             Spacer()
         }
         .buttonStyle(.borderedProminent)

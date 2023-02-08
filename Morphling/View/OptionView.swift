@@ -7,8 +7,8 @@ struct OptionView: View {
     var body: some View {
         HStack {
             Toggle(isOn: $isPrefixWithFilter) {
-                HStack(spacing: 0) {
-                    Text("Prefix with ")
+                HStack(spacing: 2) {
+                    Text("Main.Prefix_with")
                     Text("filter:")
                         .font(.body)
                         .padding(.vertical, 1)
@@ -19,7 +19,7 @@ struct OptionView: View {
                 }
             }
             Spacer()
-            Button("Clear") {
+            Button("Main.Clear") {
                 userDefaults.conventedContent = nil
             }
         }

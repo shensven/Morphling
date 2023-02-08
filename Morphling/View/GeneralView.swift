@@ -4,7 +4,7 @@ import SwiftUI
 struct GeneralView: View {
     @AppStorage("selectedAppearance") var selectedAppearance = 0
 
-    var appearance = ["Automatic", "Light", "Dark"]
+    var appearance = ["General.Automatic", "General.Light", "General.Dark"]
 
     static func setAppearance(index: Int) {
         switch index {
@@ -17,7 +17,7 @@ struct GeneralView: View {
 
     var body: some View {
         Form {
-            Picker("Appearance", selection: $selectedAppearance) {
+            Picker("General.Appearance", selection: $selectedAppearance) {
                 ForEach(0 ..< appearance.count, id: \.self) {
                     Text(NSLocalizedString(self.appearance[$0], comment: ""))
                 }
@@ -27,18 +27,18 @@ struct GeneralView: View {
                 GeneralView.setAppearance(index: index)
             }
 
-            LabeledContent("Language") {
+            LabeledContent("General.Language") {
                 Button {
                     let prefPanePath = URL(fileURLWithPath: "/System/Library/PreferencePanes/Localization.prefPane")
                     NSWorkspace.shared.open(prefPanePath)
                 } label: {
-                    Text("Open System Settings")
+                    Text("General.Open_System_Settings")
                 }
             }
 
-            LabeledContent("Applacation") {
+            LabeledContent("General.Applacation") {
                 LaunchAtLogin.Toggle {
-                    Text("Launch at Login")
+                    Text("General.Launch_at_Login")
                 }
             }
         }
