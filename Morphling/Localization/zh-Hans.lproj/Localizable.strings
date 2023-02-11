@@ -18,6 +18,9 @@
 
 // About
 "About.Developer" = "开发者";
+"About.Weibo" = "Weibo";
 "About.Give_a_Good_Review" = "老板给个好评";
 "About.Source_Code" = "源代码";
+"About.GitHub_Repository" = "GitHub Repository";
 "About.Improve_Translation" = "帮助翻译";
+"About.Crowdin" = "Crowdin";
