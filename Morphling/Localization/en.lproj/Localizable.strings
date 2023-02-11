@@ -18,6 +18,10 @@
 
 // About
 "About.Developer" = "Developer";
+"About.Weibo" = "Weibo";
 "About.Give_a_Good_Review" = "Give a Good Review";
 "About.Source_Code" = "Source Code";
+"About.GitHub_Repository" = "GitHub Repository";
 "About.Improve_Translation" = "Improve Translation";
+"About.Crowdin" = "Crowdin";
+
