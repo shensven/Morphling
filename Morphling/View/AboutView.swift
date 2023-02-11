@@ -19,7 +19,7 @@ struct AboutView: View {
                         Text("Version \(VERSION!) (Build \(BUILD!))").foregroundColor(.secondary)
                     }
 
-                    Divider().padding(.bottom)
+                    Divider().padding(.bottom, 4)
 
                     HStack {
                         Image("RiAtLine")
@@ -132,11 +132,8 @@ struct AboutView: View {
                             }
                     }
 
-                    Divider().padding(.top)
-                    HStack {
-                        Text("Made with ❤️ in Kunming by SvenFE").foregroundColor(.secondary).font(.subheadline)
-                        Spacer()
-                    }
+                    Divider().padding(.top, 4)
+                    Text("Made with ❤️ in Kunming by SvenFE").foregroundColor(.secondary).font(.subheadline)
 
                 }.padding()
             }.scrollIndicators(.hidden)

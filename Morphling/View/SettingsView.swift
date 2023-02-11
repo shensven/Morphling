@@ -12,7 +12,7 @@ struct SettingsView: View {
 
             AboutView()
                 .tabItem {
-                    Label("Settings.About", systemImage: "drop.fill")
+                    Label("Settings.About", systemImage: "info.circle")
                 }
                 .frame(width: 448)
                 .fixedSize()
