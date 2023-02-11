@@ -7,14 +7,15 @@ struct SettingsView: View {
                 .tabItem {
                     Label("Settings.General", systemImage: "gearshape")
                 }
-                .frame(width: 400)
+                .frame(width: 448)
                 .fixedSize()
 
-            ColorView()
+            AboutView()
                 .tabItem {
-                    Label("Color", systemImage: "drop.fill")
+                    Label("Settings.About", systemImage: "drop.fill")
                 }
-                .frame(width: 400, height: 290)
+                .frame(width: 448)
+                .fixedSize()
         }
     }
 }

@@ -25,7 +25,7 @@
 		06CCB6AB29901DB2009B0F9B /* ExportOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6AA29901DB2009B0F9B /* ExportOptions.plist */; };
 		06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */; };
 		06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */; };
-		06CCB6B12992A204009B0F9B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6B02992A204009B0F9B /* ColorView.swift */; };
+		06CCB6B12992A204009B0F9B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6B02992A204009B0F9B /* AboutView.swift */; };
 		06CCB6B42992B770009B0F9B /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 06CCB6B32992B770009B0F9B /* LaunchAtLogin */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,7 @@
 		06CCB6AA29901DB2009B0F9B /* ExportOptions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExportOptions.plist; sourceTree = "<group>"; };
 		06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
-		06CCB6B02992A204009B0F9B /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		06CCB6B02992A204009B0F9B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 		062166132986CCC9004512C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				06CCB6B02992A204009B0F9B /* ColorView.swift */,
+				06CCB6B02992A204009B0F9B /* AboutView.swift */,
 				06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */,
 				06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */,
 				062166142986CD63004512C0 /* ColorPickerView.swift */,
@@ -282,7 +282,7 @@
 				06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */,
 				06BF6564298A64AE00BCC25B /* UserDefaults.swift in Sources */,
 				0621661E29872593004512C0 /* OptionView.swift in Sources */,
-				06CCB6B12992A204009B0F9B /* ColorView.swift in Sources */,
+				06CCB6B12992A204009B0F9B /* AboutView.swift in Sources */,
 				0621660429869D1A004512C0 /* ContentView.swift in Sources */,
 				062166152986CD63004512C0 /* ColorPickerView.swift in Sources */,
 				06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */,

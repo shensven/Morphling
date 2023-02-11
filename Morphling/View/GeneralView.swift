@@ -22,7 +22,6 @@ struct GeneralView: View {
                     Text(NSLocalizedString(self.appearance[$0], comment: ""))
                 }
             }
-            .frame(width: 192)
             .onChange(of: selectedAppearance) { index in
                 GeneralView.setAppearance(index: index)
             }
@@ -42,7 +41,7 @@ struct GeneralView: View {
                 }
             }
         }
-        .frame(width: 272)
+        .frame(width: 264)
         .padding()
     }
 }

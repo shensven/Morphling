@@ -14,13 +14,14 @@ struct MorphlingApp: App {
                 .frame(width: 352)
                 .frame(minHeight: 360, maxHeight: .infinity)
                 .environmentObject(userDefaults)
+                .tag("ContentView")
         }
         .windowResizability(.contentSize)
         .commands {
             CommandGroup(replacing: .newItem, addition: {})
         }
         Settings {
-            SettingsView()
+            SettingsView().tag("SettingsView")
         }
     }
 }
