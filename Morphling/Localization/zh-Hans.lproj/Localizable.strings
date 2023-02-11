@@ -4,7 +4,7 @@
 
 // Settings
 "Settings.General" = "通用";
-"Settings.About" = "About";
+"Settings.About" = "关于";
 
 // General
 "General.Appearance" = "外观：";
@@ -15,3 +15,11 @@
 "General.Open_System_Settings" = "打开 “系统设置”";
 "General.Applacation" = "应用程序：";
 "General.Launch_at_Login" = "登录时启动";
+
+// About
+"About.Developer" = "开发者";
+"About.Weibo" = "微博";
+"About.Give_a_Good_Review" = "老板给个好评";
+"About.Source_Code" = "源代码";
+"About.GitHub_Repository" = "GitHub 仓库";
+"About.Improve_Translation" = "帮助翻译";
