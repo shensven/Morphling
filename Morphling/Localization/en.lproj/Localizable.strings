@@ -15,3 +15,9 @@
 "General.Open_System_Settings" = "Open \"System Settings\"";
 "General.Applacation" = "Applacation";
 "General.Launch_at_Login" = "Launch at Login";
+
+// About
+"About.Developer" = "Developer";
+"About.Give_a_Good_Review" = "Give a Good Review";
+"About.Source_Code" = "Source Code";
+"About.Improve_Translation" = "Improve Translation";
