@@ -4,7 +4,7 @@
 
 // Settings
 "Settings.General" = "通用";
-"Settings.About" = "About";
+"Settings.About" = "关于";
 
 // General
 "General.Appearance" = "外观：";
@@ -17,7 +17,7 @@
 "General.Launch_at_Login" = "登录时启动";
 
 // About
-"About.Developer" = "Developer";
-"About.Give_a_Good_Review" = "Give a Good Review";
-"About.Source_Code" = "Source Code";
-"About.Improve_Translation" = "Improve Translation";
+"About.Developer" = "开发者";
+"About.Give_a_Good_Review" = "老板给个好评";
+"About.Source_Code" = "源代码";
+"About.Improve_Translation" = "帮助翻译";
