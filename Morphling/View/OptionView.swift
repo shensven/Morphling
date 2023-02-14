@@ -19,6 +19,7 @@ struct OptionView: View {
                 }
             }
             Spacer()
+            Button("Main.Re-convert") {}
             Button("Main.Clear") {
                 userDefaults.conventedContent = nil
             }

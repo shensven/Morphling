@@ -44,12 +44,7 @@ struct ColorPickerView: View {
                                 if target.count > 6 {
                                     userDefaults.hex = "FFFFFF"
                                 }
-                                if target.count == 6 {
-                                    let newRgb8 = userDefaults.hexToRgb8(hex: target)
-                                    let newHsl = userDefaults.rgb8ToHsl(rgb8: newRgb8)
-                                    userDefaults.rgb8 = newRgb8
-                                    userDefaults.hsl = newHsl
-                                }
+                                userDefaults.hexToAny(hex: target)
                             }
                         Text("#")
                             .font(.footnote)
@@ -63,89 +58,81 @@ struct ColorPickerView: View {
             }
 
             if currentColorFormat == .rgb {
-                ForEach(RGB.allCases, id: \.self) { item in
+                ForEach(RGB.allCases, id: \.self) { component in
                     VStack(spacing: 2) {
                         TextField(
                             "",
-                            value: $userDefaults.rgb8[RGB.allCases.firstIndex(of: item)!],
+                            value: $userDefaults.rgb["\(component.rawValue)"],
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.rgb8) { conponent in
-                            if conponent[RGB.allCases.firstIndex(of: item)!] > 255 {
-                                userDefaults.rgb8[RGB.allCases.firstIndex(of: item)!] = 255
+                        .onChange(of: userDefaults.rgb) { rgb in
+                            if rgb[component.rawValue]! > 255 {
+                                userDefaults.rgb[component.rawValue] = 255
                             }
-                            if conponent[RGB.allCases.firstIndex(of: item)!] < 0 {
-                                userDefaults.rgb8[RGB.allCases.firstIndex(of: item)!] = 0
+                            if rgb[component.rawValue]! < 0 {
+                                userDefaults.rgb[component.rawValue] = 0
                             }
 
-                            let newRgb8 = [conponent[0], conponent[1], conponent[2]]
-
-                            let newHex = userDefaults.rgb8ToHex(rgb8: newRgb8)
-                            let newHsl = userDefaults.rgb8ToHsl(rgb8: newRgb8)
-
-                            userDefaults.hex = newHex
-                            userDefaults.hsl = newHsl
+                            userDefaults.rgbToAny(rgb: [
+                                "r": rgb["r"]!,
+                                "g": rgb["g"]!,
+                                "b": rgb["b"]!
+                            ])
                         }
-                        Text(item.rawValue.uppercased())
+                        Text(component.rawValue.uppercased())
                             .font(.footnote)
                             .foregroundColor(.primary.opacity(0.7))
-                            .tag(item)
+                            .tag(component)
                     }
                 }
             }
 
             if currentColorFormat == .hsl {
-                ForEach(HSL.allCases, id: \.self) { item in
+                ForEach(HSL.allCases, id: \.self) { component in
                     VStack(spacing: 2) {
                         ZStack(alignment: .trailing) {
                             TextField(
                                 "",
-                                value: $userDefaults.hsl[HSL.allCases.firstIndex(of: item)!],
+                                value: $userDefaults.hsl["\(component.rawValue)"],
                                 formatter: NumberFormatter()
                             )
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .onChange(of: userDefaults.hsl) { conponent in
-                                if conponent[0] > 360 {
-                                    userDefaults.hsl[0] = 360
+                            .onChange(of: userDefaults.hsl) { hsl in
+                                if hsl["h"]! > 360 {
+                                    userDefaults.hsl["h"] = 360
                                 }
-                                if conponent[0] < 0 {
-                                    userDefaults.hsl[0] = 0
+                                if hsl["h"]! < 0 {
+                                    userDefaults.hsl["h"] = 0
                                 }
-                                if conponent[1] > 100 {
-                                    userDefaults.hsl[1] = 100
+                                if hsl["s"]! > 100 {
+                                    userDefaults.hsl["s"] = 100
                                 }
-                                if conponent[1] < 0 {
-                                    userDefaults.hsl[1] = 0
+                                if hsl["s"]! < 0 {
+                                    userDefaults.hsl["s"] = 0
                                 }
-                                if conponent[2] > 100 {
-                                    userDefaults.hsl[2] = 100
+                                if hsl["l"]! > 100 {
+                                    userDefaults.hsl["l"] = 100
                                 }
-                                if conponent[2] < 0 {
-                                    userDefaults.hsl[2] = 0
+                                if hsl["l"]! < 0 {
+                                    userDefaults.hsl["l"] = 0
                                 }
 
-                                let componentH = conponent[0]
-                                let componentS = conponent[1]
-                                let componentL = conponent[2]
-
-                                let newHsl = [componentH, componentS, componentL]
-
-                                let newRgb8 = userDefaults.hslToRgb8(hsl: newHsl)
-                                let newHex = userDefaults.rgb8ToHex(rgb8: newRgb8)
-
-                                userDefaults.rgb8 = newRgb8
-                                userDefaults.hex = newHex
+                                userDefaults.hslToAny(hsl: [
+                                    "h": hsl["h"]!,
+                                    "s": hsl["s"]!,
+                                    "l": hsl["l"]!
+                                ])
                             }
-                            Text(item.unit)
+                            Text(component.unit)
                                 .font(.footnote)
                                 .foregroundColor(.primary.opacity(0.5))
                                 .padding(.trailing, 4)
                         }
-                        Text(item.rawValue.uppercased())
+                        Text(component.rawValue.uppercased())
                             .font(.footnote)
                             .foregroundColor(.primary.opacity(0.7))
-                            .tag(item)
+                            .tag(component)
                     }
                 }
             }

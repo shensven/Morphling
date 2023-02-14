@@ -6,14 +6,14 @@ struct ActionView: View {
 
     var body: some View {
         Button {
-            let pong = userDefaults.callJavaScriptFunc()
-            var result = pong?.toString() ?? ""
-            if isPrefixWithFilter {
-                result = "filter: \(result)"
-            }
-            NSPasteboard.general.declareTypes([.string], owner: nil)
-            NSPasteboard.general.setString(result, forType: .string)
-            print(result)
+//            let pong = userDefaults.invokeJSFunction(name: .hexToFilter)
+//            var result = pong?.toString() ?? ""
+//            if isPrefixWithFilter {
+//                result = "filter: \(result)"
+//            }
+//            NSPasteboard.general.declareTypes([.string], owner: nil)
+//            NSPasteboard.general.setString(result, forType: .string)
+//            print(result)
         } label: {
             Spacer()
             Text("Main.Copy_to_Pasteboard")
