@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct OptionView: View {
+    @AppStorage("currentColorFormat") var currentColorFormat: ColorFormat = .hex
     @AppStorage("isPrefixWithFilter") var isPrefixWithFilter: Bool = false
     @EnvironmentObject var userDefaults: UserDefaults
 
@@ -19,7 +20,16 @@ struct OptionView: View {
                 }
             }
             Spacer()
-            Button("Main.Re-convert") {}
+            Button("Main.Re-convert") {
+                switch currentColorFormat {
+                case .hex:
+                    userDefaults.hexToAny(hex: userDefaults.hex)
+                case .rgb:
+                    userDefaults.rgbToAny(rgb: userDefaults.rgb)
+                case .hsl:
+                    userDefaults.hslToAny(hsl: userDefaults.hsl)
+                }
+            }
             Button("Main.Clear") {
                 userDefaults.conventedContent = nil
             }

@@ -1,11 +1,13 @@
 import CssFilterConverter from "css-filter-converter";
 
-type HexToFilterParams = Parameters<typeof CssFilterConverter.hexToFilter>;
-type HexString = HexToFilterParams["0"];
+type Props = { hex: string };
 
-const hexToFilter = (hexString: HexString) => {
-  const result = CssFilterConverter.hexToFilter(hexString);
-  return result.color;
+const hexToFilter = (props: Props) => {
+  const { hex } = props;
+  const result = CssFilterConverter.hexToFilter(hex);
+  return {
+    filter: result.color,
+  };
 };
 
 export default hexToFilter;

@@ -66,18 +66,18 @@ struct ColorPickerView: View {
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.rgb) { rgb in
-                            if rgb[component.rawValue]! > 255 {
+                        .onChange(of: userDefaults.rgb) { target in
+                            if target[component.rawValue]! > 255 {
                                 userDefaults.rgb[component.rawValue] = 255
                             }
-                            if rgb[component.rawValue]! < 0 {
+                            if target[component.rawValue]! < 0 {
                                 userDefaults.rgb[component.rawValue] = 0
                             }
 
                             userDefaults.rgbToAny(rgb: [
-                                "r": rgb["r"]!,
-                                "g": rgb["g"]!,
-                                "b": rgb["b"]!
+                                "r": target["r"] ?? 0,
+                                "g": target["g"] ?? 0,
+                                "b": target["b"] ?? 0
                             ])
                         }
                         Text(component.rawValue.uppercased())
