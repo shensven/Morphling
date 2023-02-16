@@ -13,7 +13,6 @@ struct ActionView: View {
             if userDefaults.conventedContent != nil {
                 NSPasteboard.general.declareTypes([.string], owner: nil)
                 NSPasteboard.general.setString(result, forType: .string)
-                print(result)
             }
         } label: {
             Spacer()

@@ -15,8 +15,14 @@ enum JSFunctionName: String {
 
 class UserDefaults: ObservableObject {
     @Published var hex: String = "000000"
-    @Published var rgb: [String: CGFloat] = ["r": 0, "g": 0, "b": 0]
-    @Published var hsl: [String: CGFloat] = ["h": 0, "s": 0, "l": 0]
+
+    @Published var red: CGFloat = 0
+    @Published var green: CGFloat = 0
+    @Published var blue: CGFloat = 0
+
+    @Published var hue: CGFloat = 0
+    @Published var saturation: CGFloat = 0
+    @Published var lightness: CGFloat = 0
 
     @Published var conventedContent: String?
 }
@@ -49,10 +55,14 @@ extension UserDefaults {
         )
         let dictColorMatching = pongColorMatching?.toDictionary()
         if let rgb = dictColorMatching?["rgb"] as? [String: CGFloat] {
-            self.rgb = rgb
+            red = rgb["r"] ?? 0
+            green = rgb["g"] ?? 0
+            blue = rgb["b"] ?? 0
         }
         if let hsl = dictColorMatching?["hsl"] as? [String: CGFloat] {
-            self.hsl = hsl
+            hue = hsl["h"] ?? 0
+            saturation = hsl["s"] ?? 0
+            lightness = hsl["l"] ?? 0
         }
 
         let pongHexToFilter = invokeJSFunction(
@@ -65,26 +75,24 @@ extension UserDefaults {
         }
     }
 
-    func rgbToAny(rgb: [String: CGFloat]) {
+    func rgbToAny(rgb: [CGFloat]) {
         let pongColorMatching = invokeJSFunction(
             name: .colorMatching,
-            args: ["colorParam": rgb, "colorSpace": "rgb"]
+            args: ["colorParam": ["r": red, "g": green, "b": blue], "colorSpace": "rgb"]
         )
         let dict = pongColorMatching?.toDictionary()
         if let hexWithSharp = dict?["hex"] as? String {
             hex = hexWithSharp.dropFirst().uppercased()
         }
         if let hsl = dict?["hsl"] as? [String: CGFloat] {
-            self.hsl = hsl
+            hue = hsl["h"] ?? 0
+            saturation = hsl["s"] ?? 0
+            lightness = hsl["l"] ?? 0
         }
 
         let pongRgbToFilter = invokeJSFunction(
             name: .rgbToFilter,
-            args: [
-                "r": rgb["r"] ?? 0,
-                "g": rgb["g"] ?? 0,
-                "b": rgb["b"] ?? 0
-            ]
+            args: ["r": rgb[0], "g": rgb[1], "b": rgb[2]]
         )
         let dictRgbToFilter = pongRgbToFilter?.toDictionary()
         if let filter = dictRgbToFilter?["filter"] as? String {
@@ -92,10 +100,10 @@ extension UserDefaults {
         }
     }
 
-    func hslToAny(hsl: [String: CGFloat]) {
+    func hslToAny(hsl: [CGFloat]) {
         let pongColorMatching = invokeJSFunction(
             name: .colorMatching,
-            args: ["colorParam": hsl, "colorSpace": "hsl"]
+            args: ["colorParam": ["h": hue, "s": saturation, "l": lightness], "colorSpace": "hsl"]
         )
         let dict = pongColorMatching?.toDictionary()
 
@@ -104,16 +112,14 @@ extension UserDefaults {
         }
 
         if let rgb = dict?["rgb"] as? [String: CGFloat] {
-            self.rgb = rgb
+            red = rgb["r"] ?? 0
+            green = rgb["g"] ?? 0
+            blue = rgb["b"] ?? 0
         }
 
         let pongHslToFilter = invokeJSFunction(
             name: .hslToFilter,
-            args: [
-                "h": rgb["h"] ?? 0,
-                "s": rgb["s"] ?? 0,
-                "l": rgb["l"] ?? 0
-            ]
+            args: ["h": hsl[0], "s": hsl[1], "l": hsl[2]]
         )
         let dictHslToFilter = pongHslToFilter?.toDictionary()
         if let filter = dictHslToFilter?["filter"] as? String {

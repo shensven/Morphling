@@ -25,9 +25,9 @@ struct OptionView: View {
                 case .hex:
                     userDefaults.hexToAny(hex: userDefaults.hex)
                 case .rgb:
-                    userDefaults.rgbToAny(rgb: userDefaults.rgb)
+                    userDefaults.rgbToAny(rgb: [userDefaults.red, userDefaults.green, userDefaults.blue])
                 case .hsl:
-                    userDefaults.hslToAny(hsl: userDefaults.hsl)
+                    userDefaults.hslToAny(hsl: [userDefaults.hue, userDefaults.saturation, userDefaults.lightness])
                 }
             }
             Button("Main.Clear") {

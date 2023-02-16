@@ -1,28 +1,5 @@
 import SwiftUI
 
-enum RGB: String, CaseIterable {
-    case componentR = "r"
-    case componentG = "g"
-    case componentB = "b"
-}
-
-enum HSL: String, CaseIterable {
-    case componentH = "h"
-    case componentS = "s"
-    case componentL = "l"
-
-    var unit: String {
-        switch self {
-        case .componentH:
-            return "deg"
-        case .componentS:
-            return "%"
-        case .componentL:
-            return "%"
-        }
-    }
-}
-
 enum ColorFormat: String, CaseIterable {
     case hex = "Hex"
     case rgb = "RGB"
@@ -58,82 +35,146 @@ struct ColorPickerView: View {
             }
 
             if currentColorFormat == .rgb {
-                ForEach(RGB.allCases, id: \.self) { component in
-                    VStack(spacing: 2) {
-                        TextField(
-                            "",
-                            value: $userDefaults.rgb["\(component.rawValue)"],
-                            formatter: NumberFormatter()
-                        )
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.rgb) { target in
-                            if target[component.rawValue]! > 255 {
-                                userDefaults.rgb[component.rawValue] = 255
-                            }
-                            if target[component.rawValue]! < 0 {
-                                userDefaults.rgb[component.rawValue] = 0
-                            }
-
-                            userDefaults.rgbToAny(rgb: [
-                                "r": target["r"] ?? 0,
-                                "g": target["g"] ?? 0,
-                                "b": target["b"] ?? 0
-                            ])
+                VStack(spacing: 2) {
+                    TextField(
+                        "",
+                        value: $userDefaults.red,
+                        formatter: NumberFormatter()
+                    )
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: userDefaults.red) { target in
+                        if target > 255 {
+                            userDefaults.red = 255
+                        } else if target < 0 {
+                            userDefaults.red = 0
+                        } else {
+                            userDefaults.rgbToAny(rgb: [target, userDefaults.green, userDefaults.blue])
                         }
-                        Text(component.rawValue.uppercased())
-                            .font(.footnote)
-                            .foregroundColor(.primary.opacity(0.7))
-                            .tag(component)
                     }
+                    Text("r")
+                        .font(.footnote)
+                        .foregroundColor(.primary.opacity(0.7))
+                }
+                VStack(spacing: 2) {
+                    TextField(
+                        "",
+                        value: $userDefaults.green,
+                        formatter: NumberFormatter()
+                    )
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: userDefaults.green) { target in
+                        if target > 255 {
+                            userDefaults.green = 255
+                        } else if target < 0 {
+                            userDefaults.green = 0
+                        } else {
+                            userDefaults.rgbToAny(rgb: [userDefaults.red, target, userDefaults.blue])
+                        }
+                    }
+                    Text("g")
+                        .font(.footnote)
+                        .foregroundColor(.primary.opacity(0.7))
+                }
+                VStack(spacing: 2) {
+                    TextField(
+                        "",
+                        value: $userDefaults.blue,
+                        formatter: NumberFormatter()
+                    )
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onChange(of: userDefaults.blue) { target in
+                        if target > 255 {
+                            userDefaults.blue = 255
+                        } else if target < 0 {
+                            userDefaults.blue = 0
+                        } else {
+                            userDefaults.rgbToAny(rgb: [userDefaults.red, userDefaults.green, target])
+                        }
+                    }
+                    Text("b")
+                        .font(.footnote)
+                        .foregroundColor(.primary.opacity(0.7))
                 }
             }
 
             if currentColorFormat == .hsl {
-                ForEach(HSL.allCases, id: \.self) { component in
-                    VStack(spacing: 2) {
-                        ZStack(alignment: .trailing) {
-                            TextField(
-                                "",
-                                value: $userDefaults.hsl["\(component.rawValue)"],
-                                formatter: NumberFormatter()
-                            )
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .onChange(of: userDefaults.hsl) { hsl in
-                                if hsl["h"]! > 360 {
-                                    userDefaults.hsl["h"] = 360
-                                }
-                                if hsl["h"]! < 0 {
-                                    userDefaults.hsl["h"] = 0
-                                }
-                                if hsl["s"]! > 100 {
-                                    userDefaults.hsl["s"] = 100
-                                }
-                                if hsl["s"]! < 0 {
-                                    userDefaults.hsl["s"] = 0
-                                }
-                                if hsl["l"]! > 100 {
-                                    userDefaults.hsl["l"] = 100
-                                }
-                                if hsl["l"]! < 0 {
-                                    userDefaults.hsl["l"] = 0
-                                }
-
-                                userDefaults.hslToAny(hsl: [
-                                    "h": hsl["h"]!,
-                                    "s": hsl["s"]!,
-                                    "l": hsl["l"]!
-                                ])
+                VStack(spacing: 2) {
+                    ZStack(alignment: .trailing) {
+                        TextField(
+                            "",
+                            value: $userDefaults.hue,
+                            formatter: NumberFormatter()
+                        )
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: userDefaults.hue) { target in
+                            if target > 360 {
+                                userDefaults.hue = 360
+                            } else if target < 0 {
+                                userDefaults.hue = 0
+                            } else {
+                                userDefaults.hslToAny(hsl: [target, userDefaults.saturation, userDefaults.lightness])
                             }
-                            Text(component.unit)
-                                .font(.footnote)
-                                .foregroundColor(.primary.opacity(0.5))
-                                .padding(.trailing, 4)
                         }
-                        Text(component.rawValue.uppercased())
+                        Text("deg")
                             .font(.footnote)
-                            .foregroundColor(.primary.opacity(0.7))
-                            .tag(component)
+                            .foregroundColor(.primary.opacity(0.5))
+                            .padding(.trailing, 4)
                     }
+                    Text("h")
+                        .font(.footnote)
+                        .foregroundColor(.primary.opacity(0.7))
+                }
+                VStack(spacing: 2) {
+                    ZStack(alignment: .trailing) {
+                        TextField(
+                            "",
+                            value: $userDefaults.saturation,
+                            formatter: NumberFormatter()
+                        )
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: userDefaults.saturation) { target in
+                            if target > 100 {
+                                userDefaults.saturation = 100
+                            } else if target < 0 {
+                                userDefaults.saturation = 0
+                            } else {
+                                userDefaults.hslToAny(hsl: [userDefaults.hue, target, userDefaults.lightness])
+                            }
+                        }
+                        Text("%")
+                            .font(.footnote)
+                            .foregroundColor(.primary.opacity(0.5))
+                            .padding(.trailing, 4)
+                    }
+                    Text("s")
+                        .font(.footnote)
+                        .foregroundColor(.primary.opacity(0.7))
+                }
+                VStack(spacing: 2) {
+                    ZStack(alignment: .trailing) {
+                        TextField(
+                            "",
+                            value: $userDefaults.lightness,
+                            formatter: NumberFormatter()
+                        )
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .onChange(of: userDefaults.lightness) { target in
+                            if target > 100 {
+                                userDefaults.lightness = 100
+                            } else if target < 0 {
+                                userDefaults.lightness = 0
+                            } else {
+                                userDefaults.hslToAny(hsl: [userDefaults.hue, userDefaults.saturation, target])
+                            }
+                        }
+                        Text("%")
+                            .font(.footnote)
+                            .foregroundColor(.primary.opacity(0.5))
+                            .padding(.trailing, 4)
+                    }
+                    Text("l")
+                        .font(.footnote)
+                        .foregroundColor(.primary.opacity(0.7))
                 }
             }
 
