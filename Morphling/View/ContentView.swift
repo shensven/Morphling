@@ -6,10 +6,10 @@ struct ContentView: View {
     func toggleWindowLevel() {
         if windowLevel == .normal {
             windowLevel = .floating
-            NSApplication.shared.windows.forEach { $0.level = .floating }
+            NSApplication.shared.windows.first?.level = .floating
         } else {
             windowLevel = .normal
-            NSApplication.shared.windows.forEach { $0.level = .normal }
+            NSApplication.shared.windows.first?.level = .normal
         }
     }
 
