@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var windowLevel: NSWindow.Level = .normal
+    @AppStorage("windowLevel") var windowLevel: NSWindow.Level = .normal
 
     func toggleWindowLevel() {
         if windowLevel == .normal {
@@ -29,6 +29,11 @@ struct ContentView: View {
                     systemName: windowLevel == .floating ? "pin.fill" : "pin"
                 )
                 .foregroundColor(windowLevel == .floating ? Color.accentColor : Color.primary)
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                NSApplication.shared.windows.first?.level = windowLevel
             }
         }
     }
