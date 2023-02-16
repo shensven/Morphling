@@ -8,6 +8,8 @@
 
 ## 👍 CREDITS
 
-- [CSS Filter Converter - A very simple tool used to convert basic css color formats to and from css filter](https://github.com/electron-react-boilerplate/electron-react-boilerplate)
-- [LaunchAtLogin-Modern - Add “Launch at Login” functionality to your macOS app in seconds](https://github.com/sindresorhus/LaunchAtLogin-Modern)
-- [3dicons - Open source 3D icon library](https://3dicons.co/)
+- [color](https://github.com/Qix-/color)
+- [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)
+- [LaunchAtLogin-Modern](https://github.com/sindresorhus/LaunchAtLogin-Modern)
+- [Remix Icon](https://github.com/Remix-Design/RemixIcon)
+- [3dicons](https://3dicons.co/)
