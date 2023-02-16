@@ -1,11 +1,6 @@
 import Foundation
 import JavaScriptCore
 
-enum OriginalColor {
-    case hexColor
-    case rgbColor
-}
-
 enum JSFunctionName: String {
     case colorMatching
     case hexToFilter
