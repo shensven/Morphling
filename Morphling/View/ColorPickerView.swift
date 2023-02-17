@@ -1,3 +1,4 @@
+import Combine
 import SwiftUI
 
 enum ColorFormat: String, CaseIterable {
@@ -10,8 +11,26 @@ struct ColorPickerView: View {
     @AppStorage("currentColorFormat") var currentColorFormat: ColorFormat = .hex
     @EnvironmentObject var userDefaults: UserDefaults
 
+    private var subcriber: AnyCancellable?
+
     var body: some View {
         HStack {
+            VStack(spacing: 2) {
+                ColorPicker(selection: $userDefaults.colorPicker) {
+                    EmptyView()
+                }
+                .onReceive(
+                    userDefaults.$colorPicker
+                        .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+                ) { debouncedTarget in
+                    userDefaults.colorPickerToAny(color: debouncedTarget)
+                }
+
+                Text("Preview")
+                    .font(.footnote)
+                    .hidden()
+            }
+
             if currentColorFormat == .hex {
                 VStack(spacing: 2) {
                     ZStack(alignment: .leading) {

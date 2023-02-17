@@ -1,5 +1,6 @@
 import Foundation
 import JavaScriptCore
+import SwiftUI
 
 enum JSFunctionName: String {
     case colorMatching
@@ -9,6 +10,8 @@ enum JSFunctionName: String {
 }
 
 class UserDefaults: ObservableObject {
+    @Published var colorPicker = Color(.sRGB, red: 0, green: 0, blue: 0)
+
     @Published var hex: String = "000000"
 
     @Published var red: CGFloat = 0
@@ -53,6 +56,7 @@ extension UserDefaults {
             red = rgb["r"] ?? 0
             green = rgb["g"] ?? 0
             blue = rgb["b"] ?? 0
+            colorPicker = Color(.sRGB, red: red / 255, green: green / 255, blue: blue / 255)
         }
         if let hsl = dictColorMatching?["hsl"] as? [String: CGFloat] {
             hue = hsl["h"] ?? 0
@@ -71,6 +75,8 @@ extension UserDefaults {
     }
 
     func rgbToAny(rgb: [CGFloat]) {
+        colorPicker = Color(.sRGB, red: rgb[0] / 255, green: rgb[1] / 255, blue: rgb[2] / 255)
+
         let pongColorMatching = invokeJSFunction(
             name: .colorMatching,
             args: ["colorParam": ["r": red, "g": green, "b": blue], "colorSpace": "rgb"]
@@ -110,6 +116,7 @@ extension UserDefaults {
             red = rgb["r"] ?? 0
             green = rgb["g"] ?? 0
             blue = rgb["b"] ?? 0
+            colorPicker = Color(.sRGB, red: red / 255, green: green / 255, blue: blue / 255)
         }
 
         let pongHslToFilter = invokeJSFunction(
@@ -118,6 +125,42 @@ extension UserDefaults {
         )
         let dictHslToFilter = pongHslToFilter?.toDictionary()
         if let filter = dictHslToFilter?["filter"] as? String {
+            conventedContent = filter
+        }
+    }
+
+    func colorPickerToAny(color: Color) {
+        let redComponent = (NSColor(color).redComponent) * 255
+        let greenComponent = (NSColor(color).greenComponent) * 255
+        let blueComponent = (NSColor(color).blueComponent) * 255
+
+        red = redComponent
+        green = greenComponent
+        blue = blueComponent
+
+        let pongColorMatching = invokeJSFunction(
+            name: .colorMatching,
+            args: ["colorParam": ["r": redComponent, "g": greenComponent, "b": blueComponent], "colorSpace": "rgb"]
+        )
+        let dict = pongColorMatching?.toDictionary()
+
+        if let hexWithSharp = dict?["hex"] as? String {
+            hex = hexWithSharp.dropFirst().uppercased()
+        }
+
+        if let hsl = dict?["hsl"] as? [String: CGFloat] {
+            hue = hsl["h"] ?? 0
+            saturation = hsl["s"] ?? 0
+            lightness = hsl["l"] ?? 0
+        }
+
+        let pongRgbToFilter = invokeJSFunction(
+            name: .rgbToFilter,
+            args: ["r": redComponent, "g": greenComponent, "b": blueComponent]
+        )
+        let dictRgbToFilter = pongRgbToFilter?.toDictionary()
+
+        if let filter = dictRgbToFilter?["filter"] as? String {
             conventedContent = filter
         }
     }
