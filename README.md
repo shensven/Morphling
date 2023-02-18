@@ -6,6 +6,12 @@
 
 🎨 Convert to `css filter` be like using `Hex`, `RGB` or `HSL`
 
+<img src="./Resources/screenshot/Preview.png" style="width: 464px"/>
+
+## 📦 Distribution
+
+not release yet
+
 ## 👍 CREDITS
 
 - [color](https://github.com/Qix-/color)
