@@ -6,9 +6,7 @@
 
 [English](./README.md) | 简体中文
 
-🎨 转换到 `CSS filter`，就像在使用 `Hex`、`RGB`、`HSL` 一样
-
-<img src="./Resources/screenshot/preview-zh-hans.png" style="width: 464px"/>
+![Preview](./Resources/PressKit/Preview-zh-hans-1.jpg)
 
 ## 📦 分发方式
 

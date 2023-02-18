@@ -6,9 +6,7 @@
 
 English | [简体中文](./README-zh-hans.md)
 
-🎨 Convert to `CSS filter` be like using `Hex`, `RGB` or `HSL`
-
-<img src="./Resources/screenshot/preview-en.png" style="width: 464px"/>
+![Preview](./Resources/PressKit/Preview-en-1.jpg)
 
 ## 📦 Distribution
 
