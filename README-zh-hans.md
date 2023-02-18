@@ -4,17 +4,17 @@
 [![Distribution](https://github.com/shensven/Morphling/actions/workflows/distribution.yml/badge.svg?branch=main)](https://github.com/shensven/Morphling/actions/workflows/distribution.yml)
 [![Crowdin](https://badges.crowdin.net/morphling/localized.svg)](https://crowdin.com/project/morphling)
 
-English | [简体中文](./README-zh-hans.md)
+[English](./README.md) | 简体中文
 
-🎨 Convert to `CSS filter` be like using `Hex`, `RGB` or `HSL`
+🎨 转换到 `CSS filter`，就像在使用 `Hex`、`RGB`、`HSL` 一样
 
-<img src="./Resources/screenshot/preview-en.png" style="width: 464px"/>
+<img src="./Resources/screenshot/preview-zh-hans.png" style="width: 464px"/>
 
-## 📦 Distribution
+## 📦 分发方式
 
-[![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)
+[![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_CNSC_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)
 
-## 👍 CREDITS
+## 👍 致谢
 
 - [color](https://github.com/Qix-/color)
 - [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)
