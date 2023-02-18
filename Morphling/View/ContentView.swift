@@ -31,11 +31,6 @@ struct ContentView: View {
                 .foregroundColor(windowLevel == .floating ? Color.accentColor : Color.primary)
             }
         }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                NSApplication.shared.windows.first?.level = windowLevel
-            }
-        }
     }
 }
 
