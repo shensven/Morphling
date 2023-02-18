@@ -8,6 +8,13 @@
 
 ![Preview](./Resources/PressKit/Preview-zh-hans-1.jpg)
 
+## ✨ 特性
+
+- [x] 免费且开源
+- [x] 通过 JavaScriptCore 使用 npm 包
+- [x] 暗黑模式
+- [x] 多语言
+
 ## 📦 分发方式
 
 [![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_CNSC_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)

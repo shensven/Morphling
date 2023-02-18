@@ -8,7 +8,14 @@ English | [简体中文](./README-zh-hans.md)
 
 ![Preview](./Resources/PressKit/Preview-en-1.jpg)
 
-## 📦 Distribution
+## ✨ FEATURES
+
+- [x] free and open source
+- [x] using npm packages via JavaScriptCore
+- [x] dark mode
+- [x] multiple languages
+
+## 📦 DISTRIBUTION
 
 [![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)
 
