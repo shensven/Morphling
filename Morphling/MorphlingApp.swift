@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct MorphlingApp: App {
     @AppStorage("windowLevel") var windowLevel: NSWindow.Level = .normal
+    @AppStorage("selectedAppearance") var selectedAppearance = 0
     @AppStorage("currentColorFormat") var currentColorFormat: ColorFormat = .hex
 
     let userDefaults = UserDefaults()
@@ -20,6 +21,7 @@ struct MorphlingApp: App {
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         NSApplication.shared.windows.first?.level = windowLevel
+                        GeneralView.setAppearance(index: selectedAppearance)
                     }
                     switch currentColorFormat {
                     case .hex:
