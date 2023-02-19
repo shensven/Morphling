@@ -7,6 +7,12 @@
 
 English | [简体中文](./README-zh-hans.md)
 
+The reason for this is that when changing the color of a monochrome svg icon in a front-end project, different developers' icon packages may not get the desired color after adding the CSS attribute `fill` or `color`, but using the CSS `filter` attribute can force the change.
+
+Thanks to the [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)  project, which provides a JavaScript implementation of the algorithm.
+
+I only brought his web implementation to the macOS desktop as a native SwiftUI.
+
 ![Preview](./Resources/PressKit/Preview-en-1.jpg)
 
 ## ✨ FEATURES
