@@ -18,6 +18,7 @@
 		0690C0882994053900D098ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0690C0872994053900D098ED /* Localizable.strings */; };
 		0690C08C299405A100D098ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0690C08B299405A100D098ED /* Localizable.strings */; };
 		06BF6564298A64AE00BCC25B /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF6563298A64AE00BCC25B /* UserDefaults.swift */; };
+		06C011E429A26C3100197EFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C011E329A26C3100197EFF /* Localizable.strings */; };
 		06CCB69A298D6C8C009B0F9B /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB699298D6C8C009B0F9B /* converter.js */; };
 		06CCB6A3298FB194009B0F9B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A2298FB194009B0F9B /* .gitignore */; };
 		06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A4299002A4009B0F9B /* Credits.rtf */; };
@@ -43,6 +44,7 @@
 		0690C0872994053900D098ED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0690C08B299405A100D098ED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		06BF6563298A64AE00BCC25B /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		06C011E329A26C3100197EFF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = converter/dist/converter.js; sourceTree = "<group>"; };
 		06CCB6A2298FB194009B0F9B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				0690C0892994055200D098ED /* zh-Hans.lproj */,
 				0690C08D299405AF00D098ED /* en.lproj */,
+				06C011E529A26C3400197EFF /* ja.lproj */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -161,6 +164,14 @@
 				06BF6563298A64AE00BCC25B /* UserDefaults.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		06C011E529A26C3400197EFF /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				06C011E329A26C3100197EFF /* Localizable.strings */,
+			);
+			path = ja.lproj;
 			sourceTree = "<group>";
 		};
 		06CCB6A1298FB179009B0F9B /* MISC */ = {
@@ -218,7 +229,8 @@
 			knownRegions = (
 				en,
 				Base,
-				"zh-Hant",
+				"zh-Hans",
+				ja,
 			);
 			mainGroup = 062165F529869D1A004512C0;
 			packageReferences = (
@@ -243,6 +255,7 @@
 				06CCB6AB29901DB2009B0F9B /* ExportOptions.plist in Resources */,
 				06CCB6A3298FB194009B0F9B /* .gitignore in Resources */,
 				0690C08C299405A100D098ED /* Localizable.strings in Resources */,
+				06C011E429A26C3100197EFF /* Localizable.strings in Resources */,
 				0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */,
 				0690C0882994053900D098ED /* Localizable.strings in Resources */,
 				06CCB69A298D6C8C009B0F9B /* converter.js in Resources */,
