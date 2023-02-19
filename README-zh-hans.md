@@ -26,6 +26,10 @@
 
 [![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_CNSC_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)
 
+如果不能正常下载，那就是 Apple 还在审核，你可以从 TestFlight 先行体验。
+
+https://testflight.apple.com/join/1QM2WgE2
+
 ## 👍 致谢
 
 - [color](https://github.com/Qix-/color)
