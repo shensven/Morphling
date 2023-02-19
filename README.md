@@ -1,5 +1,6 @@
 # Morphling
 
+[![GitHub](https://img.shields.io/github/license/shensven/Morphling)](./LICENSE)
 [![SwiftLint](https://github.com/shensven/Morphling/actions/workflows/swiftlint.yml/badge.svg?branch=dev)](https://github.com/shensven/Morphling/actions/workflows/swiftlint.yml)
 [![Distribution](https://github.com/shensven/Morphling/actions/workflows/distribution.yml/badge.svg?branch=main)](https://github.com/shensven/Morphling/actions/workflows/distribution.yml)
 [![Crowdin](https://badges.crowdin.net/morphling/localized.svg)](https://crowdin.com/project/morphling)
@@ -26,3 +27,7 @@ English | [简体中文](./README-zh-hans.md)
 - [LaunchAtLogin-Modern](https://github.com/sindresorhus/LaunchAtLogin-Modern)
 - [Remix Icon](https://github.com/Remix-Design/RemixIcon)
 - [3dicons](https://3dicons.co/)
+
+## 📜 LICENSE
+
+MIT License - Copyright (c) 2023 SvenFE
