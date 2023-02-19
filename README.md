@@ -32,11 +32,17 @@ https://testflight.apple.com/join/1QM2WgE2
 
 ## 👍 CREDITS
 
+### Dependence
+
 - [color](https://github.com/Qix-/color)
 - [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)
 - [LaunchAtLogin-Modern](https://github.com/sindresorhus/LaunchAtLogin-Modern)
 - [Remix Icon](https://github.com/Remix-Design/RemixIcon)
 - [3dicons](https://3dicons.co/)
+
+### Localization
+
+ - 日本語 - [@kum4423](https://github.com/kum4423)
 
 ## 📜 LICENSE
 
