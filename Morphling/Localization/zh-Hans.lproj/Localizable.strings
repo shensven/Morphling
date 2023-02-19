@@ -14,7 +14,7 @@
 "General.Dark" = "深色";
 "General.Language" = "语言：";
 "General.Open_System_Settings" = "打开 “系统设置”";
-"General.Applacation" = "应用程序：";
+"General.Application" = "应用程序：";
 "General.Launch_at_Login" = "登录时启动";
 
 // About

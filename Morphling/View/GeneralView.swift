@@ -35,7 +35,7 @@ struct GeneralView: View {
                 }
             }
 
-            LabeledContent("General.Applacation") {
+            LabeledContent("General.Application") {
                 LaunchAtLogin.Toggle {
                     Text("General.Launch_at_Login")
                 }

@@ -14,7 +14,7 @@
 "General.Dark" = "ダーク";
 "General.Language" = "言語";
 "General.Open_System_Settings" = "”システム設定”を開く";
-"General.Applacation" = "アプリケーション";
+"General.Application" = "アプリケーション";
 "General.Launch_at_Login" = "ログイン時に起動";
 
 // About
