@@ -1,10 +1,6 @@
 import Foundation
 import JavaScriptCore
-
-enum OriginalColor {
-    case hexColor
-    case rgbColor
-}
+import SwiftUI
 
 enum JSFunctionName: String {
     case colorMatching

@@ -81,12 +81,28 @@ struct AboutView: View {
                             .foregroundColor(.accentColor)
                             .frame(width: 16, height: 16)
                             .help("Mac App Store")
+                            .onTapGesture {
+                                guard let writeReviewURL = URL(string:
+                                    "https://apps.apple.com/app/id1669993843?action=write-review"
+                                ) else {
+                                    return
+                                }
+                                NSWorkspace.shared.open(writeReviewURL)
+                            }
                         Image("RiProductHuntFill")
                             .resizable()
                             .renderingMode(.template)
                             .foregroundColor(.accentColor)
                             .frame(width: 16, height: 16)
                             .help("Product Hunt")
+                            .onTapGesture {
+                                guard let writeReviewURL = URL(string:
+                                    "https://www.producthunt.com/posts/morphling"
+                                ) else {
+                                    return
+                                }
+                                NSWorkspace.shared.open(writeReviewURL)
+                            }
                     }
 
                     HStack {

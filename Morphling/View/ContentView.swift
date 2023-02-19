@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var windowLevel: NSWindow.Level = .normal
+    @AppStorage("windowLevel") var windowLevel: NSWindow.Level = .normal
 
     func toggleWindowLevel() {
         if windowLevel == .normal {
             windowLevel = .floating
-            NSApplication.shared.windows.forEach { $0.level = .floating }
+            NSApplication.shared.windows.first?.level = .floating
         } else {
             windowLevel = .normal
-            NSApplication.shared.windows.forEach { $0.level = .normal }
+            NSApplication.shared.windows.first?.level = .normal
         }
     }
 
