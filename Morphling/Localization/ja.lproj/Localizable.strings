@@ -1,1 +1,26 @@
+"Main.Prefix_with" = "接頭辞：";
+"Main.Re-convert" = "再変換";
+"Main.Clear" = "クリア";
+"Main.Copy_to_Pasteboard" = "クリップボードにコピーする";
 
+// Settings
+"Settings.General" = "一般";
+"Settings.About" = "概要";
+
+// General
+"General.Appearance" = "外観";
+"General.Automatic" = "自動";
+"General.Light" = "ライト";
+"General.Dark" = "ダーク";
+"General.Language" = "言語";
+"General.Open_System_Settings" = "”システム設定”を開く";
+"General.Applacation" = "アプリケーション";
+"General.Launch_at_Login" = "ログイン時に起動";
+
+// About
+"About.Developer" = "開発者";
+"About.Weibo" = "Weibo";
+"About.Give_a_Good_Review" = "良い評価をする";
+"About.Source_Code" = "ソースコード";
+"About.GitHub_Repository" = "GitHubリポジトリ";
+"About.Improve_Translation" = "翻訳を改善";
