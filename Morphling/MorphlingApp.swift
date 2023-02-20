@@ -1,7 +1,15 @@
 import SwiftUI
 
+class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
+}
+
 @main
 struct MorphlingApp: App {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     @AppStorage("windowLevel") var windowLevel: NSWindow.Level = .normal
     @AppStorage("selectedAppearance") var selectedAppearance = 0
     @AppStorage("currentColorFormat") var currentColorFormat: ColorFormat = .hex
@@ -37,6 +45,7 @@ struct MorphlingApp: App {
         .commands {
             CommandGroup(replacing: .newItem, addition: {})
         }
+
         Settings {
             SettingsView()
         }
