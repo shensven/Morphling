@@ -26,10 +26,6 @@ I only brought his web implementation to the macOS desktop as a native SwiftUI.
 
 [![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)
 
-If the download is not available, Apple is still reviewing it and you can try it first from TestFlight.
-
-https://testflight.apple.com/join/1QM2WgE2
-
 ## 👍 CREDITS
 
 ### Dependence
@@ -42,7 +38,7 @@ https://testflight.apple.com/join/1QM2WgE2
 
 ### Localization
 
- - 日本語 - [@kum4423](https://github.com/kum4423)
+- 日本語 - [@kum4423](https://github.com/kum4423)
 
 ## 📜 LICENSE
 
