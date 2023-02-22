@@ -67,9 +67,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		060FFCB729A67B9E00434409 /* MISC */ = {
+			isa = PBXGroup;
+			children = (
+				06CCB6A629900631009B0F9B /* .github */,
+				06CCB6A2298FB194009B0F9B /* .gitignore */,
+			);
+			name = MISC;
+			sourceTree = "<group>";
+		};
 		062165F529869D1A004512C0 = {
 			isa = PBXGroup;
 			children = (
+				060FFCB729A67B9E00434409 /* MISC */,
 				0621660029869D1A004512C0 /* Morphling */,
 				062165FF29869D1A004512C0 /* Products */,
 			);
@@ -86,7 +96,6 @@
 		0621660029869D1A004512C0 /* Morphling */ = {
 			isa = PBXGroup;
 			children = (
-				06CCB6A1298FB179009B0F9B /* MISC */,
 				062166122986A0D7004512C0 /* External */,
 				0690C08A2994056500D098ED /* Localization */,
 				06BF6565298A64B800BCC25B /* ViewModel */,
@@ -172,15 +181,6 @@
 				06C011E329A26C3100197EFF /* Localizable.strings */,
 			);
 			path = ja.lproj;
-			sourceTree = "<group>";
-		};
-		06CCB6A1298FB179009B0F9B /* MISC */ = {
-			isa = PBXGroup;
-			children = (
-				06CCB6A629900631009B0F9B /* .github */,
-				06CCB6A2298FB194009B0F9B /* .gitignore */,
-			);
-			name = MISC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
