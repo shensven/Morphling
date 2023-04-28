@@ -3,15 +3,17 @@
 "Main.Clear" = "清除";
 "Main.Copy_to_Pasteboard" = "拷贝至剪贴板";
 
+// Appearance
+"Appearance.Automatic" = "Automatic";
+"Appearance.Light" = "Light";
+"Appearance.Dark" = "Dark";
+
 // Settings
 "Settings.General" = "通用";
 "Settings.About" = "关于";
 
 // General
 "General.Appearance" = "外观：";
-"General.Automatic" = "跟随系统";
-"General.Light" = "浅色";
-"General.Dark" = "深色";
 "General.Language" = "语言：";
 "General.Open_System_Settings" = "打开 “系统设置”";
 "General.Application" = "应用程序：";
