@@ -3,15 +3,17 @@
 "Main.Clear" = "クリア";
 "Main.Copy_to_Pasteboard" = "クリップボードにコピーする";
 
+// Appearance
+"Appearance.Automatic" = "Automatic";
+"Appearance.Light" = "Light";
+"Appearance.Dark" = "Dark";
+
 // Settings
 "Settings.General" = "一般";
 "Settings.About" = "概要";
 
 // General
 "General.Appearance" = "外観";
-"General.Automatic" = "自動";
-"General.Light" = "ライト";
-"General.Dark" = "ダーク";
 "General.Language" = "言語";
 "General.Open_System_Settings" = "”システム設定”を開く";
 "General.Application" = "アプリケーション";
