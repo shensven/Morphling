@@ -2,28 +2,19 @@ import LaunchAtLogin
 import SwiftUI
 
 struct GeneralView: View {
-    @AppStorage("selectedAppearance") var selectedAppearance = 0
-
-    var appearance = ["General.Automatic", "General.Light", "General.Dark"]
-
-    static func setAppearance(index: Int) {
-        switch index {
-        case 0: NSApp.appearance = nil
-        case 1: NSApp.appearance = NSAppearance(named: .aqua)
-        case 2: NSApp.appearance = NSAppearance(named: .darkAqua)
-        default: NSApp.appearance = nil
-        }
-    }
+    @EnvironmentObject var storage: Storage
+    @EnvironmentObject var appearance: Appearance
 
     var body: some View {
         Form {
-            Picker("General.Appearance", selection: $selectedAppearance) {
-                ForEach(0 ..< appearance.count, id: \.self) {
-                    Text(NSLocalizedString(self.appearance[$0], comment: ""))
+            Picker("General.Appearance", selection: $appearance.friendlyName) {
+                ForEach(AppearanceFriendly.allCases, id: \.self) { friendlyName in
+                    Text(friendlyName.localizedString).tag(friendlyName)
                 }
             }
-            .onChange(of: selectedAppearance) { index in
-                GeneralView.setAppearance(index: index)
+            .onChange(of: appearance.friendlyName) { friendlyName in
+                appearance.setFriendly(name: friendlyName)
+                storage.appearance = friendlyName
             }
 
             LabeledContent("General.Language") {

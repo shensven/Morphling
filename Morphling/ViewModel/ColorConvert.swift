@@ -9,7 +9,7 @@ enum JSFunctionName: String {
     case hslToFilter
 }
 
-class UserDefaults: ObservableObject {
+class ColorConvert: ObservableObject {
     @Published var hex: String = "000000"
 
     @Published var red: CGFloat = 0
@@ -23,7 +23,7 @@ class UserDefaults: ObservableObject {
     @Published var conventedContent: String?
 }
 
-extension UserDefaults {
+extension ColorConvert {
     func invokeJSFunction(name: JSFunctionName, args: [String: Any]) -> JSValue? {
         let path = Bundle.main.path(forResource: "converter", ofType: "js")!
 

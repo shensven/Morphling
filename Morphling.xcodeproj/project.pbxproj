@@ -17,7 +17,9 @@
 		0621661E29872593004512C0 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621661D29872593004512C0 /* OptionView.swift */; };
 		0690C0882994053900D098ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0690C0872994053900D098ED /* Localizable.strings */; };
 		0690C08C299405A100D098ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0690C08B299405A100D098ED /* Localizable.strings */; };
-		06BF6564298A64AE00BCC25B /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF6563298A64AE00BCC25B /* UserDefaults.swift */; };
+		06B93B7229FC3D2B00903DBF /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B93B7129FC3D2B00903DBF /* Appearance.swift */; };
+		06B93B7429FC3D9A00903DBF /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B93B7329FC3D9A00903DBF /* AppStorage.swift */; };
+		06BF6564298A64AE00BCC25B /* ColorConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF6563298A64AE00BCC25B /* ColorConvert.swift */; };
 		06C011E429A26C3100197EFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C011E329A26C3100197EFF /* Localizable.strings */; };
 		06CCB69A298D6C8C009B0F9B /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB699298D6C8C009B0F9B /* converter.js */; };
 		06CCB6A3298FB194009B0F9B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A2298FB194009B0F9B /* .gitignore */; };
@@ -43,7 +45,9 @@
 		0621661D29872593004512C0 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		0690C0872994053900D098ED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0690C08B299405A100D098ED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		06BF6563298A64AE00BCC25B /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		06B93B7129FC3D2B00903DBF /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		06B93B7329FC3D9A00903DBF /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
+		06BF6563298A64AE00BCC25B /* ColorConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConvert.swift; sourceTree = "<group>"; };
 		06C011E329A26C3100197EFF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = converter/dist/converter.js; sourceTree = "<group>"; };
 		06CCB6A2298FB194009B0F9B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
@@ -170,7 +174,9 @@
 		06BF6565298A64B800BCC25B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				06BF6563298A64AE00BCC25B /* UserDefaults.swift */,
+				06B93B7329FC3D9A00903DBF /* AppStorage.swift */,
+				06B93B7129FC3D2B00903DBF /* Appearance.swift */,
+				06BF6563298A64AE00BCC25B /* ColorConvert.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -293,12 +299,14 @@
 			files = (
 				062166192986D7F7004512C0 /* ActionView.swift in Sources */,
 				06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */,
-				06BF6564298A64AE00BCC25B /* UserDefaults.swift in Sources */,
+				06BF6564298A64AE00BCC25B /* ColorConvert.swift in Sources */,
 				0621661E29872593004512C0 /* OptionView.swift in Sources */,
 				06CCB6B12992A204009B0F9B /* AboutView.swift in Sources */,
 				0621660429869D1A004512C0 /* ContentView.swift in Sources */,
 				062166152986CD63004512C0 /* ColorPickerView.swift in Sources */,
+				06B93B7229FC3D2B00903DBF /* Appearance.swift in Sources */,
 				06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */,
+				06B93B7429FC3D9A00903DBF /* AppStorage.swift in Sources */,
 				0621660229869D1A004512C0 /* MorphlingApp.swift in Sources */,
 				062166172986CE0F004512C0 /* ResultView.swift in Sources */,
 			);

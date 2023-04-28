@@ -1,13 +1,12 @@
 import SwiftUI
 
 struct OptionView: View {
-    @AppStorage("currentColorFormat") var currentColorFormat: ColorFormat = .hex
-    @AppStorage("isPrefixWithFilter") var isPrefixWithFilter: Bool = false
-    @EnvironmentObject var userDefaults: UserDefaults
+    @EnvironmentObject var storage: Storage
+    @EnvironmentObject var colorConvert: ColorConvert
 
     var body: some View {
         HStack {
-            Toggle(isOn: $isPrefixWithFilter) {
+            Toggle(isOn: $storage.isPrefixWithFilter) {
                 HStack(spacing: 2) {
                     Text("Main.Prefix_with")
                     Text("filter:")
@@ -21,17 +20,17 @@ struct OptionView: View {
             }
             Spacer()
             Button("Main.Re-convert") {
-                switch currentColorFormat {
+                switch storage.currentColorFormat {
                 case .hex:
-                    userDefaults.hexToAny(hex: userDefaults.hex)
+                    colorConvert.hexToAny(hex: colorConvert.hex)
                 case .rgb:
-                    userDefaults.rgbToAny(rgb: [userDefaults.red, userDefaults.green, userDefaults.blue])
+                    colorConvert.rgbToAny(rgb: [colorConvert.red, colorConvert.green, colorConvert.blue])
                 case .hsl:
-                    userDefaults.hslToAny(hsl: [userDefaults.hue, userDefaults.saturation, userDefaults.lightness])
+                    colorConvert.hslToAny(hsl: [colorConvert.hue, colorConvert.saturation, colorConvert.lightness])
                 }
             }
             Button("Main.Clear") {
-                userDefaults.conventedContent = nil
+                colorConvert.conventedContent = nil
             }
         }
     }

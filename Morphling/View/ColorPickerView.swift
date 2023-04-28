@@ -7,8 +7,8 @@ enum ColorFormat: String, CaseIterable {
 }
 
 struct ColorPickerView: View {
-    @AppStorage("currentColorFormat") var currentColorFormat: ColorFormat = .hex
-    @EnvironmentObject var userDefaults: UserDefaults
+    @EnvironmentObject var storage: Storage
+    @EnvironmentObject var colorConvert: ColorConvert
 
     var body: some View {
         HStack {
@@ -18,9 +18,9 @@ struct ColorPickerView: View {
                         .stroke(Color.gray, lineWidth: 1)
                     Color(
                         .sRGB,
-                        red: userDefaults.red / 255,
-                        green: userDefaults.green / 255,
-                        blue: userDefaults.blue / 255
+                        red: colorConvert.red / 255,
+                        green: colorConvert.green / 255,
+                        blue: colorConvert.blue / 255
                     ).clipShape(RoundedRectangle(cornerRadius: 4))
                 }.frame(width: 18, height: 18)
 
@@ -29,16 +29,16 @@ struct ColorPickerView: View {
                     .hidden()
             }
 
-            if currentColorFormat == .hex {
+            if storage.currentColorFormat == .hex {
                 VStack(spacing: 2) {
                     ZStack(alignment: .leading) {
-                        TextField("", text: $userDefaults.hex)
+                        TextField("", text: $colorConvert.hex)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .onChange(of: userDefaults.hex) { target in
+                            .onChange(of: colorConvert.hex) { target in
                                 if target.count > 6 {
-                                    userDefaults.hex = "FFFFFF"
+                                    colorConvert.hex = "FFFFFF"
                                 }
-                                userDefaults.hexToAny(hex: target)
+                                colorConvert.hexToAny(hex: target)
                             }
                         Text("#")
                             .font(.footnote)
@@ -51,21 +51,21 @@ struct ColorPickerView: View {
                 }
             }
 
-            if currentColorFormat == .rgb {
+            if storage.currentColorFormat == .rgb {
                 VStack(spacing: 2) {
                     TextField(
                         "",
-                        value: $userDefaults.red,
+                        value: $colorConvert.red,
                         formatter: NumberFormatter()
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: userDefaults.red) { target in
+                    .onChange(of: colorConvert.red) { target in
                         if target > 255 {
-                            userDefaults.red = 255
+                            colorConvert.red = 255
                         } else if target < 0 {
-                            userDefaults.red = 0
+                            colorConvert.red = 0
                         } else {
-                            userDefaults.rgbToAny(rgb: [target, userDefaults.green, userDefaults.blue])
+                            colorConvert.rgbToAny(rgb: [target, colorConvert.green, colorConvert.blue])
                         }
                     }
                     Text("r")
@@ -75,17 +75,17 @@ struct ColorPickerView: View {
                 VStack(spacing: 2) {
                     TextField(
                         "",
-                        value: $userDefaults.green,
+                        value: $colorConvert.green,
                         formatter: NumberFormatter()
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: userDefaults.green) { target in
+                    .onChange(of: colorConvert.green) { target in
                         if target > 255 {
-                            userDefaults.green = 255
+                            colorConvert.green = 255
                         } else if target < 0 {
-                            userDefaults.green = 0
+                            colorConvert.green = 0
                         } else {
-                            userDefaults.rgbToAny(rgb: [userDefaults.red, target, userDefaults.blue])
+                            colorConvert.rgbToAny(rgb: [colorConvert.red, target, colorConvert.blue])
                         }
                     }
                     Text("g")
@@ -95,17 +95,17 @@ struct ColorPickerView: View {
                 VStack(spacing: 2) {
                     TextField(
                         "",
-                        value: $userDefaults.blue,
+                        value: $colorConvert.blue,
                         formatter: NumberFormatter()
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: userDefaults.blue) { target in
+                    .onChange(of: colorConvert.blue) { target in
                         if target > 255 {
-                            userDefaults.blue = 255
+                            colorConvert.blue = 255
                         } else if target < 0 {
-                            userDefaults.blue = 0
+                            colorConvert.blue = 0
                         } else {
-                            userDefaults.rgbToAny(rgb: [userDefaults.red, userDefaults.green, target])
+                            colorConvert.rgbToAny(rgb: [colorConvert.red, colorConvert.green, target])
                         }
                     }
                     Text("b")
@@ -114,22 +114,22 @@ struct ColorPickerView: View {
                 }
             }
 
-            if currentColorFormat == .hsl {
+            if storage.currentColorFormat == .hsl {
                 VStack(spacing: 2) {
                     ZStack(alignment: .trailing) {
                         TextField(
                             "",
-                            value: $userDefaults.hue,
+                            value: $colorConvert.hue,
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.hue) { target in
+                        .onChange(of: colorConvert.hue) { target in
                             if target > 360 {
-                                userDefaults.hue = 360
+                                colorConvert.hue = 360
                             } else if target < 0 {
-                                userDefaults.hue = 0
+                                colorConvert.hue = 0
                             } else {
-                                userDefaults.hslToAny(hsl: [target, userDefaults.saturation, userDefaults.lightness])
+                                colorConvert.hslToAny(hsl: [target, colorConvert.saturation, colorConvert.lightness])
                             }
                         }
                         Text("deg")
@@ -145,17 +145,17 @@ struct ColorPickerView: View {
                     ZStack(alignment: .trailing) {
                         TextField(
                             "",
-                            value: $userDefaults.saturation,
+                            value: $colorConvert.saturation,
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.saturation) { target in
+                        .onChange(of: colorConvert.saturation) { target in
                             if target > 100 {
-                                userDefaults.saturation = 100
+                                colorConvert.saturation = 100
                             } else if target < 0 {
-                                userDefaults.saturation = 0
+                                colorConvert.saturation = 0
                             } else {
-                                userDefaults.hslToAny(hsl: [userDefaults.hue, target, userDefaults.lightness])
+                                colorConvert.hslToAny(hsl: [colorConvert.hue, target, colorConvert.lightness])
                             }
                         }
                         Text("%")
@@ -171,17 +171,17 @@ struct ColorPickerView: View {
                     ZStack(alignment: .trailing) {
                         TextField(
                             "",
-                            value: $userDefaults.lightness,
+                            value: $colorConvert.lightness,
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: userDefaults.lightness) { target in
+                        .onChange(of: colorConvert.lightness) { target in
                             if target > 100 {
-                                userDefaults.lightness = 100
+                                colorConvert.lightness = 100
                             } else if target < 0 {
-                                userDefaults.lightness = 0
+                                colorConvert.lightness = 0
                             } else {
-                                userDefaults.hslToAny(hsl: [userDefaults.hue, userDefaults.saturation, target])
+                                colorConvert.hslToAny(hsl: [colorConvert.hue, colorConvert.saturation, target])
                             }
                         }
                         Text("%")
@@ -196,7 +196,7 @@ struct ColorPickerView: View {
             }
 
             VStack(spacing: 2) {
-                Picker(selection: $currentColorFormat, label: EmptyView()) {
+                Picker(selection: $storage.currentColorFormat, label: EmptyView()) {
                     ForEach(ColorFormat.allCases, id: \.self) { item in
                         Text(item.rawValue).tag(item)
                     }

@@ -3,15 +3,17 @@
 "Main.Clear" = "Clear";
 "Main.Copy_to_Pasteboard" = "Copy to Pasteboard";
 
+// Appearance
+"Appearance.Automatic" = "Automatic";
+"Appearance.Light" = "Light";
+"Appearance.Dark" = "Dark";
+
 // Settings
 "Settings.General" = "General";
 "Settings.About" = "About";
 
 // General
 "General.Appearance" = "Appearance";
-"General.Automatic" = "Automatic";
-"General.Light" = "Light";
-"General.Dark" = "Dark";
 "General.Language" = "Language";
 "General.Open_System_Settings" = "Open \"System Settings\"";
 "General.Application" = "Application";

@@ -10,14 +10,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 struct MorphlingApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
-    @AppStorage("windowLevel") var windowLevel: NSWindow.Level = .normal
-    @AppStorage("selectedAppearance") var selectedAppearance = 0
-    @AppStorage("currentColorFormat") var currentColorFormat: ColorFormat = .hex
-
-    let userDefaults = UserDefaults()
+    let storage = Storage()
+    let appearance = Appearance()
+    let colorConvert = ColorConvert()
 
     init() {
         NSWindow.allowsAutomaticWindowTabbing = false
+        appearance.friendlyName = storage.appearance
     }
 
     var body: some Scene {
@@ -25,19 +24,20 @@ struct MorphlingApp: App {
             ContentView()
                 .frame(width: 352)
                 .frame(minHeight: 360, maxHeight: .infinity)
-                .environmentObject(userDefaults)
+                .environmentObject(storage)
+                .environmentObject(colorConvert)
                 .onAppear {
+                    appearance.setFriendly(name: storage.appearance)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        NSApplication.shared.windows.first?.level = windowLevel
-                        GeneralView.setAppearance(index: selectedAppearance)
+                        NSApplication.shared.windows.first?.level = storage.windowLevel
                     }
-                    switch currentColorFormat {
+                    switch storage.currentColorFormat {
                     case .hex:
-                        userDefaults.hexToAny(hex: userDefaults.hex)
+                        colorConvert.hexToAny(hex: colorConvert.hex)
                     case .rgb:
-                        userDefaults.rgbToAny(rgb: [userDefaults.red, userDefaults.green, userDefaults.blue])
+                        colorConvert.rgbToAny(rgb: [colorConvert.red, colorConvert.green, colorConvert.blue])
                     case .hsl:
-                        userDefaults.hslToAny(hsl: [userDefaults.hue, userDefaults.saturation, userDefaults.lightness])
+                        colorConvert.hslToAny(hsl: [colorConvert.hue, colorConvert.saturation, colorConvert.lightness])
                     }
                 }
         }
@@ -48,6 +48,8 @@ struct MorphlingApp: App {
 
         Settings {
             SettingsView()
+                .environmentObject(storage)
+                .environmentObject(appearance)
         }
     }
 }

@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct ActionView: View {
-    @AppStorage("isPrefixWithFilter") var isPrefixWithFilter: Bool = false
-    @EnvironmentObject var userDefaults: UserDefaults
+    @EnvironmentObject var storage: Storage
+    @EnvironmentObject var colorConvert: ColorConvert
 
     var body: some View {
         Button {
-            var result = userDefaults.conventedContent ?? ""
-            if isPrefixWithFilter {
+            var result = colorConvert.conventedContent ?? ""
+            if storage.isPrefixWithFilter {
                 result = "filter: \(result)"
             }
-            if userDefaults.conventedContent != nil {
+            if colorConvert.conventedContent != nil {
                 NSPasteboard.general.declareTypes([.string], owner: nil)
                 NSPasteboard.general.setString(result, forType: .string)
             }

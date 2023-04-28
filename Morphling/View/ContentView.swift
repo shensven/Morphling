@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @AppStorage("windowLevel") var windowLevel: NSWindow.Level = .normal
+    @EnvironmentObject var storage: Storage
 
     func toggleWindowLevel() {
-        if windowLevel == .normal {
-            windowLevel = .floating
+        if storage.windowLevel == .normal {
+            storage.windowLevel = .floating
             NSApplication.shared.windows.first?.level = .floating
         } else {
-            windowLevel = .normal
+            storage.windowLevel = .normal
             NSApplication.shared.windows.first?.level = .normal
         }
     }
@@ -26,9 +26,9 @@ struct ContentView: View {
                 toggleWindowLevel()
             } label: {
                 Image(
-                    systemName: windowLevel == .floating ? "pin.fill" : "pin"
+                    systemName: storage.windowLevel == .floating ? "pin.fill" : "pin"
                 )
-                .foregroundColor(windowLevel == .floating ? Color.accentColor : Color.primary)
+                .foregroundColor(storage.windowLevel == .floating ? Color.accentColor : Color.primary)
             }
         }
     }

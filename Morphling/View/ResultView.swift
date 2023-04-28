@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct ResultView: View {
-    @AppStorage("isPrefixWithFilter") var isPrefixWithFilter: Bool = false
-    @EnvironmentObject var userDefaults: UserDefaults
+    @EnvironmentObject var storage: Storage
+    @EnvironmentObject var colorConvert: ColorConvert
 
     var body: some View {
         ScrollView {
             HStack {
-                if userDefaults.conventedContent != nil {
-                    Text((isPrefixWithFilter ? "filter: " : "") + (userDefaults.conventedContent ?? ""))
+                if colorConvert.conventedContent != nil {
+                    Text((storage.isPrefixWithFilter ? "filter: " : "") + (colorConvert.conventedContent ?? ""))
                         .lineSpacing(4)
                         .textSelection(.enabled)
                         .padding(8)
