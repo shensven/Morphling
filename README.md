@@ -5,28 +5,34 @@
 
 English | [简体中文](./README-zh-hans.md)
 
-The reason for this is that when changing the color of a monochrome svg icon in a front-end project, different developers' icon packages may not get the desired color after adding the CSS attribute `fill` or `color`, but using the CSS `filter` attribute can force the change.
+Morphling turns a color into a CSS `filter` value that recolors monochrome SVG icons.
 
-Thanks to the [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter) project, which provides a JavaScript implementation of the algorithm.
+Depending on how an icon pack is built, setting `fill` or `color` on its icons may not give you the color you expect. A CSS `filter` recolors whatever the icon renders, so it works regardless.
 
-I only brought his web implementation to the macOS desktop as a native SwiftUI.
+The conversion comes from [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter), a JavaScript project. Morphling brings it to the Mac as a native SwiftUI app.
 
 ![Preview](./Resources/PressKit/Preview-en-1.jpg)
 
-## ✨ FEATURES
+## ✨ Features
 
-- [x] free and open source
-- [x] using npm packages via JavaScriptCore
-- [x] dark mode
-- [x] multiple languages
+- Enter a color as Hex, RGB or HSL, and switch between them without losing it
+- Copy the filter on its own or as a complete `filter:` declaration
+- Keep the window on top while you work in a browser or editor
+- Light and dark appearance
+- English, 简体中文 and 日本語
+- Free and open source
 
-## 📦 DISTRIBUTION
+## 💻 Requirements
+
+macOS 14 Sonoma or later
+
+## 📦 Download
 
 [![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_US-UK_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)
 
-## 👍 CREDITS
+## 👍 Credits
 
-### Dependence
+### Dependencies
 
 - [color](https://github.com/Qix-/color)
 - [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)
@@ -36,6 +42,6 @@ I only brought his web implementation to the macOS desktop as a native SwiftUI.
 
 - 日本語 - [@kum4423](https://github.com/kum4423)
 
-## 📜 LICENSE
+## 📜 License
 
 MIT License - Copyright (c) 2023-2026 DevSven
