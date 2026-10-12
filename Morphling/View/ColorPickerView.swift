@@ -19,11 +19,14 @@ struct ColorPickerView: View {
                             .foregroundStyle(.secondary)
                         TextField("", text: $colorConvert.hex)
                             .textFieldStyle(.roundedBorder)
-                            .onChange(of: colorConvert.hex) { _, target in
-                                if target.count > 6 {
-                                    colorConvert.hex = "FFFFFF"
+                            .onChange(of: colorConvert.hex) { _, newValue in
+                                // Keep up to six hex digits, so a pasted "#FF0000" still works
+                                let digits = String(newValue.filter(\.isHexDigit).prefix(6))
+                                if digits != newValue {
+                                    colorConvert.hex = digits
+                                } else {
+                                    colorConvert.convert(from: .hex)
                                 }
-                                colorConvert.hexToAny(hex: target)
                             }
                     }
                 case .rgb:
