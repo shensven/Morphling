@@ -126,28 +126,6 @@ struct AboutView: View {
                             }
                     }
 
-                    HStack {
-                        Image("RiServiceLine")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.primary)
-                            .frame(width: 16, height: 16)
-                        Text("About.Improve_Translation")
-                        Spacer()
-                        Image("crowdin-icon")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.accentColor)
-                            .scaledToFit()
-                            .frame(width: 15, height: 15)
-                            .help("Crowdin")
-                            .onTapGesture {
-                                NSWorkspace.shared.open(
-                                    URL(string: "https://crowdin.com/project/morphling")!
-                                )
-                            }
-                    }
-
                     Divider().padding(.top, 4)
                     Text("Made with ❤️ in Kunming by SvenFE").foregroundColor(.secondary).font(.subheadline)
 
