@@ -1,24 +1,14 @@
 import SwiftUI
 
-class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
-    }
-}
-
 @main
 struct MorphlingApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
-    let storage = Storage()
-    let colorConvert = ColorConvert()
-
-    init() {
-        NSWindow.allowsAutomaticWindowTabbing = false
-    }
+    @State private var storage = Storage()
+    @State private var colorConvert = ColorConvert()
 
     var body: some Scene {
-        WindowGroup {
+        // A single Window (not WindowGroup) means one window, no tabs, no "New Window",
+        // and the app quits when it closes
+        Window(Text(verbatim: "Morphling"), id: "main") {
             ContentView()
                 .frame(width: 352)
                 .frame(minHeight: 360, maxHeight: .infinity)
@@ -26,16 +16,10 @@ struct MorphlingApp: App {
                 .environment(colorConvert)
                 .onAppear {
                     storage.appearance.apply()
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        NSApplication.shared.windows.first?.level = storage.windowLevel
-                    }
                     colorConvert.convert(from: storage.currentColorFormat)
                 }
         }
         .windowResizability(.contentSize)
-        .commands {
-            CommandGroup(replacing: .newItem, addition: {})
-        }
 
         Settings {
             SettingsView()
