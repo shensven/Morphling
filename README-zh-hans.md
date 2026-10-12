@@ -2,6 +2,7 @@
 
 [![GitHub](https://img.shields.io/github/license/shensven/Morphling)](./LICENSE)
 [![SwiftLint](https://github.com/shensven/Morphling/actions/workflows/swiftlint.yml/badge.svg?branch=dev)](https://github.com/shensven/Morphling/actions/workflows/swiftlint.yml)
+[![Test](https://github.com/shensven/Morphling/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/shensven/Morphling/actions/workflows/test.yml)
 
 [English](./README.md) | 简体中文
 
@@ -29,6 +30,24 @@ macOS 14 Sonoma 或更高版本
 ## 📦 下载
 
 [![Mac App Store](./Resources/AppStoreBadges/Download_on_the_Mac_App_Store_Badge_CNSC_RGB_blk_092917.svg)](https://apps.apple.com/us/app/morphling/id1669993843)
+
+## 🛠 从源码构建
+
+需要 Xcode 26 或更高版本。
+
+1. 打开 `Morphling.xcodeproj`。
+2. 在 Signing & Capabilities 中选择你自己的开发团队，或选择 Sign to Run Locally。
+3. 构建并运行 Morphling scheme。
+
+如果安装了 [SwiftLint](https://github.com/realm/SwiftLint)，每次构建都会用它检查源码。
+
+在命令行运行测试：
+
+```sh
+xcodebuild test -project Morphling.xcodeproj -scheme Morphling -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO
+```
+
+颜色转换在 JavaScriptCore 中执行 `converter/dist/converter.js`。这个文件已提交到仓库，所以构建 app 不需要 Node.js。如需修改转换器，请参阅 [converter/README.md](./converter/README.md)。
 
 ## 👍 致谢
 
