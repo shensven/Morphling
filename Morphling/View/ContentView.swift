@@ -4,14 +4,9 @@ import SwiftUI
 struct ContentView: View {
     @Environment(Storage.self) var storage
 
-    private var isPinned: Binding<Bool> {
-        Binding(
-            get: { storage.windowLevel == .floating },
-            set: { storage.windowLevel = $0 ? .floating : .normal }
-        )
-    }
-
     var body: some View {
+        @Bindable var storage = storage
+
         VStack {
             ColorPickerView()
             ResultView()
@@ -19,10 +14,10 @@ struct ContentView: View {
             ActionView()
         }
         .padding()
-        .background(WindowLevelSetter(level: storage.windowLevel))
+        .background(WindowLevelSetter(level: storage.isPinned ? .floating : .normal))
         .toolbar {
-            Toggle(isOn: isPinned) {
-                Label("Main.Keep_on_Top", systemImage: isPinned.wrappedValue ? "pin.fill" : "pin")
+            Toggle(isOn: $storage.isPinned) {
+                Label("Main.Keep_on_Top", systemImage: storage.isPinned ? "pin.fill" : "pin")
             }
             .toggleStyle(.button)
             .help("Main.Keep_on_Top")

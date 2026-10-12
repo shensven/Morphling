@@ -2,30 +2,43 @@ import SwiftUI
 
 @Observable
 class Storage {
+    // Keys must stay unchanged, or existing settings are lost
+    private enum Key {
+        static let appearance = "appearance"
+        static let windowLevel = "windowLevel"
+        static let currentColorFormat = "currentColorFormat"
+        static let isPrefixWithFilter = "isPrefixWithFilter"
+    }
+
     var appearance: AppearanceFriendly {
         didSet {
-            UserDefaults.standard.set(appearance.rawValue, forKey: "appearance")
+            UserDefaults.standard.set(appearance.rawValue, forKey: Key.appearance)
             appearance.apply()
         }
     }
 
-    var windowLevel: NSWindow.Level {
-        didSet { UserDefaults.standard.set(windowLevel.rawValue, forKey: "windowLevel") }
+    /// Keeps the main window above other windows. Stored as a window level, as earlier versions did.
+    var isPinned: Bool {
+        didSet {
+            let level: NSWindow.Level = isPinned ? .floating : .normal
+            UserDefaults.standard.set(level.rawValue, forKey: Key.windowLevel)
+        }
     }
 
     var currentColorFormat: ColorFormat {
-        didSet { UserDefaults.standard.set(currentColorFormat.rawValue, forKey: "currentColorFormat") }
+        didSet { UserDefaults.standard.set(currentColorFormat.rawValue, forKey: Key.currentColorFormat) }
     }
 
     var isPrefixWithFilter: Bool {
-        didSet { UserDefaults.standard.set(isPrefixWithFilter, forKey: "isPrefixWithFilter") }
+        didSet { UserDefaults.standard.set(isPrefixWithFilter, forKey: Key.isPrefixWithFilter) }
     }
 
     init() {
         let defaults = UserDefaults.standard
-        appearance = defaults.string(forKey: "appearance").flatMap { AppearanceFriendly(rawValue: $0) } ?? .automatic
-        windowLevel = (defaults.object(forKey: "windowLevel") as? Int).map { NSWindow.Level(rawValue: $0) } ?? .normal
-        currentColorFormat = defaults.string(forKey: "currentColorFormat").flatMap { ColorFormat(rawValue: $0) } ?? .hex
-        isPrefixWithFilter = defaults.bool(forKey: "isPrefixWithFilter")
+        appearance = defaults.string(forKey: Key.appearance).flatMap { AppearanceFriendly(rawValue: $0) } ?? .automatic
+        isPinned = defaults.integer(forKey: Key.windowLevel) > NSWindow.Level.normal.rawValue
+        currentColorFormat = defaults.string(forKey: Key.currentColorFormat)
+            .flatMap { ColorFormat(rawValue: $0) } ?? .hex
+        isPrefixWithFilter = defaults.bool(forKey: Key.isPrefixWithFilter)
     }
 }
