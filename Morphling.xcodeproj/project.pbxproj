@@ -3,52 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0621660229869D1A004512C0 /* MorphlingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621660129869D1A004512C0 /* MorphlingApp.swift */; };
-		0621660429869D1A004512C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621660329869D1A004512C0 /* ContentView.swift */; };
-		0621660629869D1C004512C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0621660529869D1C004512C0 /* Assets.xcassets */; };
-		062166152986CD63004512C0 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166142986CD63004512C0 /* ColorPickerView.swift */; };
-		062166172986CE0F004512C0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166162986CE0F004512C0 /* ResultView.swift */; };
-		062166192986D7F7004512C0 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166182986D7F7004512C0 /* ActionView.swift */; };
-		0621661E29872593004512C0 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621661D29872593004512C0 /* OptionView.swift */; };
-		069CDE7F307CD6E500FDBBC6 /* MorphlingApp.icon in Resources */ = {isa = PBXBuildFile; fileRef = 069CDE7E307CD6E500FDBBC6 /* MorphlingApp.icon */; };
-		06B93B7229FC3D2B00903DBF /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B93B7129FC3D2B00903DBF /* Appearance.swift */; };
-		06B93B7429FC3D9A00903DBF /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B93B7329FC3D9A00903DBF /* AppStorage.swift */; };
-		06BF6564298A64AE00BCC25B /* ColorConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF6563298A64AE00BCC25B /* ColorConvert.swift */; };
 		06CCB69A298D6C8C009B0F9B /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB699298D6C8C009B0F9B /* converter.js */; };
-		06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A4299002A4009B0F9B /* Credits.rtf */; };
-		06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */; };
-		06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */; };
-		06CCB6B12992A204009B0F9B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6B02992A204009B0F9B /* AboutView.swift */; };
-		06E5C0A22EA0000100A1B2C3 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E5C0A12EA0000100A1B2C3 /* LaunchAtLogin.swift */; };
-		06E5C0B22EA0000200A1B2C3 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 06E5C0B12EA0000200A1B2C3 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		062165FE29869D1A004512C0 /* Morphling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morphling.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0621660129869D1A004512C0 /* MorphlingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphlingApp.swift; sourceTree = "<group>"; };
-		0621660329869D1A004512C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		0621660529869D1C004512C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0621660A29869D1C004512C0 /* Morphling.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Morphling.entitlements; sourceTree = "<group>"; };
-		062166142986CD63004512C0 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
-		062166162986CE0F004512C0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
-		062166182986D7F7004512C0 /* ActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionView.swift; sourceTree = "<group>"; };
-		0621661D29872593004512C0 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
-		069CDE7E307CD6E500FDBBC6 /* MorphlingApp.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = MorphlingApp.icon; sourceTree = "<group>"; };
-		06B93B7129FC3D2B00903DBF /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
-		06B93B7329FC3D9A00903DBF /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
-		06BF6563298A64AE00BCC25B /* ColorConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConvert.swift; sourceTree = "<group>"; };
 		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = dist/converter.js; sourceTree = "<group>"; };
-		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
-		06CCB6B02992A204009B0F9B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
-		06E5C0A12EA0000100A1B2C3 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
-		06E5C0B12EA0000200A1B2C3 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		0621660029869D1A004512C0 /* Morphling */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Morphling;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		062165FB29869D1A004512C0 /* Frameworks */ = {
@@ -78,61 +51,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0621660029869D1A004512C0 /* Morphling */ = {
-			isa = PBXGroup;
-			children = (
-				0690C08A2994056500D098ED /* Localization */,
-				06BF6565298A64B800BCC25B /* ViewModel */,
-				062166132986CCC9004512C0 /* View */,
-				0621660129869D1A004512C0 /* MorphlingApp.swift */,
-				0621660A29869D1C004512C0 /* Morphling.entitlements */,
-				069CDE7E307CD6E500FDBBC6 /* MorphlingApp.icon */,
-				0621660529869D1C004512C0 /* Assets.xcassets */,
-				06CCB6A4299002A4009B0F9B /* Credits.rtf */,
-			);
-			path = Morphling;
-			sourceTree = "<group>";
-		};
 		062166122986A0D7004512C0 /* converter */ = {
 			isa = PBXGroup;
 			children = (
 				06CCB699298D6C8C009B0F9B /* converter.js */,
 			);
 			path = converter;
-			sourceTree = "<group>";
-		};
-		062166132986CCC9004512C0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				06CCB6B02992A204009B0F9B /* AboutView.swift */,
-				06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */,
-				06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */,
-				062166142986CD63004512C0 /* ColorPickerView.swift */,
-				062166162986CE0F004512C0 /* ResultView.swift */,
-				0621661D29872593004512C0 /* OptionView.swift */,
-				062166182986D7F7004512C0 /* ActionView.swift */,
-				0621660329869D1A004512C0 /* ContentView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0690C08A2994056500D098ED /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				06E5C0B12EA0000200A1B2C3 /* Localizable.xcstrings */,
-			);
-			path = Localization;
-			sourceTree = "<group>";
-		};
-		06BF6565298A64B800BCC25B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				06B93B7329FC3D9A00903DBF /* AppStorage.swift */,
-				06B93B7129FC3D2B00903DBF /* Appearance.swift */,
-				06BF6563298A64AE00BCC25B /* ColorConvert.swift */,
-				06E5C0A12EA0000100A1B2C3 /* LaunchAtLogin.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +74,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0621660029869D1A004512C0 /* Morphling */,
 			);
 			name = Morphling;
 			productName = Morphling;
@@ -172,7 +99,6 @@
 				};
 			};
 			buildConfigurationList = 062165F929869D1A004512C0 /* Build configuration list for PBXProject "Morphling" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -182,6 +108,7 @@
 				ja,
 			);
 			mainGroup = 062165F529869D1A004512C0;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 062165FF29869D1A004512C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -196,11 +123,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */,
-				069CDE7F307CD6E500FDBBC6 /* MorphlingApp.icon in Resources */,
-				06E5C0B22EA0000200A1B2C3 /* Localizable.xcstrings in Resources */,
 				06CCB69A298D6C8C009B0F9B /* converter.js in Resources */,
-				0621660629869D1C004512C0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,19 +155,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				062166192986D7F7004512C0 /* ActionView.swift in Sources */,
-				06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */,
-				06BF6564298A64AE00BCC25B /* ColorConvert.swift in Sources */,
-				0621661E29872593004512C0 /* OptionView.swift in Sources */,
-				06CCB6B12992A204009B0F9B /* AboutView.swift in Sources */,
-				0621660429869D1A004512C0 /* ContentView.swift in Sources */,
-				062166152986CD63004512C0 /* ColorPickerView.swift in Sources */,
-				06B93B7229FC3D2B00903DBF /* Appearance.swift in Sources */,
-				06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */,
-				06B93B7429FC3D9A00903DBF /* AppStorage.swift in Sources */,
-				06E5C0A22EA0000100A1B2C3 /* LaunchAtLogin.swift in Sources */,
-				0621660229869D1A004512C0 /* MorphlingApp.swift in Sources */,
-				062166172986CE0F004512C0 /* ResultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
