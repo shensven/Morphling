@@ -108,26 +108,6 @@ struct AboutView: View {
                                 HLabel(title: "About.Developer", systemImage: "person")
                             }
                         )
-
-                        LabeledContent(
-                            content: {
-                                HStack {
-                                    ClickableImage(
-                                        img: "RiAppStoreFill",
-                                        help: "Mac App Store",
-                                        url: "https://apps.apple.com/app/id1669993843?action=write-review"
-                                    )
-                                    ClickableImage(
-                                        img: "RiProductHuntFill",
-                                        help: "Product Hunt",
-                                        url: "https://www.producthunt.com/posts/morphling"
-                                    )
-                                }
-                            },
-                            label: {
-                                HLabel(title: "About.Give_a_Good_Review", systemImage: "star")
-                            }
-                        )
                     },
                     footer: {
                         HStack(spacing: 0) {
