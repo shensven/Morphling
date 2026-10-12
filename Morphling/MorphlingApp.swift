@@ -11,12 +11,10 @@ struct MorphlingApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     let storage = Storage()
-    let appearance = Appearance()
     let colorConvert = ColorConvert()
 
     init() {
         NSWindow.allowsAutomaticWindowTabbing = false
-        appearance.friendlyName = storage.appearance
     }
 
     var body: some Scene {
@@ -27,7 +25,7 @@ struct MorphlingApp: App {
                 .environment(storage)
                 .environment(colorConvert)
                 .onAppear {
-                    appearance.setFriendly(name: storage.appearance)
+                    storage.appearance.apply()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         NSApplication.shared.windows.first?.level = storage.windowLevel
                     }
@@ -42,7 +40,6 @@ struct MorphlingApp: App {
         Settings {
             SettingsView()
                 .environment(storage)
-                .environment(appearance)
         }
     }
 }

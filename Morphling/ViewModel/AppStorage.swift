@@ -3,7 +3,10 @@ import SwiftUI
 @Observable
 class Storage {
     var appearance: AppearanceFriendly {
-        didSet { UserDefaults.standard.set(appearance.rawValue, forKey: "appearance") }
+        didSet {
+            UserDefaults.standard.set(appearance.rawValue, forKey: "appearance")
+            appearance.apply()
+        }
     }
 
     var windowLevel: NSWindow.Level {

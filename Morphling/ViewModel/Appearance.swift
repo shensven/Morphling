@@ -1,24 +1,22 @@
 import AppKit
 import SwiftUI
 
+// Raw values are what UserDefaults stores, so they must stay unchanged
 enum AppearanceFriendly: String, CaseIterable {
     case light = "Appearance.Light"
     case dark = "Appearance.Dark"
     case automatic = "Appearance.Automatic"
 
-    var localizedString: LocalizedStringKey {
-        LocalizedStringKey(rawValue)
+    var title: LocalizedStringResource {
+        switch self {
+        case .light: "Appearance.Light"
+        case .dark: "Appearance.Dark"
+        case .automatic: "Appearance.Automatic"
+        }
     }
-}
 
-@Observable
-class Appearance {
-    var friendlyName: AppearanceFriendly = .automatic
-}
-
-extension Appearance {
-    func setFriendly(name: AppearanceFriendly) {
-        switch name {
+    func apply() {
+        switch self {
         case .light:
             NSApp.appearance = NSAppearance(named: .aqua)
         case .dark:
