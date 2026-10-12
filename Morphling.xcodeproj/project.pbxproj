@@ -17,6 +17,7 @@
 		0621661E29872593004512C0 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621661D29872593004512C0 /* OptionView.swift */; };
 		0690C0882994053900D098ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0690C0872994053900D098ED /* Localizable.strings */; };
 		0690C08C299405A100D098ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0690C08B299405A100D098ED /* Localizable.strings */; };
+		069CDE7F307CD6E500FDBBC6 /* MorphlingApp.icon in Resources */ = {isa = PBXBuildFile; fileRef = 069CDE7E307CD6E500FDBBC6 /* MorphlingApp.icon */; };
 		06B93B7229FC3D2B00903DBF /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B93B7129FC3D2B00903DBF /* Appearance.swift */; };
 		06B93B7429FC3D9A00903DBF /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B93B7329FC3D9A00903DBF /* AppStorage.swift */; };
 		06BF6564298A64AE00BCC25B /* ColorConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF6563298A64AE00BCC25B /* ColorConvert.swift */; };
@@ -42,6 +43,7 @@
 		0621661D29872593004512C0 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		0690C0872994053900D098ED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0690C08B299405A100D098ED /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		069CDE7E307CD6E500FDBBC6 /* MorphlingApp.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = MorphlingApp.icon; sourceTree = "<group>"; };
 		06B93B7129FC3D2B00903DBF /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		06B93B7329FC3D9A00903DBF /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		06BF6563298A64AE00BCC25B /* ColorConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConvert.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				0621660729869D1C004512C0 /* Preview Content */,
 				0621660129869D1A004512C0 /* MorphlingApp.swift */,
 				0621660A29869D1C004512C0 /* Morphling.entitlements */,
+				069CDE7E307CD6E500FDBBC6 /* MorphlingApp.icon */,
 				0621660529869D1C004512C0 /* Assets.xcassets */,
 				06CCB6A4299002A4009B0F9B /* Credits.rtf */,
 			);
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */,
+				069CDE7F307CD6E500FDBBC6 /* MorphlingApp.icon in Resources */,
 				0690C08C299405A100D098ED /* Localizable.strings in Resources */,
 				06C011E429A26C3100197EFF /* Localizable.strings in Resources */,
 				0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */,
@@ -407,7 +411,7 @@
 		0621660E29869D1C004512C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MorphlingApp;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Morphling/Morphling.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -439,7 +443,7 @@
 		0621660F29869D1C004512C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = MorphlingApp;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Morphling/Morphling.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
