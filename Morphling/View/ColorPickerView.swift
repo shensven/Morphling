@@ -1,51 +1,51 @@
 import SwiftUI
 
 struct ColorPickerView: View {
-    @Environment(Storage.self) var storage
-    @Environment(ColorConvert.self) var colorConvert
+    @Environment(AppSettings.self) var settings
+    @Environment(ColorConverter.self) var converter
 
     var body: some View {
-        @Bindable var storage = storage
-        @Bindable var colorConvert = colorConvert
+        @Bindable var settings = settings
+        @Bindable var converter = converter
 
         VStack(spacing: 2) {
             HStack(spacing: Self.spacing) {
                 swatch
 
-                switch storage.currentColorFormat {
+                switch settings.currentColorFormat {
                 case .hex:
                     HStack(spacing: 4) {
                         Text(verbatim: "#")
                             .foregroundStyle(.secondary)
-                        TextField(text: $colorConvert.hex) { EmptyView() }
+                        TextField(text: $converter.hex) { EmptyView() }
                             .textFieldStyle(.roundedBorder)
-                            .onChange(of: colorConvert.hex) { _, newValue in
+                            .onChange(of: converter.hex) { _, newValue in
                                 // Keep up to six hex digits, so a pasted "#FF0000" still works
                                 let digits = String(newValue.filter(\.isHexDigit).prefix(6))
                                 if digits != newValue {
-                                    colorConvert.hex = digits
+                                    converter.hex = digits
                                 } else {
-                                    colorConvert.convert(from: .hex)
+                                    converter.convert(from: .hex)
                                 }
                             }
                     }
                 case .rgb:
-                    ChannelField(value: $colorConvert.red, range: 0...255) { colorConvert.convert(from: .rgb) }
-                    ChannelField(value: $colorConvert.green, range: 0...255) { colorConvert.convert(from: .rgb) }
-                    ChannelField(value: $colorConvert.blue, range: 0...255) { colorConvert.convert(from: .rgb) }
+                    ChannelField(value: $converter.red, range: 0...255) { converter.convert(from: .rgb) }
+                    ChannelField(value: $converter.green, range: 0...255) { converter.convert(from: .rgb) }
+                    ChannelField(value: $converter.blue, range: 0...255) { converter.convert(from: .rgb) }
                 case .hsl:
-                    ChannelField(value: $colorConvert.hue, range: 0...360, unit: "deg") {
-                        colorConvert.convert(from: .hsl)
+                    ChannelField(value: $converter.hue, range: 0...360, unit: "deg") {
+                        converter.convert(from: .hsl)
                     }
-                    ChannelField(value: $colorConvert.saturation, range: 0...100, unit: "%") {
-                        colorConvert.convert(from: .hsl)
+                    ChannelField(value: $converter.saturation, range: 0...100, unit: "%") {
+                        converter.convert(from: .hsl)
                     }
-                    ChannelField(value: $colorConvert.lightness, range: 0...100, unit: "%") {
-                        colorConvert.convert(from: .hsl)
+                    ChannelField(value: $converter.lightness, range: 0...100, unit: "%") {
+                        converter.convert(from: .hsl)
                     }
                 }
 
-                Picker(selection: $storage.currentColorFormat, label: EmptyView()) {
+                Picker(selection: $settings.currentColorFormat, label: EmptyView()) {
                     ForEach(ColorFormat.allCases, id: \.self) { item in
                         Text(item.rawValue).tag(item)
                     }
@@ -56,7 +56,7 @@ struct ColorPickerView: View {
             // Captions line up under the fields: same spacing, same fixed-width ends
             HStack(spacing: Self.spacing) {
                 Color.clear.frame(width: Self.swatchSize, height: 0)
-                ForEach(storage.currentColorFormat.captions, id: \.self) { caption in
+                ForEach(settings.currentColorFormat.captions, id: \.self) { caption in
                     Text(verbatim: caption)
                         .font(.footnote)
                         .foregroundStyle(.primary.opacity(0.7))
@@ -77,9 +77,9 @@ struct ColorPickerView: View {
                 .stroke(Color.gray, lineWidth: 1)
             Color(
                 .sRGB,
-                red: colorConvert.red / 255,
-                green: colorConvert.green / 255,
-                blue: colorConvert.blue / 255
+                red: converter.red / 255,
+                green: converter.green / 255,
+                blue: converter.blue / 255
             )
             .clipShape(.rect(cornerRadius: 4))
         }
@@ -132,6 +132,6 @@ private struct ChannelField: View {
 
 #Preview {
     ColorPickerView()
-        .environment(Storage())
-        .environment(ColorConvert())
+        .environment(AppSettings())
+        .environment(ColorConverter())
 }

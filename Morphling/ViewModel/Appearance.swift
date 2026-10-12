@@ -2,7 +2,7 @@ import AppKit
 import SwiftUI
 
 // Raw values are what UserDefaults stores, so they must stay unchanged
-enum AppearanceFriendly: String, CaseIterable {
+enum Appearance: String, CaseIterable {
     case light = "Appearance.Light"
     case dark = "Appearance.Dark"
     case automatic = "Appearance.Automatic"

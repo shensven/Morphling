@@ -24,5 +24,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
-        .environment(Storage())
+        .environment(AppSettings())
 }

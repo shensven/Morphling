@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct ResultView: View {
-    @Environment(Storage.self) var storage
-    @Environment(ColorConvert.self) var colorConvert
+    @Environment(AppSettings.self) var settings
+    @Environment(ColorConverter.self) var converter
 
     var body: some View {
         ScrollView {
-            if let output = colorConvert.output(withFilterPrefix: storage.isPrefixWithFilter) {
+            if let output = converter.output(withFilterPrefix: settings.isPrefixWithFilter) {
                 Text(output)
                     .lineSpacing(4)
                     .textSelection(.enabled)
@@ -22,6 +22,6 @@ struct ResultView: View {
 
 #Preview {
     ResultView()
-        .environment(Storage())
-        .environment(ColorConvert())
+        .environment(AppSettings())
+        .environment(ColorConverter())
 }

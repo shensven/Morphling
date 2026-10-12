@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct ActionView: View {
-    @Environment(Storage.self) var storage
-    @Environment(ColorConvert.self) var colorConvert
+    @Environment(AppSettings.self) var settings
+    @Environment(ColorConverter.self) var converter
 
     var body: some View {
         if #available(macOS 26.0, *) {
@@ -16,7 +16,7 @@ struct ActionView: View {
 
     private var copyButton: some View {
         Button {
-            guard let output = colorConvert.output(withFilterPrefix: storage.isPrefixWithFilter) else { return }
+            guard let output = converter.output(withFilterPrefix: settings.isPrefixWithFilter) else { return }
             NSPasteboard.general.clearContents()
             NSPasteboard.general.setString(output, forType: .string)
         } label: {
@@ -31,6 +31,6 @@ struct ActionView: View {
 
 #Preview {
     ActionView()
-        .environment(Storage())
-        .environment(ColorConvert())
+        .environment(AppSettings())
+        .environment(ColorConverter())
 }

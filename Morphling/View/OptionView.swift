@@ -1,14 +1,14 @@
 import SwiftUI
 
 struct OptionView: View {
-    @Environment(Storage.self) var storage
-    @Environment(ColorConvert.self) var colorConvert
+    @Environment(AppSettings.self) var settings
+    @Environment(ColorConverter.self) var converter
 
     var body: some View {
-        @Bindable var storage = storage
+        @Bindable var settings = settings
 
         HStack {
-            Toggle(isOn: $storage.isPrefixWithFilter) {
+            Toggle(isOn: $settings.isPrefixWithFilter) {
                 HStack(spacing: 2) {
                     Text("Main.Prefix_with")
                     Text(verbatim: "filter:")
@@ -22,10 +22,10 @@ struct OptionView: View {
             }
             Spacer()
             Button("Main.Reconvert") {
-                colorConvert.convert(from: storage.currentColorFormat)
+                converter.convert(from: settings.currentColorFormat)
             }
             Button("Main.Clear") {
-                colorConvert.convertedContent = nil
+                converter.filter = nil
             }
         }
     }
@@ -33,6 +33,6 @@ struct OptionView: View {
 
 #Preview {
     OptionView()
-        .environment(Storage())
-        .environment(ColorConvert())
+        .environment(AppSettings())
+        .environment(ColorConverter())
 }

@@ -2,10 +2,10 @@ import AppKit
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(Storage.self) var storage
+    @Environment(AppSettings.self) var settings
 
     var body: some View {
-        @Bindable var storage = storage
+        @Bindable var settings = settings
 
         VStack {
             ColorPickerView()
@@ -14,10 +14,10 @@ struct ContentView: View {
             ActionView()
         }
         .padding()
-        .background(WindowLevelSetter(level: storage.isPinned ? .floating : .normal))
+        .background(WindowLevelSetter(level: settings.isPinned ? .floating : .normal))
         .toolbar {
-            Toggle(isOn: $storage.isPinned) {
-                Label("Main.Keep_on_Top", systemImage: storage.isPinned ? "pin.fill" : "pin")
+            Toggle(isOn: $settings.isPinned) {
+                Label("Main.Keep_on_Top", systemImage: settings.isPinned ? "pin.fill" : "pin")
             }
             .toggleStyle(.button)
             .help("Main.Keep_on_Top")
@@ -51,6 +51,6 @@ private struct WindowLevelSetter: NSViewRepresentable {
 
 #Preview {
     ContentView()
-        .environment(Storage())
-        .environment(ColorConvert())
+        .environment(AppSettings())
+        .environment(ColorConverter())
 }

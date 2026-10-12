@@ -2,15 +2,15 @@ import SwiftUI
 
 struct GeneralView: View {
     @Environment(\.openURL) var openURL
-    @Environment(Storage.self) var storage
+    @Environment(AppSettings.self) var settings
     @State var launchAtLogin = LaunchAtLogin()
 
     var body: some View {
-        @Bindable var storage = storage
+        @Bindable var settings = settings
 
         Form {
-            Picker("General.Appearance", selection: $storage.appearance) {
-                ForEach(AppearanceFriendly.allCases, id: \.self) { appearance in
+            Picker("General.Appearance", selection: $settings.appearance) {
+                ForEach(Appearance.allCases, id: \.self) { appearance in
                     Text(appearance.title).tag(appearance)
                 }
             }
@@ -34,5 +34,5 @@ struct GeneralView: View {
 
 #Preview {
     GeneralView()
-        .environment(Storage())
+        .environment(AppSettings())
 }

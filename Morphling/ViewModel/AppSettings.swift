@@ -1,7 +1,7 @@
 import SwiftUI
 
 @Observable
-class Storage {
+class AppSettings {
     // Keys must stay unchanged, or existing settings are lost
     private enum Key {
         static let appearance = "appearance"
@@ -10,7 +10,7 @@ class Storage {
         static let isPrefixWithFilter = "isPrefixWithFilter"
     }
 
-    var appearance: AppearanceFriendly {
+    var appearance: Appearance {
         didSet {
             UserDefaults.standard.set(appearance.rawValue, forKey: Key.appearance)
             appearance.apply()
@@ -35,7 +35,7 @@ class Storage {
 
     init() {
         let defaults = UserDefaults.standard
-        appearance = defaults.string(forKey: Key.appearance).flatMap { AppearanceFriendly(rawValue: $0) } ?? .automatic
+        appearance = defaults.string(forKey: Key.appearance).flatMap { Appearance(rawValue: $0) } ?? .automatic
         isPinned = defaults.integer(forKey: Key.windowLevel) > NSWindow.Level.normal.rawValue
         currentColorFormat = defaults.string(forKey: Key.currentColorFormat)
             .flatMap { ColorFormat(rawValue: $0) } ?? .hex

@@ -2,8 +2,8 @@ import SwiftUI
 
 @main
 struct MorphlingApp: App {
-    @State private var storage = Storage()
-    @State private var colorConvert = ColorConvert()
+    @State private var settings = AppSettings()
+    @State private var converter = ColorConverter()
 
     var body: some Scene {
         // A single Window (not WindowGroup) means one window, no tabs, no "New Window",
@@ -12,18 +12,18 @@ struct MorphlingApp: App {
             ContentView()
                 .frame(width: 352)
                 .frame(minHeight: 360, maxHeight: .infinity)
-                .environment(storage)
-                .environment(colorConvert)
+                .environment(settings)
+                .environment(converter)
                 .onAppear {
-                    storage.appearance.apply()
-                    colorConvert.convert(from: storage.currentColorFormat)
+                    settings.appearance.apply()
+                    converter.convert(from: settings.currentColorFormat)
                 }
         }
         .windowResizability(.contentSize)
 
         Settings {
             SettingsView()
-                .environment(storage)
+                .environment(settings)
         }
     }
 }

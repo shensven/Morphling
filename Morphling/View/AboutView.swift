@@ -1,6 +1,6 @@
 import SwiftUI
 
-private struct HLabel: View {
+private struct FixedIconLabel: View {
     var title: LocalizedStringKey
     var systemImage: String
 
@@ -31,8 +31,8 @@ private struct CandyTag: View {
 struct AboutView: View {
     @Environment(\.openURL) var openURL
 
-    var VERSION = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-    var BUILD = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    private let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    private let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
 
     var body: some View {
         HStack(alignment: .top, spacing: 0) {
@@ -44,10 +44,10 @@ struct AboutView: View {
 
             Form {
                 Section {
-                    if let VERSION, let BUILD {
+                    if let version, let build {
                         LabeledContent(
-                            content: { Text(VERSION + " (" + BUILD + ")") },
-                            label: { HLabel(title: "About.Version", systemImage: "hammer") }
+                            content: { Text(verbatim: "\(version) (\(build))") },
+                            label: { FixedIconLabel(title: "About.Version", systemImage: "hammer") }
                         )
                     }
 
@@ -58,7 +58,7 @@ struct AboutView: View {
                             }
                         },
                         label: {
-                            HLabel(
+                            FixedIconLabel(
                                 title: "About.Source_Code",
                                 systemImage: "chevron.left.forwardslash.chevron.right"
                             )
@@ -75,7 +75,7 @@ struct AboutView: View {
                                 }.controlSize(.small)
                             },
                             label: {
-                                HLabel(title: "About.Feedback", systemImage: "exclamationmark.bubble")
+                                FixedIconLabel(title: "About.Feedback", systemImage: "exclamationmark.bubble")
                             }
                         )
                     },
