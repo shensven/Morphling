@@ -12,7 +12,7 @@
     "jsc"
   ],
   "author": "DevSven",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "packageManager": "pnpm@12.11.2",
   "dependencies": {
     "color": "^5.0.3",
