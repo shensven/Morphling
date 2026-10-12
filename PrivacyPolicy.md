@@ -12,4 +12,4 @@ This data may include your device model, operating system version, and other dia
 
 We do not disclose or share any personally identifiable information with third parties unless required to do so by law.
 
-Copyright © 2023 SvenFE. All Rights Reserved.
+Copyright © 2023-2026 DevSven. All Rights Reserved.

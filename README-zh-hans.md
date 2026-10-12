@@ -38,4 +38,4 @@
 
 ## 📜 许可证
 
-MIT License - Copyright (c) 2023 SvenFE
+MIT License - Copyright (c) 2023-2026 DevSven

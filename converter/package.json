@@ -11,7 +11,7 @@
     "css-filter",
     "jsc"
   ],
-  "author": "SvenFE",
+  "author": "DevSven",
   "license": "GPL-3.0",
   "packageManager": "pnpm@12.11.2",
   "dependencies": {

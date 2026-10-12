@@ -38,4 +38,4 @@ I only brought his web implementation to the macOS desktop as a native SwiftUI.
 
 ## 📜 LICENSE
 
-MIT License - Copyright (c) 2023 SvenFE
+MIT License - Copyright (c) 2023-2026 DevSven
