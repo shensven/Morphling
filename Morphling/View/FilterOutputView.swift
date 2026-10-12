@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ResultView: View {
+struct FilterOutputView: View {
     @Environment(AppSettings.self) var settings
     @Environment(ColorConverter.self) var converter
 
@@ -21,7 +21,7 @@ struct ResultView: View {
 }
 
 #Preview {
-    ResultView()
+    FilterOutputView()
         .environment(AppSettings())
         .environment(ColorConverter())
 }

@@ -9,9 +9,9 @@ struct ContentView: View {
 
         VStack {
             ColorPickerView()
-            ResultView()
-            OptionView()
-            ActionView()
+            FilterOutputView()
+            OptionsBar()
+            CopyButton()
         }
         .padding()
         .background(WindowLevelSetter(level: settings.isPinned ? .floating : .normal))

@@ -1,20 +1,20 @@
 import SwiftUI
 
-struct ActionView: View {
+struct CopyButton: View {
     @Environment(AppSettings.self) var settings
     @Environment(ColorConverter.self) var converter
 
     var body: some View {
         if #available(macOS 26.0, *) {
-            copyButton
+            button
                 .buttonStyle(.glassProminent)
         } else {
-            copyButton
+            button
                 .buttonStyle(.borderedProminent)
         }
     }
 
-    private var copyButton: some View {
+    private var button: some View {
         Button {
             guard let output = converter.output(withFilterPrefix: settings.isPrefixWithFilter) else { return }
             NSPasteboard.general.clearContents()
@@ -30,7 +30,7 @@ struct ActionView: View {
 }
 
 #Preview {
-    ActionView()
+    CopyButton()
         .environment(AppSettings())
         .environment(ColorConverter())
 }

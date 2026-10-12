@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct OptionView: View {
+struct OptionsBar: View {
     @Environment(AppSettings.self) var settings
     @Environment(ColorConverter.self) var converter
 
@@ -32,7 +32,7 @@ struct OptionView: View {
 }
 
 #Preview {
-    OptionView()
+    OptionsBar()
         .environment(AppSettings())
         .environment(ColorConverter())
 }
