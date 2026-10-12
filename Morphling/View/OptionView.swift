@@ -22,17 +22,10 @@ struct OptionView: View {
             }
             Spacer()
             Button("Main.Re-convert") {
-                switch storage.currentColorFormat {
-                case .hex:
-                    colorConvert.hexToAny(hex: colorConvert.hex)
-                case .rgb:
-                    colorConvert.rgbToAny(rgb: [colorConvert.red, colorConvert.green, colorConvert.blue])
-                case .hsl:
-                    colorConvert.hslToAny(hsl: [colorConvert.hue, colorConvert.saturation, colorConvert.lightness])
-                }
+                colorConvert.convert(from: storage.currentColorFormat)
             }
             Button("Main.Clear") {
-                colorConvert.conventedContent = nil
+                colorConvert.convertedContent = nil
             }
         }
     }

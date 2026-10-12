@@ -16,11 +16,11 @@ struct ActionView: View {
 
     private var copyButton: some View {
         Button {
-            var result = colorConvert.conventedContent ?? ""
+            var result = colorConvert.convertedContent ?? ""
             if storage.isPrefixWithFilter {
                 result = "filter: \(result)"
             }
-            if colorConvert.conventedContent != nil {
+            if colorConvert.convertedContent != nil {
                 NSPasteboard.general.declareTypes([.string], owner: nil)
                 NSPasteboard.general.setString(result, forType: .string)
             }

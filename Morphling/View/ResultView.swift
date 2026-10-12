@@ -7,8 +7,8 @@ struct ResultView: View {
     var body: some View {
         ScrollView {
             HStack {
-                if colorConvert.conventedContent != nil {
-                    Text((storage.isPrefixWithFilter ? "filter: " : "") + (colorConvert.conventedContent ?? ""))
+                if colorConvert.convertedContent != nil {
+                    Text((storage.isPrefixWithFilter ? "filter: " : "") + (colorConvert.convertedContent ?? ""))
                         .lineSpacing(4)
                         .textSelection(.enabled)
                         .padding(8)

@@ -2,6 +2,12 @@ import Foundation
 import JavaScriptCore
 import SwiftUI
 
+enum ColorFormat: String, CaseIterable {
+    case hex = "Hex"
+    case rgb = "RGB"
+    case hsl = "HSL"
+}
+
 enum JSFunctionName: String {
     case colorMatching
     case hexToFilter
@@ -21,7 +27,7 @@ class ColorConvert {
     var saturation: CGFloat = 0
     var lightness: CGFloat = 0
 
-    var conventedContent: String?
+    var convertedContent: String?
 
     // Loaded once and reused for every conversion
     private static let jsContext: JSContext? = {
@@ -41,6 +47,18 @@ class ColorConvert {
 }
 
 extension ColorConvert {
+    /// Recomputes everything from the values of the given input format.
+    func convert(from format: ColorFormat) {
+        switch format {
+        case .hex:
+            hexToAny(hex: hex)
+        case .rgb:
+            rgbToAny(rgb: [red, green, blue])
+        case .hsl:
+            hslToAny(hsl: [hue, saturation, lightness])
+        }
+    }
+
     private func invokeJSFunction(name: JSFunctionName, args: [String: Any]) -> [String: Any]? {
         guard let result = Self.jsContext?.objectForKeyedSubscript(name.rawValue)?.call(withArguments: [args]),
               result.isObject
@@ -53,7 +71,7 @@ extension ColorConvert {
     func hexToAny(hex: String) {
         // Only convert a complete 6-digit hex value, so the result never lags behind the input
         guard hex.count == 6, hex.allSatisfy(\.isHexDigit) else {
-            conventedContent = nil
+            convertedContent = nil
             return
         }
 
@@ -117,6 +135,6 @@ extension ColorConvert {
 
     // A failed conversion clears the result instead of leaving the previous one on screen
     private func applyFilter(_ result: [String: Any]?) {
-        conventedContent = result?["filter"] as? String
+        convertedContent = result?["filter"] as? String
     }
 }

@@ -31,14 +31,7 @@ struct MorphlingApp: App {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         NSApplication.shared.windows.first?.level = storage.windowLevel
                     }
-                    switch storage.currentColorFormat {
-                    case .hex:
-                        colorConvert.hexToAny(hex: colorConvert.hex)
-                    case .rgb:
-                        colorConvert.rgbToAny(rgb: [colorConvert.red, colorConvert.green, colorConvert.blue])
-                    case .hsl:
-                        colorConvert.hslToAny(hsl: [colorConvert.hue, colorConvert.saturation, colorConvert.lightness])
-                    }
+                    colorConvert.convert(from: storage.currentColorFormat)
                 }
         }
         .windowResizability(.contentSize)
