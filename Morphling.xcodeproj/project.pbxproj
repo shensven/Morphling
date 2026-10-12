@@ -41,7 +41,7 @@
 		06B93B7129FC3D2B00903DBF /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		06B93B7329FC3D9A00903DBF /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		06BF6563298A64AE00BCC25B /* ColorConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConvert.swift; sourceTree = "<group>"; };
-		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = converter/dist/converter.js; sourceTree = "<group>"; };
+		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = dist/converter.js; sourceTree = "<group>"; };
 		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
@@ -65,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				0621660029869D1A004512C0 /* Morphling */,
+				062166122986A0D7004512C0 /* converter */,
 				062165FF29869D1A004512C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -80,7 +81,6 @@
 		0621660029869D1A004512C0 /* Morphling */ = {
 			isa = PBXGroup;
 			children = (
-				062166122986A0D7004512C0 /* External */,
 				0690C08A2994056500D098ED /* Localization */,
 				06BF6565298A64B800BCC25B /* ViewModel */,
 				062166132986CCC9004512C0 /* View */,
@@ -93,12 +93,12 @@
 			path = Morphling;
 			sourceTree = "<group>";
 		};
-		062166122986A0D7004512C0 /* External */ = {
+		062166122986A0D7004512C0 /* converter */ = {
 			isa = PBXGroup;
 			children = (
 				06CCB699298D6C8C009B0F9B /* converter.js */,
 			);
-			path = External;
+			path = converter;
 			sourceTree = "<group>";
 		};
 		062166132986CCC9004512C0 /* View */ = {
