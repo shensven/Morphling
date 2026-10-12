@@ -18,7 +18,7 @@ struct ResultView: View {
             }
             Spacer()
         }
-        .background(Color(.textBackgroundColor))
+        .background(Color.primary.opacity(0.05))
         .cornerRadius(8)
     }
 }
