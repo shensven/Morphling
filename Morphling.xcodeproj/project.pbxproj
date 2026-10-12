@@ -22,9 +22,7 @@
 		06BF6564298A64AE00BCC25B /* ColorConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BF6563298A64AE00BCC25B /* ColorConvert.swift */; };
 		06C011E429A26C3100197EFF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06C011E329A26C3100197EFF /* Localizable.strings */; };
 		06CCB69A298D6C8C009B0F9B /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB699298D6C8C009B0F9B /* converter.js */; };
-		06CCB6A3298FB194009B0F9B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A2298FB194009B0F9B /* .gitignore */; };
 		06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A4299002A4009B0F9B /* Credits.rtf */; };
-		06CCB6A729900632009B0F9B /* .github in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB6A629900631009B0F9B /* .github */; };
 		06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */; };
 		06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */; };
 		06CCB6B12992A204009B0F9B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6B02992A204009B0F9B /* AboutView.swift */; };
@@ -49,9 +47,7 @@
 		06BF6563298A64AE00BCC25B /* ColorConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConvert.swift; sourceTree = "<group>"; };
 		06C011E329A26C3100197EFF /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = converter/dist/converter.js; sourceTree = "<group>"; };
-		06CCB6A2298FB194009B0F9B /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		06CCB6A4299002A4009B0F9B /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		06CCB6A629900631009B0F9B /* .github */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .github; sourceTree = SOURCE_ROOT; };
 		06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
 		06CCB6B02992A204009B0F9B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -69,19 +65,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		060FFCB729A67B9E00434409 /* MISC */ = {
-			isa = PBXGroup;
-			children = (
-				06CCB6A629900631009B0F9B /* .github */,
-				06CCB6A2298FB194009B0F9B /* .gitignore */,
-			);
-			name = MISC;
-			sourceTree = "<group>";
-		};
 		062165F529869D1A004512C0 = {
 			isa = PBXGroup;
 			children = (
-				060FFCB729A67B9E00434409 /* MISC */,
 				0621660029869D1A004512C0 /* Morphling */,
 				062165FF29869D1A004512C0 /* Products */,
 			);
@@ -104,8 +90,8 @@
 				062166132986CCC9004512C0 /* View */,
 				0621660729869D1C004512C0 /* Preview Content */,
 				0621660129869D1A004512C0 /* MorphlingApp.swift */,
-				0621660529869D1C004512C0 /* Assets.xcassets */,
 				0621660A29869D1C004512C0 /* Morphling.entitlements */,
+				0621660529869D1C004512C0 /* Assets.xcassets */,
 				06CCB6A4299002A4009B0F9B /* Credits.rtf */,
 			);
 			path = Morphling;
@@ -248,9 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06CCB6A729900632009B0F9B /* .github in Resources */,
 				06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */,
-				06CCB6A3298FB194009B0F9B /* .gitignore in Resources */,
 				0690C08C299405A100D098ED /* Localizable.strings in Resources */,
 				06C011E429A26C3100197EFF /* Localizable.strings in Resources */,
 				0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */,
