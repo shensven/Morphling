@@ -8,13 +8,6 @@ enum ColorFormat: String, CaseIterable {
     case hsl = "HSL"
 }
 
-enum JSFunctionName: String {
-    case colorMatching
-    case hexToFilter
-    case rgbToFilter
-    case hslToFilter
-}
-
 @Observable
 class ColorConvert {
     var hex: String = "000000"
@@ -28,6 +21,14 @@ class ColorConvert {
     var lightness: CGFloat = 0
 
     var convertedContent: String?
+
+    /// Functions that converter.js exposes on `globalThis`.
+    private enum JSFunctionName: String {
+        case colorMatching
+        case hexToFilter
+        case rgbToFilter
+        case hslToFilter
+    }
 
     // Loaded once and reused for every conversion
     private static let jsContext: JSContext? = {
@@ -51,12 +52,18 @@ extension ColorConvert {
     func convert(from format: ColorFormat) {
         switch format {
         case .hex:
-            hexToAny(hex: hex)
+            convertFromHex()
         case .rgb:
-            rgbToAny(rgb: [red, green, blue])
+            convertFromRGB()
         case .hsl:
-            hslToAny(hsl: [hue, saturation, lightness])
+            convertFromHSL()
         }
+    }
+
+    /// The text to show and copy, optionally as a complete `filter:` declaration.
+    func output(withFilterPrefix: Bool) -> String? {
+        guard let convertedContent else { return nil }
+        return withFilterPrefix ? "filter: \(convertedContent)" : convertedContent
     }
 
     private func invokeJSFunction(name: JSFunctionName, args: [String: Any]) -> [String: Any]? {
@@ -68,7 +75,7 @@ extension ColorConvert {
         return result.toDictionary() as? [String: Any]
     }
 
-    func hexToAny(hex: String) {
+    private func convertFromHex() {
         // Only convert a complete 6-digit hex value, so the result never lags behind the input
         guard hex.count == 6, hex.allSatisfy(\.isHexDigit) else {
             convertedContent = nil
@@ -85,8 +92,8 @@ extension ColorConvert {
         applyFilter(invokeJSFunction(name: .hexToFilter, args: ["hex": "#\(hex)"]))
     }
 
-    func rgbToAny(rgb: [CGFloat]) {
-        let rgbArgs = ["r": rgb[0], "g": rgb[1], "b": rgb[2]]
+    private func convertFromRGB() {
+        let rgbArgs = ["r": red, "g": green, "b": blue]
 
         let matching = invokeJSFunction(
             name: .colorMatching,
@@ -98,8 +105,8 @@ extension ColorConvert {
         applyFilter(invokeJSFunction(name: .rgbToFilter, args: rgbArgs))
     }
 
-    func hslToAny(hsl: [CGFloat]) {
-        let hslArgs = ["h": hsl[0], "s": hsl[1], "l": hsl[2]]
+    private func convertFromHSL() {
+        let hslArgs = ["h": hue, "s": saturation, "l": lightness]
 
         let matching = invokeJSFunction(
             name: .colorMatching,

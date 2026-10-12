@@ -6,8 +6,8 @@ struct ResultView: View {
 
     var body: some View {
         ScrollView {
-            if let convertedContent = colorConvert.convertedContent {
-                Text((storage.isPrefixWithFilter ? "filter: " : "") + convertedContent)
+            if let output = colorConvert.output(withFilterPrefix: storage.isPrefixWithFilter) {
+                Text(output)
                     .lineSpacing(4)
                     .textSelection(.enabled)
                     .padding(8)
