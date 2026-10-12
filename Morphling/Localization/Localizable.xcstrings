@@ -1,12 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-      "shouldTranslate" : false
-    },
-    " " : {
-      "shouldTranslate" : false
-    },
     "About.Feedback" : {
       "localizations" : {
         "en" : {
@@ -271,9 +265,6 @@
         }
       }
     },
-    "Made with ❤️ in Kunming by" : {
-      "shouldTranslate" : false
-    },
     "Main.Clear" : {
       "localizations" : {
         "en" : {
@@ -362,7 +353,7 @@
         }
       }
     },
-    "Main.Re-convert" : {
+    "Main.Reconvert" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -427,9 +418,6 @@
           }
         }
       }
-    },
-    "shensven/Morphling" : {
-      "shouldTranslate" : false
     }
   },
   "version" : "1.0"

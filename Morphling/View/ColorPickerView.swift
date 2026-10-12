@@ -17,7 +17,7 @@ struct ColorPickerView: View {
                     HStack(spacing: 4) {
                         Text(verbatim: "#")
                             .foregroundStyle(.secondary)
-                        TextField("", text: $colorConvert.hex)
+                        TextField(text: $colorConvert.hex) { EmptyView() }
                             .textFieldStyle(.roundedBorder)
                             .onChange(of: colorConvert.hex) { _, newValue in
                                 // Keep up to six hex digits, so a pasted "#FF0000" still works
@@ -106,7 +106,9 @@ private struct ChannelField: View {
     let onChange: () -> Void
 
     var body: some View {
-        TextField("", value: $value, format: FloatingPointFormatStyle<CGFloat>().precision(.fractionLength(0)))
+        TextField(value: $value, format: FloatingPointFormatStyle<CGFloat>().precision(.fractionLength(0))) {
+            EmptyView()
+        }
             .textFieldStyle(.roundedBorder)
             .overlay(alignment: .trailing) {
                 if let unit {

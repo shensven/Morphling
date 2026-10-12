@@ -53,10 +53,9 @@ struct AboutView: View {
 
                     LabeledContent(
                         content: {
-                            Link(
-                                "shensven/Morphling",
-                                destination: URL(string: "https://github.com/shensven/Morphling")!
-                            )
+                            Link(destination: URL(string: "https://github.com/shensven/Morphling")!) {
+                                Text(verbatim: "shensven/Morphling")
+                            }
                         },
                         label: {
                             HLabel(
@@ -81,9 +80,8 @@ struct AboutView: View {
                         )
                     },
                     footer: {
-                        HStack(spacing: 0) {
-                            Text("Made with ❤️ in Kunming by").font(.caption).foregroundStyle(.secondary)
-                            Text(" ").font(.caption).foregroundStyle(.secondary)
+                        HStack(spacing: 4) {
+                            Text(verbatim: "Made with ❤️ in Kunming by").font(.caption).foregroundStyle(.secondary)
                             Link(
                                 destination: URL(string: "https://x.com/eks_sven")!,
                                 label: { CandyTag(title: "Sven") }

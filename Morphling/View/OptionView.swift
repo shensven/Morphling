@@ -21,7 +21,7 @@ struct OptionView: View {
                 }
             }
             Spacer()
-            Button("Main.Re-convert") {
+            Button("Main.Reconvert") {
                 colorConvert.convert(from: storage.currentColorFormat)
             }
             Button("Main.Clear") {
