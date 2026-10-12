@@ -11,8 +11,9 @@ on:
 
 jobs:
   test:
-    # The app uses the macOS 26 SDK
-    runs-on: macos-26
+    # The project is saved in the Xcode 27 format, and only this preview
+    # image has Xcode 27 installed
+    runs-on: xcode-27
     steps:
       - name: Checkout
         uses: actions/checkout@v7
