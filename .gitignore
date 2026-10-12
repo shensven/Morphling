@@ -1,6 +1,7 @@
 .DS_Store
 
 *.xcuserstate
+xcuserdata/
 *.env
 *.p8
 
