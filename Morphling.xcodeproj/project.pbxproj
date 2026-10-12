@@ -29,7 +29,7 @@
 		06CCB6AD2992A1C0009B0F9B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */; };
 		06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */; };
 		06CCB6B12992A204009B0F9B /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CCB6B02992A204009B0F9B /* AboutView.swift */; };
-		06CCB6B42992B770009B0F9B /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 06CCB6B32992B770009B0F9B /* LaunchAtLogin */; };
+		06E5C0A22EA0000100A1B2C3 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E5C0A12EA0000100A1B2C3 /* LaunchAtLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +57,7 @@
 		06CCB6AC2992A1C0009B0F9B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		06CCB6AE2992A1F3009B0F9B /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
 		06CCB6B02992A204009B0F9B /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		06E5C0A12EA0000100A1B2C3 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06CCB6B42992B770009B0F9B /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +177,7 @@
 				06B93B7329FC3D9A00903DBF /* AppStorage.swift */,
 				06B93B7129FC3D2B00903DBF /* Appearance.swift */,
 				06BF6563298A64AE00BCC25B /* ColorConvert.swift */,
+				06E5C0A12EA0000100A1B2C3 /* LaunchAtLogin.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -206,9 +207,6 @@
 			dependencies = (
 			);
 			name = Morphling;
-			packageProductDependencies = (
-				06CCB6B32992B770009B0F9B /* LaunchAtLogin */,
-			);
 			productName = Morphling;
 			productReference = 062165FE29869D1A004512C0 /* Morphling.app */;
 			productType = "com.apple.product-type.application";
@@ -239,9 +237,6 @@
 				ja,
 			);
 			mainGroup = 062165F529869D1A004512C0;
-			packageReferences = (
-				06CCB6B22992B770009B0F9B /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */,
-			);
 			productRefGroup = 062165FF29869D1A004512C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,6 +302,7 @@
 				06B93B7229FC3D2B00903DBF /* Appearance.swift in Sources */,
 				06CCB6AF2992A1F3009B0F9B /* GeneralView.swift in Sources */,
 				06B93B7429FC3D9A00903DBF /* AppStorage.swift in Sources */,
+				06E5C0A22EA0000100A1B2C3 /* LaunchAtLogin.swift in Sources */,
 				0621660229869D1A004512C0 /* MorphlingApp.swift in Sources */,
 				062166172986CE0F004512C0 /* ResultView.swift in Sources */,
 			);
@@ -516,25 +512,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		06CCB6B22992B770009B0F9B /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin-Modern";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		06CCB6B32992B770009B0F9B /* LaunchAtLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 06CCB6B22992B770009B0F9B /* XCRemoteSwiftPackageReference "LaunchAtLogin-Modern" */;
-			productName = LaunchAtLogin;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 062165F629869D1A004512C0 /* Project object */;
 }

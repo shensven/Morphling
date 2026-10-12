@@ -1,9 +1,9 @@
-import LaunchAtLogin
 import SwiftUI
 
 struct GeneralView: View {
     @EnvironmentObject var storage: Storage
     @EnvironmentObject var appearance: Appearance
+    @StateObject var launchAtLogin = LaunchAtLogin()
 
     var body: some View {
         Form {
@@ -27,7 +27,7 @@ struct GeneralView: View {
             }
 
             LabeledContent("General.Application") {
-                LaunchAtLogin.Toggle {
+                Toggle(isOn: $launchAtLogin.isEnabled) {
                     Text("General.Launch_at_Login")
                 }
             }
