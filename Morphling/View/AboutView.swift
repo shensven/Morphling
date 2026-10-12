@@ -70,8 +70,8 @@ struct AboutView: View {
                             Text("Made with ❤️ in Kunming by").font(.caption).foregroundStyle(.secondary)
                             Text(" ").font(.caption).foregroundStyle(.secondary)
                             Link(
-                                destination: URL(string: "https://github.com/shensven")!,
-                                label: { CandyTag(title: "SvenFE") }
+                                destination: URL(string: "https://x.com/eks_sven")!,
+                                label: { CandyTag(title: "Sven") }
                             )
                         }
                     }
