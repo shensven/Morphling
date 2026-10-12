@@ -10,7 +10,6 @@
 		0621660229869D1A004512C0 /* MorphlingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621660129869D1A004512C0 /* MorphlingApp.swift */; };
 		0621660429869D1A004512C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0621660329869D1A004512C0 /* ContentView.swift */; };
 		0621660629869D1C004512C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0621660529869D1C004512C0 /* Assets.xcassets */; };
-		0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0621660829869D1C004512C0 /* Preview Assets.xcassets */; };
 		062166152986CD63004512C0 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166142986CD63004512C0 /* ColorPickerView.swift */; };
 		062166172986CE0F004512C0 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166162986CE0F004512C0 /* ResultView.swift */; };
 		062166192986D7F7004512C0 /* ActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062166182986D7F7004512C0 /* ActionView.swift */; };
@@ -33,7 +32,6 @@
 		0621660129869D1A004512C0 /* MorphlingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphlingApp.swift; sourceTree = "<group>"; };
 		0621660329869D1A004512C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0621660529869D1C004512C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0621660829869D1C004512C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0621660A29869D1C004512C0 /* Morphling.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Morphling.entitlements; sourceTree = "<group>"; };
 		062166142986CD63004512C0 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		062166162986CE0F004512C0 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 				0690C08A2994056500D098ED /* Localization */,
 				06BF6565298A64B800BCC25B /* ViewModel */,
 				062166132986CCC9004512C0 /* View */,
-				0621660729869D1C004512C0 /* Preview Content */,
 				0621660129869D1A004512C0 /* MorphlingApp.swift */,
 				0621660A29869D1C004512C0 /* Morphling.entitlements */,
 				069CDE7E307CD6E500FDBBC6 /* MorphlingApp.icon */,
@@ -94,14 +91,6 @@
 				06CCB6A4299002A4009B0F9B /* Credits.rtf */,
 			);
 			path = Morphling;
-			sourceTree = "<group>";
-		};
-		0621660729869D1C004512C0 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0621660829869D1C004512C0 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		062166122986A0D7004512C0 /* External */ = {
@@ -210,7 +199,6 @@
 				06CCB6A5299002A4009B0F9B /* Credits.rtf in Resources */,
 				069CDE7F307CD6E500FDBBC6 /* MorphlingApp.icon in Resources */,
 				06E5C0B22EA0000200A1B2C3 /* Localizable.xcstrings in Resources */,
-				0621660929869D1C004512C0 /* Preview Assets.xcassets in Resources */,
 				06CCB69A298D6C8C009B0F9B /* converter.js in Resources */,
 				0621660629869D1C004512C0 /* Assets.xcassets in Resources */,
 			);
@@ -387,7 +375,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Morphling/Preview Content\"";
 				DEVELOPMENT_TEAM = 6S52LG3NA5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -422,7 +409,6 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Morphling/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = 6S52LG3NA5;
 				ENABLE_HARDENED_RUNTIME = YES;
