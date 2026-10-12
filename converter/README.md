@@ -2,7 +2,7 @@
 
 Bundles [color](https://github.com/Qix-/color) and [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter) into a single script that Morphling runs in JavaScriptCore.
 
-`src/index.ts` exposes `colorMatching`, `hexToFilter`, `rgbToFilter` and `hslToFilter` on `globalThis`. Vite builds it as one IIFE file, `dist/converter.js`, which the Xcode project copies into the app bundle.
+`src/index.ts` exposes `convertColor`, `hexToFilter`, `rgbToFilter` and `hslToFilter` on `globalThis`. Vite builds it as one IIFE file, `dist/converter.js`, which the Xcode project copies into the app bundle.
 
 ## Build
 

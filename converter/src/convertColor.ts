@@ -7,7 +7,7 @@ type Props = {
   colorSpace: ColorParams["1"];
 };
 
-const colorMatching = (props: Props) => {
+const convertColor = (props: Props) => {
   const { colorParam, colorSpace } = props;
 
   switch (colorSpace) {
@@ -50,4 +50,4 @@ const colorMatching = (props: Props) => {
   }
 };
 
-export default colorMatching;
+export default convertColor;

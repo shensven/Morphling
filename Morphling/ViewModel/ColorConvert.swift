@@ -25,7 +25,7 @@ class ColorConvert {
 
     /// Functions that converter.js exposes on `globalThis`.
     private enum JSFunctionName: String {
-        case colorMatching
+        case convertColor
         case hexToFilter
         case rgbToFilter
         case hslToFilter
@@ -85,12 +85,12 @@ extension ColorConvert {
             return
         }
 
-        let matching = invokeJSFunction(
-            name: .colorMatching,
+        let converted = invokeJSFunction(
+            name: .convertColor,
             args: ["colorParam": "#\(hex)", "colorSpace": "hex"]
         )
-        applyRGB(matching?["rgb"])
-        applyHSL(matching?["hsl"])
+        applyRGB(converted?["rgb"])
+        applyHSL(converted?["hsl"])
 
         applyFilter(invokeJSFunction(name: .hexToFilter, args: ["hex": "#\(hex)"]))
     }
@@ -98,12 +98,12 @@ extension ColorConvert {
     private func convertFromRGB() {
         let rgbArgs = ["r": red, "g": green, "b": blue]
 
-        let matching = invokeJSFunction(
-            name: .colorMatching,
+        let converted = invokeJSFunction(
+            name: .convertColor,
             args: ["colorParam": rgbArgs, "colorSpace": "rgb"]
         )
-        applyHex(matching?["hex"])
-        applyHSL(matching?["hsl"])
+        applyHex(converted?["hex"])
+        applyHSL(converted?["hsl"])
 
         applyFilter(invokeJSFunction(name: .rgbToFilter, args: rgbArgs))
     }
@@ -111,12 +111,12 @@ extension ColorConvert {
     private func convertFromHSL() {
         let hslArgs = ["h": hue, "s": saturation, "l": lightness]
 
-        let matching = invokeJSFunction(
-            name: .colorMatching,
+        let converted = invokeJSFunction(
+            name: .convertColor,
             args: ["colorParam": hslArgs, "colorSpace": "hsl"]
         )
-        applyHex(matching?["hex"])
-        applyRGB(matching?["rgb"])
+        applyHex(converted?["hex"])
+        applyRGB(converted?["rgb"])
 
         applyFilter(invokeJSFunction(name: .hslToFilter, args: hslArgs))
     }
