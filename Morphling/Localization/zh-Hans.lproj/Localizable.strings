@@ -22,3 +22,5 @@
 // About
 "About.Version" = "版本";
 "About.Source_Code" = "源代码";
+"About.Feedback" = "反馈";
+"About.Feedback_on_GitHub" = "在 GitHub 上反馈";

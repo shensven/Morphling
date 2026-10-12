@@ -22,3 +22,5 @@
 // About
 "About.Version" = "バージョン";
 "About.Source_Code" = "ソースコード";
+"About.Feedback" = "フィードバック";
+"About.Feedback_on_GitHub" = "GitHubでフィードバック";

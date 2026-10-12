@@ -29,6 +29,8 @@ private struct CandyTag: View {
 }
 
 struct AboutView: View {
+    @Environment(\.openURL) var openURL
+
     var VERSION = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     var BUILD = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
 
@@ -41,27 +43,40 @@ struct AboutView: View {
                 .padding(.top, 8)
 
             Form {
-                Section(
-                    content: {
-                        if let VERSION, let BUILD {
-                            LabeledContent(
-                                content: { Text(VERSION + " (" + BUILD + ")") },
-                                label: { HLabel(title: "About.Version", systemImage: "hammer") }
+                Section {
+                    if let VERSION, let BUILD {
+                        LabeledContent(
+                            content: { Text(VERSION + " (" + BUILD + ")") },
+                            label: { HLabel(title: "About.Version", systemImage: "hammer") }
+                        )
+                    }
+
+                    LabeledContent(
+                        content: {
+                            Link(
+                                "shensven/Morphling",
+                                destination: URL(string: "https://github.com/shensven/Morphling")!
+                            )
+                        },
+                        label: {
+                            HLabel(
+                                title: "About.Source_Code",
+                                systemImage: "chevron.left.forwardslash.chevron.right"
                             )
                         }
+                    )
+                }
 
+                Section(
+                    content: {
                         LabeledContent(
                             content: {
-                                Link(
-                                    "shensven/Morphling",
-                                    destination: URL(string: "https://github.com/shensven/Morphling")!
-                                )
+                                Button("About.Feedback_on_GitHub") {
+                                    openURL(URL(string: "https://github.com/shensven/Morphling/issues")!)
+                                }.controlSize(.small)
                             },
                             label: {
-                                HLabel(
-                                    title: "About.Source_Code",
-                                    systemImage: "chevron.left.forwardslash.chevron.right"
-                                )
+                                HLabel(title: "About.Feedback", systemImage: "exclamationmark.bubble")
                             }
                         )
                     },
