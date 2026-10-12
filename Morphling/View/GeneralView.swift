@@ -34,4 +34,5 @@ struct GeneralView: View {
 
 #Preview {
     GeneralView()
+        .environment(Storage())
 }

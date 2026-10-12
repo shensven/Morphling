@@ -8,31 +8,17 @@ struct ColorPickerView: View {
         @Bindable var storage = storage
         @Bindable var colorConvert = colorConvert
 
-        HStack {
-            VStack(spacing: 2) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 4)
-                        .stroke(Color.gray, lineWidth: 1)
-                    Color(
-                        .sRGB,
-                        red: colorConvert.red / 255,
-                        green: colorConvert.green / 255,
-                        blue: colorConvert.blue / 255
-                    ).clipShape(RoundedRectangle(cornerRadius: 4))
-                }.frame(width: 18, height: 18)
+        VStack(spacing: 2) {
+            HStack(spacing: Self.spacing) {
+                swatch
 
-                Text("p")
-                    .font(.footnote)
-                    .hidden()
-            }
-
-            if storage.currentColorFormat == .hex {
-                VStack(spacing: 2) {
+                switch storage.currentColorFormat {
+                case .hex:
                     HStack(spacing: 4) {
-                        Text("#")
-                            .foregroundColor(.secondary)
+                        Text(verbatim: "#")
+                            .foregroundStyle(.secondary)
                         TextField("", text: $colorConvert.hex)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .textFieldStyle(.roundedBorder)
                             .onChange(of: colorConvert.hex) { _, target in
                                 if target.count > 6 {
                                     colorConvert.hex = "FFFFFF"
@@ -40,170 +26,107 @@ struct ColorPickerView: View {
                                 colorConvert.hexToAny(hex: target)
                             }
                     }
-                    Text("Hex")
-                        .font(.footnote)
-                        .hidden()
+                case .rgb:
+                    ChannelField(value: $colorConvert.red, range: 0...255) { colorConvert.convert(from: .rgb) }
+                    ChannelField(value: $colorConvert.green, range: 0...255) { colorConvert.convert(from: .rgb) }
+                    ChannelField(value: $colorConvert.blue, range: 0...255) { colorConvert.convert(from: .rgb) }
+                case .hsl:
+                    ChannelField(value: $colorConvert.hue, range: 0...360, unit: "deg") {
+                        colorConvert.convert(from: .hsl)
+                    }
+                    ChannelField(value: $colorConvert.saturation, range: 0...100, unit: "%") {
+                        colorConvert.convert(from: .hsl)
+                    }
+                    ChannelField(value: $colorConvert.lightness, range: 0...100, unit: "%") {
+                        colorConvert.convert(from: .hsl)
+                    }
                 }
-            }
 
-            if storage.currentColorFormat == .rgb {
-                VStack(spacing: 2) {
-                    TextField(
-                        "",
-                        value: $colorConvert.red,
-                        formatter: NumberFormatter()
-                    )
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: colorConvert.red) { _, target in
-                        if target > 255 {
-                            colorConvert.red = 255
-                        } else if target < 0 {
-                            colorConvert.red = 0
-                        } else {
-                            colorConvert.rgbToAny(rgb: [target, colorConvert.green, colorConvert.blue])
-                        }
-                    }
-                    Text("r")
-                        .font(.footnote)
-                        .foregroundColor(.primary.opacity(0.7))
-                }
-                VStack(spacing: 2) {
-                    TextField(
-                        "",
-                        value: $colorConvert.green,
-                        formatter: NumberFormatter()
-                    )
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: colorConvert.green) { _, target in
-                        if target > 255 {
-                            colorConvert.green = 255
-                        } else if target < 0 {
-                            colorConvert.green = 0
-                        } else {
-                            colorConvert.rgbToAny(rgb: [colorConvert.red, target, colorConvert.blue])
-                        }
-                    }
-                    Text("g")
-                        .font(.footnote)
-                        .foregroundColor(.primary.opacity(0.7))
-                }
-                VStack(spacing: 2) {
-                    TextField(
-                        "",
-                        value: $colorConvert.blue,
-                        formatter: NumberFormatter()
-                    )
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: colorConvert.blue) { _, target in
-                        if target > 255 {
-                            colorConvert.blue = 255
-                        } else if target < 0 {
-                            colorConvert.blue = 0
-                        } else {
-                            colorConvert.rgbToAny(rgb: [colorConvert.red, colorConvert.green, target])
-                        }
-                    }
-                    Text("b")
-                        .font(.footnote)
-                        .foregroundColor(.primary.opacity(0.7))
-                }
-            }
-
-            if storage.currentColorFormat == .hsl {
-                VStack(spacing: 2) {
-                    ZStack(alignment: .trailing) {
-                        TextField(
-                            "",
-                            value: $colorConvert.hue,
-                            formatter: NumberFormatter()
-                        )
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: colorConvert.hue) { _, target in
-                            if target > 360 {
-                                colorConvert.hue = 360
-                            } else if target < 0 {
-                                colorConvert.hue = 0
-                            } else {
-                                colorConvert.hslToAny(hsl: [target, colorConvert.saturation, colorConvert.lightness])
-                            }
-                        }
-                        Text("deg")
-                            .font(.footnote)
-                            .foregroundColor(.primary.opacity(0.5))
-                            .padding(.trailing, 4)
-                    }
-                    Text("h")
-                        .font(.footnote)
-                        .foregroundColor(.primary.opacity(0.7))
-                }
-                VStack(spacing: 2) {
-                    ZStack(alignment: .trailing) {
-                        TextField(
-                            "",
-                            value: $colorConvert.saturation,
-                            formatter: NumberFormatter()
-                        )
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: colorConvert.saturation) { _, target in
-                            if target > 100 {
-                                colorConvert.saturation = 100
-                            } else if target < 0 {
-                                colorConvert.saturation = 0
-                            } else {
-                                colorConvert.hslToAny(hsl: [colorConvert.hue, target, colorConvert.lightness])
-                            }
-                        }
-                        Text("%")
-                            .font(.footnote)
-                            .foregroundColor(.primary.opacity(0.5))
-                            .padding(.trailing, 4)
-                    }
-                    Text("s")
-                        .font(.footnote)
-                        .foregroundColor(.primary.opacity(0.7))
-                }
-                VStack(spacing: 2) {
-                    ZStack(alignment: .trailing) {
-                        TextField(
-                            "",
-                            value: $colorConvert.lightness,
-                            formatter: NumberFormatter()
-                        )
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: colorConvert.lightness) { _, target in
-                            if target > 100 {
-                                colorConvert.lightness = 100
-                            } else if target < 0 {
-                                colorConvert.lightness = 0
-                            } else {
-                                colorConvert.hslToAny(hsl: [colorConvert.hue, colorConvert.saturation, target])
-                            }
-                        }
-                        Text("%")
-                            .font(.footnote)
-                            .foregroundColor(.primary.opacity(0.5))
-                            .padding(.trailing, 4)
-                    }
-                    Text("l")
-                        .font(.footnote)
-                        .foregroundColor(.primary.opacity(0.7))
-                }
-            }
-
-            VStack(spacing: 2) {
                 Picker(selection: $storage.currentColorFormat, label: EmptyView()) {
                     ForEach(ColorFormat.allCases, id: \.self) { item in
                         Text(item.rawValue).tag(item)
                     }
-                }.frame(width: 72)
-                Text("format")
-                    .font(.footnote)
-                    .hidden()
+                }
+                .frame(width: Self.pickerWidth)
+            }
+
+            // Captions line up under the fields: same spacing, same fixed-width ends
+            HStack(spacing: Self.spacing) {
+                Color.clear.frame(width: Self.swatchSize, height: 0)
+                ForEach(storage.currentColorFormat.captions, id: \.self) { caption in
+                    Text(verbatim: caption)
+                        .font(.footnote)
+                        .foregroundStyle(.primary.opacity(0.7))
+                        .frame(maxWidth: .infinity)
+                }
+                Color.clear.frame(width: Self.pickerWidth, height: 0)
             }
         }
+    }
+
+    private static let spacing: CGFloat = 8
+    private static let swatchSize: CGFloat = 18
+    private static let pickerWidth: CGFloat = 72
+
+    private var swatch: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 4)
+                .stroke(Color.gray, lineWidth: 1)
+            Color(
+                .sRGB,
+                red: colorConvert.red / 255,
+                green: colorConvert.green / 255,
+                blue: colorConvert.blue / 255
+            )
+            .clipShape(.rect(cornerRadius: 4))
+        }
+        .frame(width: Self.swatchSize, height: Self.swatchSize)
+    }
+}
+
+private extension ColorFormat {
+    /// Labels shown under each input field.
+    var captions: [String] {
+        switch self {
+        case .hex: ["hex"]
+        case .rgb: ["r", "g", "b"]
+        case .hsl: ["h", "s", "l"]
+        }
+    }
+}
+
+/// A numeric field for one color channel. Out-of-range input is clamped, otherwise `onChange` runs.
+private struct ChannelField: View {
+    @Binding var value: CGFloat
+    let range: ClosedRange<CGFloat>
+    var unit: String?
+    let onChange: () -> Void
+
+    var body: some View {
+        TextField("", value: $value, format: FloatingPointFormatStyle<CGFloat>().precision(.fractionLength(0)))
+            .textFieldStyle(.roundedBorder)
+            .overlay(alignment: .trailing) {
+                if let unit {
+                    Text(verbatim: unit)
+                        .font(.footnote)
+                        .foregroundStyle(.primary.opacity(0.5))
+                        .padding(.trailing, 4)
+                        .allowsHitTesting(false)
+                }
+            }
+            .onChange(of: value) { _, newValue in
+                let clamped = min(max(newValue, range.lowerBound), range.upperBound)
+                if clamped != newValue {
+                    value = clamped
+                } else {
+                    onChange()
+                }
+            }
     }
 }
 
 #Preview {
     ColorPickerView()
+        .environment(Storage())
+        .environment(ColorConvert())
 }

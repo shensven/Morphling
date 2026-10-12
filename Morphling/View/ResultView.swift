@@ -6,23 +6,22 @@ struct ResultView: View {
 
     var body: some View {
         ScrollView {
-            HStack {
-                if colorConvert.convertedContent != nil {
-                    Text((storage.isPrefixWithFilter ? "filter: " : "") + (colorConvert.convertedContent ?? ""))
-                        .lineSpacing(4)
-                        .textSelection(.enabled)
-                        .padding(8)
-                        .foregroundColor(.primary.opacity(0.9))
-                }
-                Spacer()
+            if let convertedContent = colorConvert.convertedContent {
+                Text((storage.isPrefixWithFilter ? "filter: " : "") + convertedContent)
+                    .lineSpacing(4)
+                    .textSelection(.enabled)
+                    .padding(8)
+                    .foregroundStyle(.primary.opacity(0.9))
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
-            Spacer()
         }
         .background(Color.primary.opacity(0.05))
-        .cornerRadius(8)
+        .clipShape(.rect(cornerRadius: 8))
     }
 }
 
 #Preview {
     ResultView()
+        .environment(Storage())
+        .environment(ColorConvert())
 }

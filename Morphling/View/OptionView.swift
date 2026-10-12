@@ -11,13 +11,13 @@ struct OptionView: View {
             Toggle(isOn: $storage.isPrefixWithFilter) {
                 HStack(spacing: 2) {
                     Text("Main.Prefix_with")
-                    Text("filter:")
+                    Text(verbatim: "filter:")
                         .font(.body)
                         .padding(.vertical, 1)
                         .padding(.horizontal, 4)
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                         .background(Color.accentColor.opacity(0.1))
-                        .cornerRadius(3)
+                        .clipShape(.rect(cornerRadius: 3))
                 }
             }
             Spacer()
@@ -33,4 +33,6 @@ struct OptionView: View {
 
 #Preview {
     OptionView()
+        .environment(Storage())
+        .environment(ColorConvert())
 }

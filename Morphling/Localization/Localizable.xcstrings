@@ -7,12 +7,6 @@
     " " : {
       "shouldTranslate" : false
     },
-    "#" : {
-      "shouldTranslate" : false
-    },
-    "%" : {
-      "shouldTranslate" : false
-    },
     "About.Feedback" : {
       "localizations" : {
         "en" : {
@@ -277,9 +271,6 @@
         }
       }
     },
-    "Hex" : {
-      "shouldTranslate" : false
-    },
     "Made with ❤️ in Kunming by" : {
       "shouldTranslate" : false
     },
@@ -436,36 +427,6 @@
           }
         }
       }
-    },
-    "b" : {
-      "shouldTranslate" : false
-    },
-    "deg" : {
-      "shouldTranslate" : false
-    },
-    "filter:" : {
-      "shouldTranslate" : false
-    },
-    "format" : {
-      "shouldTranslate" : false
-    },
-    "g" : {
-      "shouldTranslate" : false
-    },
-    "h" : {
-      "shouldTranslate" : false
-    },
-    "l" : {
-      "shouldTranslate" : false
-    },
-    "p" : {
-      "shouldTranslate" : false
-    },
-    "r" : {
-      "shouldTranslate" : false
-    },
-    "s" : {
-      "shouldTranslate" : false
     },
     "shensven/Morphling" : {
       "shouldTranslate" : false

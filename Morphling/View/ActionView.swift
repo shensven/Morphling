@@ -16,14 +16,10 @@ struct ActionView: View {
 
     private var copyButton: some View {
         Button {
-            var result = colorConvert.convertedContent ?? ""
-            if storage.isPrefixWithFilter {
-                result = "filter: \(result)"
-            }
-            if colorConvert.convertedContent != nil {
-                NSPasteboard.general.declareTypes([.string], owner: nil)
-                NSPasteboard.general.setString(result, forType: .string)
-            }
+            guard let convertedContent = colorConvert.convertedContent else { return }
+            let result = storage.isPrefixWithFilter ? "filter: \(convertedContent)" : convertedContent
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(result, forType: .string)
         } label: {
             Spacer()
             Text("Main.Copy_to_Pasteboard")
@@ -36,4 +32,6 @@ struct ActionView: View {
 
 #Preview {
     ActionView()
+        .environment(Storage())
+        .environment(ColorConvert())
 }

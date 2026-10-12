@@ -56,4 +56,6 @@ private struct WindowLevelSetter: NSViewRepresentable {
 
 #Preview {
     ContentView()
+        .environment(Storage())
+        .environment(ColorConvert())
 }
