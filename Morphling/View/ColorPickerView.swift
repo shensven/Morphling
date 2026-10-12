@@ -31,7 +31,9 @@ struct ColorPickerView: View {
 
             if storage.currentColorFormat == .hex {
                 VStack(spacing: 2) {
-                    ZStack(alignment: .leading) {
+                    HStack(spacing: 4) {
+                        Text("#")
+                            .foregroundColor(.secondary)
                         TextField("", text: $colorConvert.hex)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .onChange(of: colorConvert.hex) { target in
@@ -40,10 +42,6 @@ struct ColorPickerView: View {
                                 }
                                 colorConvert.hexToAny(hex: target)
                             }
-                        Text("#")
-                            .font(.footnote)
-                            .foregroundColor(.primary.opacity(0.5))
-                            .padding(.leading, 4)
                     }
                     Text("Hex")
                         .font(.footnote)
