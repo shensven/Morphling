@@ -3,12 +3,6 @@ import JavaScriptCore
 import OSLog
 import SwiftUI
 
-enum ColorFormat: String, CaseIterable {
-    case hex = "Hex"
-    case rgb = "RGB"
-    case hsl = "HSL"
-}
-
 @Observable
 class ColorConverter {
     var hex: String = "000000"
