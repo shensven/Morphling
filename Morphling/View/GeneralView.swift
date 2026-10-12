@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GeneralView: View {
+    @Environment(\.openURL) var openURL
     @Environment(Storage.self) var storage
     @Environment(Appearance.self) var appearance
     @State var launchAtLogin = LaunchAtLogin()
@@ -20,11 +21,8 @@ struct GeneralView: View {
             }
 
             LabeledContent("General.Language") {
-                Button {
-                    let prefPanePath = URL(fileURLWithPath: "/System/Library/PreferencePanes/Localization.prefPane")
-                    NSWorkspace.shared.open(prefPanePath)
-                } label: {
-                    Text("General.Open_System_Settings")
+                Button("General.Open_System_Settings") {
+                    openURL(URL(string: "x-apple.systempreferences:com.apple.Localization-Settings.extension")!)
                 }
             }
 
