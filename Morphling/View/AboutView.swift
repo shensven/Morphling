@@ -13,26 +13,6 @@ private struct HLabel: View {
     }
 }
 
-private struct ClickableImage: View {
-    @Environment(\.openURL) var openURL
-
-    var img: String
-    var help: LocalizedStringKey
-    var url: String
-
-    var body: some View {
-        Image(img)
-            .resizable()
-            .renderingMode(.template)
-            .foregroundStyle(Color.accentColor)
-            .frame(width: 14, height: 14)
-            .help(help)
-            .onTapGesture {
-                openURL(URL(string: url)!)
-            }
-    }
-}
-
 private struct CandyTag: View {
     var title: String
 
@@ -61,51 +41,27 @@ struct AboutView: View {
                 .padding(.top, 8)
 
             Form {
-                Section {
-                    if let VERSION, let BUILD {
-                        LabeledContent(
-                            content: { Text(VERSION + " (" + BUILD + ")") },
-                            label: { HLabel(title: "About.Version", systemImage: "hammer") }
-                        )
-                    }
-
-                    LabeledContent(
-                        content: {
-                            Link(
-                                "shensven/Morphling",
-                                destination: URL(string: "https://github.com/shensven/Morphling")!
-                            )
-                        },
-                        label: {
-                            HLabel(title: "About.Source_Code", systemImage: "chevron.left.forwardslash.chevron.right")
-                        }
-                    )
-                }
-
                 Section(
                     content: {
+                        if let VERSION, let BUILD {
+                            LabeledContent(
+                                content: { Text(VERSION + " (" + BUILD + ")") },
+                                label: { HLabel(title: "About.Version", systemImage: "hammer") }
+                            )
+                        }
+
                         LabeledContent(
                             content: {
-                                HStack {
-                                    ClickableImage(
-                                        img: "RiGithubFill",
-                                        help: "GitHub",
-                                        url: "https://github.com/shensven"
-                                    )
-                                    ClickableImage(
-                                        img: "RiTwitterFill",
-                                        help: "Twitter",
-                                        url: "https://twitter.com/shensven2016"
-                                    )
-                                    ClickableImage(
-                                        img: "RiWeiboFill",
-                                        help: "About.Weibo",
-                                        url: "https://weibo.com/u/2449440940"
-                                    )
-                                }
+                                Link(
+                                    "shensven/Morphling",
+                                    destination: URL(string: "https://github.com/shensven/Morphling")!
+                                )
                             },
                             label: {
-                                HLabel(title: "About.Developer", systemImage: "person")
+                                HLabel(
+                                    title: "About.Source_Code",
+                                    systemImage: "chevron.left.forwardslash.chevron.right"
+                                )
                             }
                         )
                     },

@@ -30,7 +30,6 @@
 
 - [color](https://github.com/Qix-/color)
 - [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)
-- [Remix Icon](https://github.com/Remix-Design/RemixIcon)
 - [3dicons](https://3dicons.co/)
 
 ### 本地化翻译
