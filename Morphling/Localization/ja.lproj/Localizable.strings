@@ -20,8 +20,8 @@
 "General.Launch_at_Login" = "ログイン時に起動";
 
 // About
+"About.Version" = "バージョン";
 "About.Developer" = "開発者";
 "About.Weibo" = "Weibo";
 "About.Give_a_Good_Review" = "良い評価をする";
 "About.Source_Code" = "ソースコード";
-"About.GitHub_Repository" = "GitHubリポジトリ";

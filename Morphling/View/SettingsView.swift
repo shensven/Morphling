@@ -1,20 +1,22 @@
 import SwiftUI
 
 struct SettingsView: View {
+    private var frameWidth: CGFloat = 480
+
     var body: some View {
         TabView {
             GeneralView()
                 .tabItem {
                     Label("Settings.General", systemImage: "gearshape")
                 }
-                .frame(width: 448)
+                .frame(width: frameWidth)
                 .fixedSize()
 
             AboutView()
                 .tabItem {
                     Label("Settings.About", systemImage: "info.circle")
                 }
-                .frame(width: 448)
+                .frame(width: frameWidth)
                 .fixedSize()
         }
     }

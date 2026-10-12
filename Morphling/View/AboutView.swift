@@ -1,5 +1,53 @@
 import SwiftUI
 
+private struct HLabel: View {
+    var title: LocalizedStringKey
+    var systemImage: String
+
+    var body: some View {
+        Label {
+            Text(title)
+        } icon: {
+            Image(systemName: systemImage).frame(width: 16)
+        }
+    }
+}
+
+private struct ClickableImage: View {
+    @Environment(\.openURL) var openURL
+
+    var img: String
+    var help: LocalizedStringKey
+    var url: String
+
+    var body: some View {
+        Image(img)
+            .resizable()
+            .renderingMode(.template)
+            .foregroundStyle(Color.accentColor)
+            .frame(width: 14, height: 14)
+            .help(help)
+            .onTapGesture {
+                openURL(URL(string: url)!)
+            }
+    }
+}
+
+private struct CandyTag: View {
+    var title: String
+
+    var body: some View {
+        Text(title)
+            .font(.caption)
+            .lineLimit(1)
+            .foregroundStyle(Color.accentColor)
+            .padding(.vertical, 1)
+            .padding(.horizontal, 4)
+            .background(Color.accentColor.opacity(0.2).gradient)
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+    }
+}
+
 struct AboutView: View {
     var VERSION = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     var BUILD = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
@@ -9,128 +57,91 @@ struct AboutView: View {
             Image(nsImage: NSApplication.shared.applicationIconImage)
                 .resizable()
                 .frame(width: 128, height: 128)
-                .padding(.leading, 16)
+                .padding(.leading, 20)
+                .padding(.top, 8)
 
-            ScrollView {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("Morphling").font(.title)
-                        Spacer()
-                        Text("Version \(VERSION!) (Build \(BUILD!))").foregroundColor(.secondary)
+            Form {
+                Section {
+                    if let VERSION, let BUILD {
+                        LabeledContent(
+                            content: { Text(VERSION + " (" + BUILD + ")") },
+                            label: { HLabel(title: "About.Version", systemImage: "hammer") }
+                        )
                     }
 
-                    Divider().padding(.bottom, 4)
+                    LabeledContent(
+                        content: {
+                            Link(
+                                "shensven/Morphling",
+                                destination: URL(string: "https://github.com/shensven/Morphling")!
+                            )
+                        },
+                        label: {
+                            HLabel(title: "About.Source_Code", systemImage: "chevron.left.forwardslash.chevron.right")
+                        }
+                    )
+                }
 
-                    HStack {
-                        Image("RiAtLine")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.primary)
-                            .frame(width: 16, height: 16)
-                        Text("About.Developer")
-                        Spacer()
-
-                        Image("RiGithubFill")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 16, height: 16)
-                            .help("GitHub Profile")
-                            .onTapGesture {
-                                NSWorkspace.shared.open(
-                                    URL(string: "https://github.com/shensven")!
-                                )
-                            }
-
-                        Image("RiTwitterFill")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 16, height: 16)
-                            .help("Twitter")
-                            .onTapGesture {
-                                NSWorkspace.shared.open(
-                                    URL(string: "https://twitter.com/shensven2016")!
-                                )
-                            }
-
-                        Image("RiWeiboFill")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 16, height: 16)
-                            .help("About.Weibo")
-                            .onTapGesture {
-                                NSWorkspace.shared.open(
-                                    URL(string: "https://weibo.com/u/2449440940")!
-                                )
-                            }
-                    }
-
-                    HStack {
-                        Image("RiStarSmileLine")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.primary)
-                            .frame(width: 16, height: 16)
-                        Text("About.Give_a_Good_Review")
-                        Spacer()
-                        Image("RiAppStoreFill")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 16, height: 16)
-                            .help("Mac App Store")
-                            .onTapGesture {
-                                guard let writeReviewURL = URL(string:
-                                    "https://apps.apple.com/app/id1669993843?action=write-review"
-                                ) else {
-                                    return
+                Section(
+                    content: {
+                        LabeledContent(
+                            content: {
+                                HStack {
+                                    ClickableImage(
+                                        img: "RiGithubFill",
+                                        help: "GitHub",
+                                        url: "https://github.com/shensven"
+                                    )
+                                    ClickableImage(
+                                        img: "RiTwitterFill",
+                                        help: "Twitter",
+                                        url: "https://twitter.com/shensven2016"
+                                    )
+                                    ClickableImage(
+                                        img: "RiWeiboFill",
+                                        help: "About.Weibo",
+                                        url: "https://weibo.com/u/2449440940"
+                                    )
                                 }
-                                NSWorkspace.shared.open(writeReviewURL)
+                            },
+                            label: {
+                                HLabel(title: "About.Developer", systemImage: "person")
                             }
-                        Image("RiProductHuntFill")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 16, height: 16)
-                            .help("Product Hunt")
-                            .onTapGesture {
-                                guard let writeReviewURL = URL(string:
-                                    "https://www.producthunt.com/posts/morphling"
-                                ) else {
-                                    return
+                        )
+
+                        LabeledContent(
+                            content: {
+                                HStack {
+                                    ClickableImage(
+                                        img: "RiAppStoreFill",
+                                        help: "Mac App Store",
+                                        url: "https://apps.apple.com/app/id1669993843?action=write-review"
+                                    )
+                                    ClickableImage(
+                                        img: "RiProductHuntFill",
+                                        help: "Product Hunt",
+                                        url: "https://www.producthunt.com/posts/morphling"
+                                    )
                                 }
-                                NSWorkspace.shared.open(writeReviewURL)
+                            },
+                            label: {
+                                HLabel(title: "About.Give_a_Good_Review", systemImage: "star")
                             }
+                        )
+                    },
+                    footer: {
+                        HStack(spacing: 0) {
+                            Text("Made with ❤️ in Kunming by").font(.caption).foregroundStyle(.secondary)
+                            Text(" ").font(.caption).foregroundStyle(.secondary)
+                            Link(
+                                destination: URL(string: "https://github.com/shensven")!,
+                                label: { CandyTag(title: "SvenFE") }
+                            )
+                        }
                     }
-
-                    HStack {
-                        Image("RiBracesFill")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.primary)
-                            .frame(width: 16, height: 16)
-                        Text("About.Source_Code")
-                        Spacer()
-                        Image("RiGithubFill")
-                            .resizable()
-                            .renderingMode(.template)
-                            .foregroundColor(.accentColor)
-                            .frame(width: 16, height: 16)
-                            .help("About.GitHub_Repository")
-                            .onTapGesture {
-                                NSWorkspace.shared.open(
-                                    URL(string: "https://github.com/shensven/Morphling")!
-                                )
-                            }
-                    }
-
-                    Divider().padding(.top, 4)
-                    Text("Made with ❤️ in Kunming by SvenFE").foregroundColor(.secondary).font(.subheadline)
-
-                }.padding()
-            }.scrollIndicators(.hidden)
+                )
+            }
+            .formStyle(.grouped)
         }
     }
 }
