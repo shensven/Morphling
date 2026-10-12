@@ -3,22 +3,23 @@ name: SwiftLint
 on:
   push:
     branches:
-      - "*"
-      - "*/*"
-      - "**"
-      - "!main"
-    pull_request:
-      - "*"
-      - "*/*"
-      - "**"
-      - "!main"
+      - dev
+
+  pull_request:
+    branches:
+      - dev
 
 jobs:
   lint:
-    runs-on: macos-12
+    runs-on: macos-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
+
+      - name: Setup SwiftLint
+        run: |
+          brew install swiftlint
+          swiftlint version
 
       - name: Run SwiftLint
         run: |
