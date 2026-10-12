@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct ActionView: View {
-    @EnvironmentObject var storage: Storage
-    @EnvironmentObject var colorConvert: ColorConvert
+    @Environment(Storage.self) var storage
+    @Environment(ColorConvert.self) var colorConvert
 
     var body: some View {
         if #available(macOS 26.0, *) {

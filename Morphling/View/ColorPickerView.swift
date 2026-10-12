@@ -7,10 +7,13 @@ enum ColorFormat: String, CaseIterable {
 }
 
 struct ColorPickerView: View {
-    @EnvironmentObject var storage: Storage
-    @EnvironmentObject var colorConvert: ColorConvert
+    @Environment(Storage.self) var storage
+    @Environment(ColorConvert.self) var colorConvert
 
     var body: some View {
+        @Bindable var storage = storage
+        @Bindable var colorConvert = colorConvert
+
         HStack {
             VStack(spacing: 2) {
                 ZStack {
@@ -36,7 +39,7 @@ struct ColorPickerView: View {
                             .foregroundColor(.secondary)
                         TextField("", text: $colorConvert.hex)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .onChange(of: colorConvert.hex) { target in
+                            .onChange(of: colorConvert.hex) { _, target in
                                 if target.count > 6 {
                                     colorConvert.hex = "FFFFFF"
                                 }
@@ -57,7 +60,7 @@ struct ColorPickerView: View {
                         formatter: NumberFormatter()
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: colorConvert.red) { target in
+                    .onChange(of: colorConvert.red) { _, target in
                         if target > 255 {
                             colorConvert.red = 255
                         } else if target < 0 {
@@ -77,7 +80,7 @@ struct ColorPickerView: View {
                         formatter: NumberFormatter()
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: colorConvert.green) { target in
+                    .onChange(of: colorConvert.green) { _, target in
                         if target > 255 {
                             colorConvert.green = 255
                         } else if target < 0 {
@@ -97,7 +100,7 @@ struct ColorPickerView: View {
                         formatter: NumberFormatter()
                     )
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .onChange(of: colorConvert.blue) { target in
+                    .onChange(of: colorConvert.blue) { _, target in
                         if target > 255 {
                             colorConvert.blue = 255
                         } else if target < 0 {
@@ -121,7 +124,7 @@ struct ColorPickerView: View {
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: colorConvert.hue) { target in
+                        .onChange(of: colorConvert.hue) { _, target in
                             if target > 360 {
                                 colorConvert.hue = 360
                             } else if target < 0 {
@@ -147,7 +150,7 @@ struct ColorPickerView: View {
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: colorConvert.saturation) { target in
+                        .onChange(of: colorConvert.saturation) { _, target in
                             if target > 100 {
                                 colorConvert.saturation = 100
                             } else if target < 0 {
@@ -173,7 +176,7 @@ struct ColorPickerView: View {
                             formatter: NumberFormatter()
                         )
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .onChange(of: colorConvert.lightness) { target in
+                        .onChange(of: colorConvert.lightness) { _, target in
                             if target > 100 {
                                 colorConvert.lightness = 100
                             } else if target < 0 {

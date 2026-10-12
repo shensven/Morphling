@@ -24,8 +24,8 @@ struct MorphlingApp: App {
             ContentView()
                 .frame(width: 352)
                 .frame(minHeight: 360, maxHeight: .infinity)
-                .environmentObject(storage)
-                .environmentObject(colorConvert)
+                .environment(storage)
+                .environment(colorConvert)
                 .onAppear {
                     appearance.setFriendly(name: storage.appearance)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -48,8 +48,8 @@ struct MorphlingApp: App {
 
         Settings {
             SettingsView()
-                .environmentObject(storage)
-                .environmentObject(appearance)
+                .environment(storage)
+                .environment(appearance)
         }
     }
 }

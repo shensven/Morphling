@@ -9,18 +9,19 @@ enum JSFunctionName: String {
     case hslToFilter
 }
 
-class ColorConvert: ObservableObject {
-    @Published var hex: String = "000000"
+@Observable
+class ColorConvert {
+    var hex: String = "000000"
 
-    @Published var red: CGFloat = 0
-    @Published var green: CGFloat = 0
-    @Published var blue: CGFloat = 0
+    var red: CGFloat = 0
+    var green: CGFloat = 0
+    var blue: CGFloat = 0
 
-    @Published var hue: CGFloat = 0
-    @Published var saturation: CGFloat = 0
-    @Published var lightness: CGFloat = 0
+    var hue: CGFloat = 0
+    var saturation: CGFloat = 0
+    var lightness: CGFloat = 0
 
-    @Published var conventedContent: String?
+    var conventedContent: String?
 }
 
 extension ColorConvert {

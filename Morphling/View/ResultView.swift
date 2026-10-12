@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct ResultView: View {
-    @EnvironmentObject var storage: Storage
-    @EnvironmentObject var colorConvert: ColorConvert
+    @Environment(Storage.self) var storage
+    @Environment(ColorConvert.self) var colorConvert
 
     var body: some View {
         ScrollView {

@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct OptionView: View {
-    @EnvironmentObject var storage: Storage
-    @EnvironmentObject var colorConvert: ColorConvert
+    @Environment(Storage.self) var storage
+    @Environment(ColorConvert.self) var colorConvert
 
     var body: some View {
+        @Bindable var storage = storage
+
         HStack {
             Toggle(isOn: $storage.isPrefixWithFilter) {
                 HStack(spacing: 2) {

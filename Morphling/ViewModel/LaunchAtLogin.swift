@@ -1,21 +1,24 @@
 import ServiceManagement
 import SwiftUI
 
-class LaunchAtLogin: ObservableObject {
+@Observable
+class LaunchAtLogin {
     var isEnabled: Bool {
         get {
-            SMAppService.mainApp.status == .enabled
+            access(keyPath: \.isEnabled)
+            return SMAppService.mainApp.status == .enabled
         }
         set {
-            objectWillChange.send()
-            do {
-                if newValue {
-                    try SMAppService.mainApp.register()
-                } else {
-                    try SMAppService.mainApp.unregister()
+            withMutation(keyPath: \.isEnabled) {
+                do {
+                    if newValue {
+                        try SMAppService.mainApp.register()
+                    } else {
+                        try SMAppService.mainApp.unregister()
+                    }
+                } catch {
+                    print(error)
                 }
-            } catch {
-                print(error)
             }
         }
     }

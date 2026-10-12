@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var storage: Storage
+    @Environment(Storage.self) var storage
 
     func toggleWindowLevel() {
         if storage.windowLevel == .normal {

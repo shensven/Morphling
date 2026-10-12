@@ -1,18 +1,20 @@
 import SwiftUI
 
 struct GeneralView: View {
-    @EnvironmentObject var storage: Storage
-    @EnvironmentObject var appearance: Appearance
-    @StateObject var launchAtLogin = LaunchAtLogin()
+    @Environment(Storage.self) var storage
+    @Environment(Appearance.self) var appearance
+    @State var launchAtLogin = LaunchAtLogin()
 
     var body: some View {
+        @Bindable var appearance = appearance
+
         Form {
             Picker("General.Appearance", selection: $appearance.friendlyName) {
                 ForEach(AppearanceFriendly.allCases, id: \.self) { friendlyName in
                     Text(friendlyName.localizedString).tag(friendlyName)
                 }
             }
-            .onChange(of: appearance.friendlyName) { friendlyName in
+            .onChange(of: appearance.friendlyName) { _, friendlyName in
                 appearance.setFriendly(name: friendlyName)
                 storage.appearance = friendlyName
             }

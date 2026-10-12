@@ -11,8 +11,9 @@ enum AppearanceFriendly: String, CaseIterable {
     }
 }
 
-class Appearance: ObservableObject {
-    @Published var friendlyName: AppearanceFriendly = .automatic
+@Observable
+class Appearance {
+    var friendlyName: AppearanceFriendly = .automatic
 }
 
 extension Appearance {
