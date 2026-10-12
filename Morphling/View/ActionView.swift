@@ -25,8 +25,6 @@ struct ActionView: View {
     }
 }
 
-struct ActionView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActionView()
-    }
+#Preview {
+    ActionView()
 }

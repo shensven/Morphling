@@ -37,8 +37,6 @@ struct GeneralView: View {
     }
 }
 
-struct GeneralView_Previews: PreviewProvider {
-    static var previews: some View {
-        GeneralView()
-    }
+#Preview {
+    GeneralView()
 }
