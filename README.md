@@ -55,7 +55,10 @@ The conversion runs in JavaScriptCore from `converter/dist/converter.js`. That f
 
 - [color](https://github.com/Qix-/color)
 - [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)
-- [3dicons](https://3dicons.co/)
+
+### Artwork
+
+- App icon from [3dicons](https://3dicons.co/), CC0 1.0
 
 ### Localization
 
@@ -64,3 +67,5 @@ The conversion runs in JavaScriptCore from `converter/dist/converter.js`. That f
 ## 📜 License
 
 MIT License - Copyright (c) 2023-2026 DevSven
+
+The press kit in [Resources/PressKit](./Resources/PressKit) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).

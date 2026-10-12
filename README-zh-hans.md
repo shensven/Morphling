@@ -55,7 +55,10 @@ xcodebuild test -project Morphling.xcodeproj -scheme Morphling -destination 'pla
 
 - [color](https://github.com/Qix-/color)
 - [CSS Filter Converter](https://github.com/OvidijusParsiunas/css-filter-converter)
-- [3dicons](https://3dicons.co/)
+
+### 美术素材
+
+- 应用图标来自 [3dicons](https://3dicons.co/)，CC0 1.0
 
 ### 本地化翻译
 
@@ -64,3 +67,5 @@ xcodebuild test -project Morphling.xcodeproj -scheme Morphling -destination 'pla
 ## 📜 许可证
 
 MIT License - Copyright (c) 2023-2026 DevSven
+
+[Resources/PressKit](./Resources/PressKit) 中的宣传素材采用 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hans) 许可。
