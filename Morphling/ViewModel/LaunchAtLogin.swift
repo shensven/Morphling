@@ -1,8 +1,11 @@
+import OSLog
 import ServiceManagement
 import SwiftUI
 
 @Observable
 class LaunchAtLogin {
+    private static let logger = Logger(subsystem: "com.shensven.morphling", category: "LaunchAtLogin")
+
     var isEnabled: Bool {
         get {
             access(keyPath: \.isEnabled)
@@ -17,7 +20,7 @@ class LaunchAtLogin {
                         try SMAppService.mainApp.unregister()
                     }
                 } catch {
-                    print(error)
+                    Self.logger.error("Failed to update the login item: \(error, privacy: .public)")
                 }
             }
         }

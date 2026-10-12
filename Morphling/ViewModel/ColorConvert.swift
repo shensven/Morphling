@@ -1,5 +1,6 @@
 import Foundation
 import JavaScriptCore
+import OSLog
 import SwiftUI
 
 enum ColorFormat: String, CaseIterable {
@@ -30,17 +31,19 @@ class ColorConvert {
         case hslToFilter
     }
 
+    private static let logger = Logger(subsystem: "com.shensven.morphling", category: "Converter")
+
     // Loaded once and reused for every conversion
     private static let jsContext: JSContext? = {
         guard let url = Bundle.main.url(forResource: "converter", withExtension: "js"),
               let script = try? String(contentsOf: url, encoding: .utf8),
               let context = JSContext()
         else {
-            print("Failed to load converter.js")
+            logger.error("Failed to load converter.js")
             return nil
         }
         context.exceptionHandler = { _, exception in
-            print("converter.js: \(exception?.toString() ?? "unknown error")")
+            logger.error("converter.js: \(exception?.toString() ?? "unknown error", privacy: .public)")
         }
         context.evaluateScript(script)
         return context
