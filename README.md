@@ -33,7 +33,7 @@ macOS 14 Sonoma or later
 
 ## 🛠 Building from Source
 
-Requires Xcode 26 or later.
+Requires Xcode 27 or later.
 
 1. Open `Morphling.xcodeproj`.
 2. Under Signing & Capabilities, pick your own team, or choose Sign to Run Locally.

@@ -33,7 +33,7 @@ macOS 14 Sonoma 或更高版本
 
 ## 🛠 从源码构建
 
-需要 Xcode 26 或更高版本。
+需要 Xcode 27 或更高版本。
 
 1. 打开 `Morphling.xcodeproj`。
 2. 在 Signing & Capabilities 中选择你自己的开发团队，或选择 Sign to Run Locally。
