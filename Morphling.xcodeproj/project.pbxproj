@@ -10,9 +10,20 @@
 		06CCB69A298D6C8C009B0F9B /* converter.js in Resources */ = {isa = PBXBuildFile; fileRef = 06CCB699298D6C8C009B0F9B /* converter.js */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		06F7A0012EB0000100A1B2C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 062165F629869D1A004512C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 062165FD29869D1A004512C0;
+			remoteInfo = Morphling;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		062165FE29869D1A004512C0 /* Morphling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Morphling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CCB699298D6C8C009B0F9B /* converter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = converter.js; path = dist/converter.js; sourceTree = "<group>"; };
+		06F7A0022EB0000100A1B2C3 /* MorphlingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MorphlingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -21,10 +32,22 @@
 			path = Morphling;
 			sourceTree = "<group>";
 		};
+		06F7A0032EB0000100A1B2C3 /* MorphlingTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MorphlingTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		062165FB29869D1A004512C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06F7A0042EB0000100A1B2C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				0621660029869D1A004512C0 /* Morphling */,
+				06F7A0032EB0000100A1B2C3 /* MorphlingTests */,
 				062166122986A0D7004512C0 /* converter */,
 				062165FF29869D1A004512C0 /* Products */,
 			);
@@ -47,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				062165FE29869D1A004512C0 /* Morphling.app */,
+				06F7A0022EB0000100A1B2C3 /* MorphlingTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,27 @@
 			productReference = 062165FE29869D1A004512C0 /* Morphling.app */;
 			productType = "com.apple.product-type.application";
 		};
+		06F7A0052EB0000100A1B2C3 /* MorphlingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06F7A0092EB0000100A1B2C3 /* Build configuration list for PBXNativeTarget "MorphlingTests" */;
+			buildPhases = (
+				06F7A0062EB0000100A1B2C3 /* Sources */,
+				06F7A0042EB0000100A1B2C3 /* Frameworks */,
+				06F7A0072EB0000100A1B2C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				06F7A0082EB0000100A1B2C3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				06F7A0032EB0000100A1B2C3 /* MorphlingTests */,
+			);
+			name = MorphlingTests;
+			productName = MorphlingTests;
+			productReference = 06F7A0022EB0000100A1B2C3 /* MorphlingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +141,10 @@
 				TargetAttributes = {
 					062165FD29869D1A004512C0 = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					06F7A0052EB0000100A1B2C3 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = 062165FD29869D1A004512C0;
 					};
 				};
 			};
@@ -114,6 +164,7 @@
 			projectRoot = "";
 			targets = (
 				062165FD29869D1A004512C0 /* Morphling */,
+				06F7A0052EB0000100A1B2C3 /* MorphlingTests */,
 			);
 		};
 /* End PBXProject section */
@@ -124,6 +175,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				06CCB69A298D6C8C009B0F9B /* converter.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06F7A0072EB0000100A1B2C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +217,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06F7A0062EB0000100A1B2C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		06F7A0082EB0000100A1B2C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 062165FD29869D1A004512C0 /* Morphling */;
+			targetProxy = 06F7A0012EB0000100A1B2C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0621660B29869D1C004512C0 /* Debug */ = {
@@ -345,6 +418,44 @@
 			};
 			name = Release;
 		};
+		06F7A00A2EB0000100A1B2C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6S52LG3NA5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shensven.morphling.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Morphling.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Morphling";
+			};
+			name = Debug;
+		};
+		06F7A00B2EB0000100A1B2C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6S52LG3NA5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shensven.morphling.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 6.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Morphling.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Morphling";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -362,6 +473,15 @@
 			buildConfigurations = (
 				0621660E29869D1C004512C0 /* Debug */,
 				0621660F29869D1C004512C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06F7A0092EB0000100A1B2C3 /* Build configuration list for PBXNativeTarget "MorphlingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06F7A00A2EB0000100A1B2C3 /* Debug */,
+				06F7A00B2EB0000100A1B2C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
