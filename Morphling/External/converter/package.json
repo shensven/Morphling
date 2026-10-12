@@ -1,9 +1,11 @@
 {
   "name": "converter",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "type": "module",
+  "description": "Color and CSS filter conversion bundled for JavaScriptCore",
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "tsc && vite build"
   },
   "keywords": [
     "css-filter",
@@ -11,16 +13,13 @@
   ],
   "author": "SvenFE",
   "license": "GPL-3.0",
-  "devDependencies": {
-    "@types/color": "^3.0.3",
-    "@types/node": "^18.11.19",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
-  },
+  "packageManager": "pnpm@12.11.2",
   "dependencies": {
-    "color": "^4.2.3",
-    "css-filter-converter": "^1.0.109"
+    "color": "^5.0.3",
+    "css-filter-converter": "^1.0.115"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
   }
 }
