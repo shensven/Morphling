@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 110;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,17 +42,13 @@
 /* Begin PBXFrameworksBuildPhase section */
 		062165FB29869D1A004512C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		06F7A0042EB0000100A1B2C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -97,8 +93,6 @@
 				062165FC29869D1A004512C0 /* Resources */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
 				0621660029869D1A004512C0 /* Morphling */,
@@ -158,7 +152,7 @@
 				ja,
 			);
 			mainGroup = 062165F529869D1A004512C0;
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 110;
 			productRefGroup = 062165FF29869D1A004512C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -172,18 +166,14 @@
 /* Begin PBXResourcesBuildPhase section */
 		062165FC29869D1A004512C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				06CCB69A298D6C8C009B0F9B /* converter.js in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		06F7A0072EB0000100A1B2C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
@@ -191,38 +181,29 @@
 		06CCB6A829900735009B0F9B /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
 			name = "Run SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = (
+				"if which swiftlint >/dev/null; then",
+				"  swiftlint",
+				"else",
+				"  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"",
+				"fi",
+				"",
+			);
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		062165FA29869D1A004512C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		06F7A0062EB0000100A1B2C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -235,7 +216,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0621660B29869D1C004512C0 /* Debug */ = {
+		0621660B29869D1C004512C0 /* Debug configuration for PBXProject "Morphling" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -295,7 +276,7 @@
 			};
 			name = Debug;
 		};
-		0621660C29869D1C004512C0 /* Release */ = {
+		0621660C29869D1C004512C0 /* Release configuration for PBXProject "Morphling" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -348,7 +329,7 @@
 			};
 			name = Release;
 		};
-		0621660E29869D1C004512C0 /* Debug */ = {
+		0621660E29869D1C004512C0 /* Debug configuration for PBXNativeTarget "Morphling" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = MorphlingApp;
@@ -382,7 +363,7 @@
 			};
 			name = Debug;
 		};
-		0621660F29869D1C004512C0 /* Release */ = {
+		0621660F29869D1C004512C0 /* Release configuration for PBXNativeTarget "Morphling" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = MorphlingApp;
@@ -416,7 +397,7 @@
 			};
 			name = Release;
 		};
-		06F7A00A2EB0000100A1B2C3 /* Debug */ = {
+		06F7A00A2EB0000100A1B2C3 /* Debug configuration for PBXNativeTarget "MorphlingTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -435,7 +416,7 @@
 			};
 			name = Debug;
 		};
-		06F7A00B2EB0000100A1B2C3 /* Release */ = {
+		06F7A00B2EB0000100A1B2C3 /* Release configuration for PBXNativeTarget "MorphlingTests" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,28 +441,25 @@
 		062165F929869D1A004512C0 /* Build configuration list for PBXProject "Morphling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0621660B29869D1C004512C0 /* Debug */,
-				0621660C29869D1C004512C0 /* Release */,
+				0621660B29869D1C004512C0 /* Debug configuration for PBXProject "Morphling" */,
+				0621660C29869D1C004512C0 /* Release configuration for PBXProject "Morphling" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		0621660D29869D1C004512C0 /* Build configuration list for PBXNativeTarget "Morphling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0621660E29869D1C004512C0 /* Debug */,
-				0621660F29869D1C004512C0 /* Release */,
+				0621660E29869D1C004512C0 /* Debug configuration for PBXNativeTarget "Morphling" */,
+				0621660F29869D1C004512C0 /* Release configuration for PBXNativeTarget "Morphling" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		06F7A0092EB0000100A1B2C3 /* Build configuration list for PBXNativeTarget "MorphlingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				06F7A00A2EB0000100A1B2C3 /* Debug */,
-				06F7A00B2EB0000100A1B2C3 /* Release */,
+				06F7A00A2EB0000100A1B2C3 /* Debug configuration for PBXNativeTarget "MorphlingTests" */,
+				06F7A00B2EB0000100A1B2C3 /* Release configuration for PBXNativeTarget "MorphlingTests" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
